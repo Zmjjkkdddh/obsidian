@@ -1,0 +1,245 @@
+{
+  "main": {
+    "id": "0490476b7315c5f8",
+    "type": "split",
+    "children": [
+      {
+        "id": "5c3adb4a862d30ea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "985dc1690f07344b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01-AI概念/MCP协议.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MCP协议"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5d9c8ba2d37bd372",
+    "type": "split",
+    "children": [
+      {
+        "id": "f06cf149b4bace2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d0f1200568d749c7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "b2e0977c3932115d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "deb1d247244808a3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f6c9e2304bc3441c",
+    "type": "split",
+    "children": [
+      {
+        "id": "358857947b1612bd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fa58c854623291e6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01-AI概念/MCP协议.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "MCP协议 的反向链接列表"
+            }
+          },
+          {
+            "id": "486a1f548fbe1d91",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01-AI概念/MCP协议.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "MCP协议 的出链列表"
+            }
+          },
+          {
+            "id": "f6a4fd3bb3f6fba1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "fed5ddbe0b688e31",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "74a068e9df161383",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "01-AI概念/MCP协议.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "MCP协议 的大纲"
+            }
+          },
+          {
+            "id": "45ec27df93030640",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
+            "id": "148ec065a60a749f",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian-git:Open Git source control": false,
+      "realclaudian:Open Claudian": false
+    }
+  },
+  "active": "d0f1200568d749c7",
+  "lastOpenFiles": [
+    "03-工具对比/AI助手横向对比.md",
+    "02-AI工具/WorkBuddy功能脑图.md",
+    "02-AI工具/Obsidian配置与插件.md",
+    "02-AI工具/Codex使用指南.md",
+    "02-AI工具/Claude使用指南.md",
+    "01-AI概念/上下文窗口.md",
+    "01-AI概念/幻觉问题.md",
+    "01-AI概念/向量数据库与Embedding.md",
+    "01-AI概念/Agent智能体.md",
+    "01-AI概念/Fine-tuning微调.md",
+    "01-AI概念/LLM大语言模型.md",
+    "01-AI概念/MCP协议.md",
+    "01-AI概念/RAG检索增强生成.md",
+    "01-AI概念/Token是什么.md",
+    "04-每日日报/日报模板.md",
+    "02-AI工具/Obsidian配置与插件.md.tmp.29436.3bedfabdfb03",
+    "02-AI工具/Claude使用指南.md.tmp.29436.9ec79998b954",
+    "01-AI概念/Fine-tuning微调.md.tmp.29436.f1ea924c5d25",
+    "01-AI概念/Prompt Engineering.md",
+    "01-AI概念/Prompt Engineering.md.tmp.29436.7f86279d0bb3",
+    "01-AI概念/MCP协议.md.tmp.29436.2f82992f0797",
+    "01-AI概念/Agent智能体.md.tmp.29436.7a3d9e721498",
+    "01-AI概念/幻觉问题.md.tmp.29436.b836523e1306",
+    "01-AI概念/上下文窗口.md.tmp.29436.2273bdf0e6ba",
+    "01-AI概念/Token是什么.md.tmp.29436.6b00cf08f2c4",
+    "01-AI概念/LLM大语言模型.md.tmp.29436.68cfa64c8799",
+    "01-AI概念.md",
+    "source/xxx.md",
+    "wiki/concepts/LLM 核心概念详解.md",
+    "wiki/log.md",
+    "wiki/index.md",
+    "CLAUDE.md",
+    "LLM 核心概念详解.md",
+    "欢迎.md"
+  ]
+}
