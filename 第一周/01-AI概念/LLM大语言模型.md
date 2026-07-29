@@ -3,6 +3,7 @@ tags:
   - AI
   - LLM
 created: 2026-07-28
+type: concept
 ---
 
 # LLM 大语言模型

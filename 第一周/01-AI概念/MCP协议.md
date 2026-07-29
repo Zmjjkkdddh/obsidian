@@ -4,6 +4,7 @@ tags:
   - MCP
   - 协议
 created: 2026-07-28
+type: concept
 ---
 
 # MCP 协议（Model Context Protocol）

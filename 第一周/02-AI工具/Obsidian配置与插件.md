@@ -3,6 +3,7 @@ tags:
   - 工具
   - Obsidian
 created: 2026-07-28
+type: tool
 ---
 
 # Obsidian 配置与插件
@@ -42,4 +43,4 @@ LLM Agent = 程序员
 
 ---
 
-📚 关联：[[Claude使用指南]]
+📚 关联：[[Claude使用指南]] | [[karpathy wiki方法论]]

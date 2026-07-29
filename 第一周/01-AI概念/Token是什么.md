@@ -4,6 +4,7 @@ tags:
   - LLM
   - 基础概念
 created: 2026-07-28
+type: concept
 ---
 
 # Token 是什么

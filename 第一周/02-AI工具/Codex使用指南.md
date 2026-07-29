@@ -3,6 +3,7 @@ tags:
   - 工具
   - Codex
 created: 2026-07-28
+type: tool
 ---
 
 # Codex 使用指南

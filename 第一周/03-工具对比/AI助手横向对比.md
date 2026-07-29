@@ -3,6 +3,7 @@ tags:
   - 对比
   - AI工具
 created: 2026-07-28
+type: comparison
 ---
 
 # AI 助手横向对比
@@ -42,4 +43,4 @@ created: 2026-07-28
 
 ---
 
-📚 关联：[[Claude使用指南]] | [[Codex使用指南]]
+📚 关联：[[Claude使用指南]] | [[Codex使用指南]] | [[Claude vs Codex 实战对比]]

@@ -3,6 +3,7 @@ tags:
   - AI
   - Agent
 created: 2026-07-28
+type: concept
 ---
 
 # Agent 智能体

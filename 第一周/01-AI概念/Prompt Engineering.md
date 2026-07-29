@@ -3,6 +3,7 @@ tags:
   - AI
   - Prompt
 created: 2026-07-28
+type: concept
 ---
 
 # Prompt Engineering 提示工程

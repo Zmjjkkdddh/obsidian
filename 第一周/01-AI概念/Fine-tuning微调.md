@@ -3,6 +3,7 @@ tags:
   - AI
   - Fine-tuning
 created: 2026-07-28
+type: concept
 ---
 
 # Fine-tuning 微调

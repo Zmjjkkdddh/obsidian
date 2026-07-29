@@ -3,6 +3,7 @@ tags:
   - 工具
   - WorkBuddy
 created: 2026-07-28
+type: tool
 ---
 
 # ==WorkBuddy 功能模块==

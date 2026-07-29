@@ -5,6 +5,7 @@ tags:
   - Codex
   - 实验
 created: 2026-07-29
+type: comparison
 ---
 
 # Claude vs Codex 实战对比

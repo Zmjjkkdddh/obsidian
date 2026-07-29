@@ -4,6 +4,7 @@ tags:
   - Embedding
   - 向量数据库
 created: 2026-07-28
+type: concept
 ---
 
 # 向量数据库与 Embedding

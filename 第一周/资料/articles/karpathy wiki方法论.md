@@ -1,3 +1,12 @@
+---
+tags:
+  - 方法论
+  - Wiki
+  - LLM
+created: 2026-07-29
+type: article
+---
+
 # LLM Wiki
 
 A pattern for building personal knowledge bases using LLMs.

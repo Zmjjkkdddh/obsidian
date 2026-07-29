@@ -3,6 +3,7 @@ tags:
   - AI
   - RAG
 created: 2026-07-28
+type: concept
 ---
 
 # RAG 检索增强生成
