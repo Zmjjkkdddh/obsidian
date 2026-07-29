@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerry Runner - 杰瑞快跑！</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+.game-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+canvas {
+    border: 3px solid #e8a850;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #87CEEB 0%, #b8d4e3 60%, #f5deb3 85%, #c8a96e 100%);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    display: block;
+}
+
+.ui-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.instructions {
+    color: #ccc;
+    margin-top: 16px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.instructions span { color: #f0c040; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="game-wrapper">
+    <canvas id="game" width="800" height="300"></canvas>
+</div>
+<p class="instructions"><span>1/2/3</span> 选择挡位 &nbsp;|&nbsp; <span>空格/↑</span> 跳跃 &nbsp;|&nbsp; <span>R</span> 重来 &nbsp;|&nbsp; <span>M</span> 回菜单</p>
+
+<script>
+// ==================== Jerry Runner ====================
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+
+const GROUND_Y = 240;
+
+// ==================== 速度挡位系统 ====================
+const SPEED_MODES = {
+    leisure: {
+        name: '🧀 休闲模式',
+        desc: '适合摸鱼',
+        icon: '🧀',
+        initialSpeed: 3.5,
+        speedUpRate: 0.15,      // 每100分加速
+        spawnBase: 140,          // 障碍物基础间隔（帧）
+        spawnMin: 70,            // 最短间隔
+        gravity: 0.55,           // 重力（低=跳得高飘得久）
+        jumpForce1: -11,         // 第一跳力度
+        jumpForce2: -8,          // 二段跳力度
+        color: '#4caf50',        // UI 颜色
+    },
+    normal: {
+        name: '🏃 正常模式',
+        desc: '经典难度',
+        icon: '🏃',
+        initialSpeed: 5,
+        speedUpRate: 0.3,
+        spawnBase: 100,
+        spawnMin: 40,
+        gravity: 0.7,
+        jumpForce1: -12,
+        jumpForce2: -9,
+        color: '#f0c040',
+    },
+    challenge: {
+        name: '🔥 挑战模式',
+        desc: 'Tom 暴走了！',
+        icon: '🔥',
+        initialSpeed: 7,
+        speedUpRate: 0.5,
+        spawnBase: 65,
+        spawnMin: 22,
+        gravity: 0.85,
+        jumpForce1: -13,
+        jumpForce2: -10,
+        color: '#ff4444',
+    }
+};
+
+let currentMode = null;
+let gameState = 'menu'; // 'menu' | 'playing' | 'over'
+
+let score = 0;
+let highScore = JSON.parse(localStorage.getItem('jerryHighScores') || '{}');
+let gameSpeed = 5;
+let gameOver = false;
+let frame = 0;
+let speedUpCounter = 0;
+
+// ==================== Jerry 杰瑞 ====================
+const jerry = {
+    x: 100,
+    y: GROUND_Y,
+    width: 44,
+    height: 50,
+    jumpForce: 0,
+    gravity: 0.7,
+    isJumping: false,
+    isDoubleJump: false,
+
+    reset() {
+        this.y = GROUND_Y;
+        this.jumpForce = 0;
+        this.isJumping = false;
+        this.isDoubleJump = false;
+    },
+
+    jump() {
+        if (!this.isJumping) {
+            this.jumpForce = currentMode ? currentMode.jumpForce1 : -12;
+            this.isJumping = true;
+            this.isDoubleJump = false;
+        } else if (!this.isDoubleJump) {
+            this.jumpForce = currentMode ? currentMode.jumpForce2 : -9;
+            this.isDoubleJump = true;
+        }
+    },
+
+    update() {
+        if (this.isJumping) {
+            const g = currentMode ? currentMode.gravity : 0.7;
+            this.jumpForce += g;
+            this.y += this.jumpForce;
+            if (this.y >= GROUND_Y) {
+                this.y = GROUND_Y;
+                this.jumpForce = 0;
+                this.isJumping = false;
+                this.isDoubleJump = false;
+            }
+        }
+    },
+
+    draw(ctx) {
+        ctx.save();
+        const jx = this.x;
+        const jy = this.y - this.height;
+
+        // ---- 身体（棕色椭圆） ----
+        ctx.fillStyle = '#c67a3d';
+        ctx.beginPath();
+        ctx.ellipse(jx + 22, jy + 38, 15, 18, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#8b5a2b';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // ---- 肚皮（浅色） ----
+        ctx.fillStyle = '#f0c8a0';
+        ctx.beginPath();
+        ctx.ellipse(jx + 22, jy + 41, 9, 12, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ---- 头 ----
+        ctx.fillStyle = '#c67a3d';
+        ctx.beginPath();
+        ctx.arc(jx + 22, jy + 14, 14, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#8b5a2b';
+        ctx.stroke();
+
+        // ---- 大耳朵（Jerry标志！） ----
+        // 左耳
+        ctx.fillStyle = '#b5653a';
+        ctx.beginPath();
+        ctx.ellipse(jx + 6, jy + 4, 10, 10, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#f0c8a0';
+        ctx.beginPath();
+        ctx.ellipse(jx + 6, jy + 4, 6, 6, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+        // 右耳
+        ctx.fillStyle = '#b5653a';
+        ctx.beginPath();
+        ctx.ellipse(jx + 38, jy + 4, 10, 10, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#f0c8a0';
+        ctx.beginPath();
+        ctx.ellipse(jx + 38, jy + 4, 6, 6, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ---- 眼睛 ----
+        // 白眼
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.ellipse(jx + 17, jy + 10, 4.5, 5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(jx + 28, jy + 10, 4.5, 5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // 瞳孔
+        ctx.fillStyle = '#111';
+        ctx.beginPath();
+        ctx.arc(jx + 18, jy + 11, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(jx + 29, jy + 11, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ---- 鼻子 ----
+        ctx.fillStyle = '#ff6b6b';
+        ctx.beginPath();
+        ctx.arc(jx + 22, jy + 17, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ---- 胡须 ----
+        ctx.strokeStyle = '#555';
+        ctx.lineWidth = 0.6;
+        // 左
+        ctx.beginPath(); ctx.moveTo(jx + 8, jy + 16); ctx.lineTo(jx - 4, jy + 13); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(jx + 8, jy + 18); ctx.lineTo(jx - 4, jy + 19); ctx.stroke();
+        // 右
+        ctx.beginPath(); ctx.moveTo(jx + 36, jy + 16); ctx.lineTo(jx + 48, jy + 13); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(jx + 36, jy + 18); ctx.lineTo(jx + 48, jy + 19); ctx.stroke();
+
+        // ---- 嘴巴（坏笑） ----
+        ctx.strokeStyle = '#8b5a2b';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(jx + 22, jy + 20, 5, 0.1, Math.PI - 0.1);
+        ctx.stroke();
+
+        // ---- 腿 ----
+        const legAnim = this.isJumping ? 0 : Math.sin(frame * 0.3) * 4;
+        ctx.fillStyle = '#c67a3d';
+        ctx.strokeStyle = '#8b5a2b';
+        ctx.lineWidth = 1;
+        // 后腿
+        ctx.beginPath();
+        ctx.ellipse(jx + 10, jy + 52 + legAnim * 0.5, 6, 4, 0, 0, Math.PI * 2);
+        ctx.fill(); ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(jx + 34, jy + 52 - legAnim * 0.5, 6, 4, 0, 0, Math.PI * 2);
+        ctx.fill(); ctx.stroke();
+        // 前脚
+        ctx.fillStyle = '#f0c8a0';
+        ctx.beginPath();
+        ctx.ellipse(jx + 10, jy + 54, 4, 2.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(jx + 34, jy + 54, 4, 2.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ---- 尾巴 ----
+        ctx.strokeStyle = '#b5653a';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(jx + 44, jy + 32);
+        ctx.quadraticCurveTo(jx + 55, jy + 20 + Math.sin(frame * 0.15) * 4,
+                             jx + 52, jy + 8 + Math.sin(frame * 0.15) * 6);
+        ctx.stroke();
+
+        // ---- 奶酪（手上） ----
+        if (!this.isJumping) {
+            ctx.fillStyle = '#f0c030';
+            ctx.beginPath();
+            ctx.moveTo(jx + 38, jy + 36);
+            ctx.lineTo(jx + 44, jy + 42);
+            ctx.lineTo(jx + 38, jy + 44);
+            ctx.lineTo(jx + 32, jy + 42);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = '#e0a020';
+            ctx.beginPath();
+            ctx.arc(jx + 37, jy + 40, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(jx + 40, jy + 42, 1, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        ctx.restore();
+    },
+
+    getBounds() {
+        return {
+            x: this.x + 4,
+            y: this.y - this.height + 8,
+            w: 36,
+            h: this.height - 14
+        };
+    }
+};
+
+// ==================== Tom 障碍物 ====================
+const obstacles = [];
+const OBSTACLE_TYPES = ['tom_face', 'tom_paw', 'mousetrap', 'vacuum'];
+
+function spawnObstacle() {
+    const type = OBSTACLE_TYPES[Math.floor(Math.random() * OBSTACLE_TYPES.length)];
+    obstacles.push({
+        x: canvas.width,
+        type: type,
+        width: type === 'tom_face' ? 50 : type === 'mousetrap' ? 34 : 28,
+        height: type === 'tom_face' ? 54 : type === 'mousetrap' ? 22 : 30,
+    });
+}
+
+function drawTomFace(ctx, ox, oy) {
+    ctx.save();
+    // 灰色大圆脸
+    ctx.fillStyle = '#7a7a8a';
+    ctx.beginPath();
+    ctx.arc(ox + 25, oy + 25, 22, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#555';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // 耳朵（三角形）
+    ctx.fillStyle = '#6a6a7a';
+    ctx.beginPath(); ctx.moveTo(ox + 5, oy + 12); ctx.lineTo(ox + 14, oy - 2); ctx.lineTo(ox + 22, oy + 10); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(ox + 28, oy + 10); ctx.lineTo(ox + 36, oy - 2); ctx.lineTo(ox + 45, oy + 12); ctx.fill();
+    // 内耳
+    ctx.fillStyle = '#e8a0a0';
+    ctx.beginPath(); ctx.moveTo(ox + 8, oy + 10); ctx.lineTo(ox + 14, oy + 2); ctx.lineTo(ox + 20, oy + 10); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(ox + 30, oy + 10); ctx.lineTo(ox + 36, oy + 2); ctx.lineTo(ox + 42, oy + 10); ctx.fill();
+
+    // 愤怒的眉毛
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(ox + 8, oy + 14); ctx.lineTo(ox + 18, oy + 18); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox + 42, oy + 14); ctx.lineTo(ox + 32, oy + 18); ctx.stroke();
+
+    // 眼睛
+    ctx.fillStyle = '#ff0';
+    ctx.beginPath(); ctx.arc(ox + 15, oy + 24, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(ox + 35, oy + 24, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#111';
+    ctx.beginPath(); ctx.arc(ox + 16, oy + 25, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(ox + 36, oy + 25, 3, 0, Math.PI * 2); ctx.fill();
+
+    // 鼻子
+    ctx.fillStyle = '#ff6b6b';
+    ctx.beginPath();
+    ctx.ellipse(ox + 25, oy + 32, 5, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 嘴
+    ctx.strokeStyle = '#555';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(ox + 25, oy + 36); ctx.lineTo(ox + 16, oy + 44); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox + 25, oy + 36); ctx.lineTo(ox + 34, oy + 44); ctx.stroke();
+
+    // 胡须
+    ctx.strokeStyle = '#aaa';
+    ctx.lineWidth = 0.7;
+    ctx.beginPath(); ctx.moveTo(ox + 6, oy + 30); ctx.lineTo(ox - 4, oy + 26); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox + 6, oy + 34); ctx.lineTo(ox - 4, oy + 36); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox + 44, oy + 30); ctx.lineTo(ox + 54, oy + 26); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox + 44, oy + 34); ctx.lineTo(ox + 54, oy + 36); ctx.stroke();
+    ctx.restore();
+}
+
+function drawMousetrap(ctx, ox, oy) {
+    // 底座
+    ctx.fillStyle = '#8b6914';
+    ctx.fillRect(ox, oy + 10, 34, 8);
+    // 金属夹
+    ctx.strokeStyle = '#c0c0c0';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(ox + 4, oy + 10);
+    ctx.lineTo(ox + 17, oy + 4);
+    ctx.lineTo(ox + 30, oy + 10);
+    ctx.stroke();
+    // 诱饵
+    ctx.fillStyle = '#f0c030';
+    ctx.beginPath();
+    ctx.arc(ox + 17, oy + 15, 4, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+function drawTomPaw(ctx, ox, oy) {
+    // 大猫爪
+    ctx.fillStyle = '#8a8a9a';
+    // 主掌
+    ctx.beginPath();
+    ctx.ellipse(ox + 14, oy + 12, 14, 12, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // 爪垫
+    ctx.fillStyle = '#e8a0a0';
+    ctx.beginPath(); ctx.arc(ox + 8, oy + 4, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(ox + 14, oy + 2, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(ox + 20, oy + 4, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(ox + 14, oy + 12, 7, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+function drawVacuum(ctx, ox, oy) {
+    // 吸尘器
+    ctx.fillStyle = '#e04040';
+    ctx.fillRect(ox + 4, oy + 5, 20, 20);
+    // 轮子
+    ctx.fillStyle = '#333';
+    ctx.beginPath(); ctx.arc(ox + 14, oy + 25, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#666';
+    ctx.beginPath(); ctx.arc(ox + 14, oy + 25, 3, 0, Math.PI * 2); ctx.fill();
+    // 管子
+    ctx.strokeStyle = '#e04040';
+    ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(ox + 24, oy + 10); ctx.lineTo(ox + 30, oy + 2); ctx.stroke();
+}
+
+function drawObstacle(obs) {
+    const ox = obs.x;
+    const oy = GROUND_Y + 3 - obs.height;
+
+    switch (obs.type) {
+        case 'tom_face':
+            drawTomFace(ctx, ox, oy);
+            break;
+        case 'tom_paw':
+            drawTomPaw(ctx, ox, oy);
+            break;
+        case 'mousetrap':
+            drawMousetrap(ctx, ox, oy);
+            break;
+        case 'vacuum':
+            drawVacuum(ctx, ox, oy);
+            break;
+    }
+}
+
+// ==================== 地面和云 ====================
+let groundOffset = 0;
+const clouds = [];
+for (let i = 0; i < 3; i++) {
+    clouds.push({
+        x: Math.random() * canvas.width,
+        y: 30 + Math.random() * 60,
+        w: 60 + Math.random() * 40,
+        speed: 0.5 + Math.random()
+    });
+}
+
+function drawBackground() {
+    // 云
+    for (const cloud of clouds) {
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.beginPath();
+        ctx.arc(cloud.x, cloud.y, cloud.w * 0.25, 0, Math.PI * 2);
+        ctx.arc(cloud.x + cloud.w * 0.2, cloud.y - 8, cloud.w * 0.22, 0, Math.PI * 2);
+        ctx.arc(cloud.x + cloud.w * 0.45, cloud.y, cloud.w * 0.28, 0, Math.PI * 2);
+        ctx.arc(cloud.x + cloud.w * 0.15, cloud.y + 5, cloud.w * 0.2, 0, Math.PI * 2);
+        ctx.fill();
+        cloud.x -= cloud.speed;
+        if (cloud.x + cloud.w < 0) cloud.x = canvas.width + 50;
+    }
+
+    // 地面
+    groundOffset = (groundOffset + gameSpeed) % 40;
+    ctx.fillStyle = '#a0784c';
+    ctx.fillRect(0, GROUND_Y, canvas.width, 60);
+    ctx.fillStyle = '#8b693e';
+    ctx.fillRect(0, GROUND_Y, canvas.width, 3);
+
+    // 地面纹理
+    ctx.fillStyle = '#b89060';
+    for (let i = -groundOffset; i < canvas.width; i += 40) {
+        ctx.fillRect(i, GROUND_Y + 8, 20, 2);
+        ctx.fillRect(i + 15, GROUND_Y + 18, 25, 2);
+    }
+}
+
+// ==================== 粒子效果 ====================
+const particles = [];
+
+function spawnParticles(x, y) {
+    for (let i = 0; i < 12; i++) {
+        particles.push({
+            x: x,
+            y: y,
+            vx: (Math.random() - 0.5) * 6,
+            vy: (Math.random() - 1) * 5,
+            life: 20 + Math.random() * 15,
+            color: Math.random() > 0.5 ? '#f0c030' : '#ff6b6b'
+        });
+    }
+}
+
+// ==================== 碰撞检测 ====================
+function checkCollision(a, b) {
+    return (
+        a.x < b.x + b.width &&
+        a.x + a.w > b.x &&
+        a.y < b.y + b.height &&
+        a.y + a.h > b.y
+    );
+}
+
+// ==================== 分数 & 加速 ====================
+function updateScore() {
+    score += 0.1;
+    const prevHundred = speedUpCounter;
+    speedUpCounter = Math.floor(score / 100);
+    if (speedUpCounter > prevHundred && currentMode) {
+        gameSpeed += currentMode.speedUpRate;
+    }
+}
+
+function drawUI() {
+    // 速度挡位徽章（左上）
+    if (currentMode) {
+        const badgeW = 100, badgeH = 26, bx = 12, by = 12;
+        ctx.fillStyle = currentMode.color;
+        ctx.beginPath();
+        ctx.roundRect(bx, by, badgeW, badgeH, 13);
+        ctx.fill();
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 12px "Comic Sans MS", "Segoe UI", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(currentMode.name, bx + badgeW / 2, by + 18);
+    }
+
+    // 分数（右上）
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 20px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(`🏆 ${Math.floor(score)}`, canvas.width - 20, 35);
+
+    // 最高分（当前挡位）
+    if (currentMode) {
+        const modeKey = Object.keys(SPEED_MODES).find(k => SPEED_MODES[k] === currentMode);
+        const modeHigh = highScore[modeKey] || 0;
+        ctx.font = '13px "Comic Sans MS", "Segoe UI", sans-serif';
+        ctx.fillStyle = '#666';
+        ctx.fillText(`最高: ${modeHigh}`, canvas.width - 20, 55);
+    }
+}
+
+// ==================== 菜单界面 ====================
+function drawMenuScreen() {
+    // 半透明遮罩
+    ctx.fillStyle = 'rgba(0,0,0,0.35)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 标题
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 36px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0,0,0,0.4)';
+    ctx.shadowBlur = 8;
+    ctx.fillText('🐭 Jerry Runner 🐭', canvas.width / 2, 70);
+    ctx.shadowBlur = 0;
+
+    // 副标题
+    ctx.fillStyle = '#ddd';
+    ctx.font = '15px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.fillText('选择难度，帮杰瑞躲开 Tom！', canvas.width / 2, 100);
+
+    // 三个速度按钮
+    const modes = [
+        { key: 'leisure', ...SPEED_MODES.leisure },
+        { key: 'normal', ...SPEED_MODES.normal },
+        { key: 'challenge', ...SPEED_MODES.challenge },
+    ];
+
+    const cardW = 200, cardH = 90, gap = 20;
+    const startX = canvas.width / 2 - (modes.length * cardW + (modes.length - 1) * gap) / 2;
+    const cardY = 130;
+
+    for (let i = 0; i < modes.length; i++) {
+        const m = modes[i];
+        const cx = startX + i * (cardW + gap);
+
+        // 卡片背景
+        ctx.fillStyle = 'rgba(255,255,255,0.92)';
+        ctx.strokeStyle = m.color;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.roundRect(cx, cardY, cardW, cardH, 14);
+        ctx.fill();
+        ctx.stroke();
+
+        // 图标
+        ctx.font = '30px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(m.icon, cx + cardW / 2, cardY + 38);
+
+        // 名称
+        ctx.fillStyle = '#333';
+        ctx.font = 'bold 16px "Comic Sans MS", "Segoe UI", sans-serif';
+        ctx.fillText(m.name, cx + cardW / 2, cardY + 60);
+
+        // 描述
+        ctx.fillStyle = '#888';
+        ctx.font = '12px "Comic Sans MS", "Segoe UI", sans-serif';
+        ctx.fillText(m.desc, cx + cardW / 2, cardY + 78);
+
+        // 按键提示
+        ctx.fillStyle = m.color;
+        ctx.font = 'bold 28px "Comic Sans MS", "Segoe UI", sans-serif';
+        ctx.fillText(i + 1, cx + cardW / 2, cardY - 8);
+
+        // 模式最高分
+        const modeHigh = highScore[m.key] || 0;
+        if (modeHigh > 0) {
+            ctx.fillStyle = '#999';
+            ctx.font = '11px sans-serif';
+            ctx.fillText(`🏆 ${modeHigh}`, cx + cardW / 2, cardY + cardH - 5);
+        }
+    }
+
+    // 底部提示
+    ctx.fillStyle = '#bbb';
+    ctx.font = '13px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.fillText('按 1 / 2 / 3 选择 &nbsp;|&nbsp; 或点击卡片 &nbsp;|&nbsp; 空格也能直接开始', canvas.width / 2, 255);
+
+    // 存储按钮位置用于点击检测
+    canvas._menuButtons = modes.map((m, i) => ({
+        x: startX + i * (cardW + gap),
+        y: cardY,
+        w: cardW,
+        h: cardH,
+        key: m.key
+    }));
+}
+
+// 菜单点击检测
+canvas.addEventListener('click', (e) => {
+    if (gameState !== 'menu') return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.clientX - rect.left) * scaleX;
+    const my = (e.clientY - rect.top) * scaleY;
+
+    const btns = canvas._menuButtons || [];
+    for (const btn of btns) {
+        if (mx >= btn.x && mx <= btn.x + btn.w && my >= btn.y && my <= btn.y + btn.h) {
+            reset(btn.key);
+            return;
+        }
+    }
+});
+
+function gameOverScreen() {
+    // 暗色覆盖
+    ctx.fillStyle = 'rgba(0,0,0,0.55)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 面板
+    const px = canvas.width / 2 - 160;
+    const py = canvas.height / 2 - 95;
+    ctx.fillStyle = '#fff';
+    ctx.strokeStyle = '#e8a850';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.roundRect(px, py, 320, 210, 16);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 26px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('😿 被 Tom 抓到了！', canvas.width / 2, py + 42);
+
+    ctx.font = '16px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.fillStyle = '#666';
+    const modeKey = Object.keys(SPEED_MODES).find(k => SPEED_MODES[k] === currentMode);
+    const modeHigh = highScore[modeKey] || 0;
+    ctx.fillText(`${currentMode ? currentMode.name : ''} — 得分: ${Math.floor(score)}  |  最高: ${modeHigh}`, canvas.width / 2, py + 68);
+
+    // 重试选项
+    ctx.font = 'bold 15px "Comic Sans MS", "Segoe UI", sans-serif';
+    ctx.fillStyle = '#e8a850';
+    ctx.fillText('按 R 再来一局 &nbsp;|&nbsp; 按 M 选挡位', canvas.width / 2, py + 100);
+
+    // 三个小卡片
+    const modes = [
+        { key: 'leisure', ...SPEED_MODES.leisure, num: '1' },
+        { key: 'normal', ...SPEED_MODES.normal, num: '2' },
+        { key: 'challenge', ...SPEED_MODES.challenge, num: '3' },
+    ];
+    const cardW = 80, gap = 12, cy = py + 125;
+    const sx = canvas.width / 2 - (modes.length * cardW + (modes.length - 1) * gap) / 2;
+
+    canvas._overButtons = [];
+    for (let i = 0; i < modes.length; i++) {
+        const m = modes[i];
+        const cx = sx + i * (cardW + gap);
+
+        ctx.fillStyle = 'rgba(255,255,255,0.85)';
+        ctx.strokeStyle = m.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(cx, cy, cardW, 45, 10);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = m.color;
+        ctx.font = 'bold 22px sans-serif';
+        ctx.fillText(m.num, cx + cardW / 2, cy + 18);
+
+        ctx.fillStyle = '#555';
+        ctx.font = 'bold 11px "Comic Sans MS", "Segoe UI", sans-serif';
+        ctx.fillText(m.name, cx + cardW / 2, cy + 36);
+
+        canvas._overButtons.push({ x: cx, y: cy, w: cardW, h: 45, key: m.key });
+    }
+}
+
+// Game over 点击检测
+canvas.addEventListener('click', (e) => {
+    if (gameState === 'playing' && !gameOver) return; // 正常跳跃由外部处理
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.clientX - rect.left) * scaleX;
+    const my = (e.clientY - rect.top) * scaleY;
+
+    if (gameState === 'over') {
+        const btns = canvas._overButtons || [];
+        for (const btn of btns) {
+            if (mx >= btn.x && mx <= btn.x + btn.w && my >= btn.y && my <= btn.y + btn.h) {
+                reset(btn.key);
+                return;
+            }
+        }
+    }
+});
+
+// ==================== 主循环 ====================
+let obstacleTimer = 0;
+let spawnInterval = 100;
+
+function reset(modeKey) {
+    currentMode = SPEED_MODES[modeKey];
+    gameSpeed = currentMode.initialSpeed;
+    jerry.gravity = currentMode.gravity;
+    jerry.reset();
+    obstacles.length = 0;
+    particles.length = 0;
+    score = 0;
+    speedUpCounter = 0;
+    gameOver = false;
+    gameState = 'playing';
+    frame = 0;
+    obstacleTimer = 0;
+    spawnInterval = currentMode.spawnBase;
+}
+
+// ==================== 输入 ====================
+document.addEventListener('keydown', (e) => {
+    // 菜单状态：数字选挡位
+    if (gameState === 'menu') {
+        if (e.code === 'Digit1' || e.code === 'Numpad1') { reset('leisure'); return; }
+        if (e.code === 'Digit2' || e.code === 'Numpad2') { reset('normal'); return; }
+        if (e.code === 'Digit3' || e.code === 'Numpad3') { reset('challenge'); return; }
+        if (e.code === 'Space' || e.code === 'ArrowUp') { reset('normal'); return; } // 空格默认正常模式
+    }
+
+    // 游戏中：跳跃
+    if (gameState === 'playing' && !gameOver) {
+        if (e.code === 'Space' || e.code === 'ArrowUp') {
+            e.preventDefault();
+            jerry.jump();
+        }
+    }
+
+    // 结束时
+    if (gameState === 'over') {
+        if (e.code === 'KeyR') { reset(Object.keys(SPEED_MODES).find(k => SPEED_MODES[k] === currentMode)); }
+        if (e.code === 'KeyM') { gameState = 'menu'; gameOver = false; }
+        if (e.code === 'Digit1' || e.code === 'Numpad1') { reset('leisure'); return; }
+        if (e.code === 'Digit2' || e.code === 'Numpad2') { reset('normal'); return; }
+        if (e.code === 'Digit3' || e.code === 'Numpad3') { reset('challenge'); return; }
+    }
+});
+
+// 游戏中点击跳跃（不和菜单/结束界面冲突）
+canvas.addEventListener('click', (e) => {
+    // 先检查是否点到了交互按钮；已在各自的 click handler 中处理
+    // 这里只处理简单跳跃（非菜单/结束状态）
+    if (gameState === 'playing' && !gameOver) {
+        // 让前面的菜单/结束 handler 先执行；这里做一个短延迟判断
+        setTimeout(() => {
+            if (gameState === 'playing' && !gameOver) jerry.jump();
+        }, 0);
+    }
+});
+
+// 移动端触摸（同样逻辑）
+canvas.addEventListener('touchstart', (e) => {
+    if (gameState === 'playing' && !gameOver) {
+        setTimeout(() => {
+            if (gameState === 'playing' && !gameOver) jerry.jump();
+        }, 0);
+    }
+});
+
+// ==================== 主循环更新 ====================
+function gameLoop() {
+    frame++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawBackground();
+
+    if (gameState === 'menu') {
+        // 菜单状态：Jerry 原地待机
+        jerry.draw(ctx);
+        drawMenuScreen();
+        requestAnimationFrame(gameLoop);
+        return;
+    }
+
+    if (!gameOver) {
+        // 更新
+        jerry.update();
+        updateScore();
+
+        // 生成障碍物（按当前挡位）
+        obstacleTimer++;
+        if (obstacleTimer > spawnInterval) {
+            spawnObstacle();
+            obstacleTimer = 0;
+            if (currentMode) {
+                const decay = Math.floor(score / 25);
+                spawnInterval = Math.max(currentMode.spawnMin,
+                    currentMode.spawnBase - decay + Math.random() * 30);
+            }
+        }
+
+        // 更新障碍物
+        for (let i = obstacles.length - 1; i >= 0; i--) {
+            obstacles[i].x -= gameSpeed;
+            if (obstacles[i].x + obstacles[i].width < 0) {
+                obstacles.splice(i, 1);
+            }
+        }
+
+        // 碰撞
+        const jb = jerry.getBounds();
+        for (const obs of obstacles) {
+            if (checkCollision(jb, { x: obs.x + 4, y: GROUND_Y + 3 - obs.height + 4, width: obs.width - 8, height: obs.height - 8 })) {
+                gameOver = true;
+                gameState = 'over';
+                spawnParticles(jerry.x + 22, jerry.y - 25);
+                // 按挡位保存最高分
+                const modeKey = Object.keys(SPEED_MODES).find(k => SPEED_MODES[k] === currentMode);
+                const finalScore = Math.floor(score);
+                if (!highScore[modeKey] || finalScore > highScore[modeKey]) {
+                    highScore[modeKey] = finalScore;
+                    localStorage.setItem('jerryHighScores', JSON.stringify(highScore));
+                }
+            }
+        }
+    }
+
+    // 更新粒子
+    for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.2;
+        p.life--;
+        if (p.life <= 0) particles.splice(i, 1);
+    }
+
+    // 绘制
+    jerry.draw(ctx);
+    for (const obs of obstacles) drawObstacle(obs);
+
+    // 粒子
+    for (const p of particles) {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.life / 35;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    drawUI();
+    if (gameOver) gameOverScreen();
+
+    requestAnimationFrame(gameLoop);
+}
+
+// ==================== 启动（显示菜单） ====================
+gameState = 'menu';
+gameLoop();
+</script>
+</body>
+</html>

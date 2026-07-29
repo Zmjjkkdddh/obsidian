@@ -11,10 +11,14 @@
             "id": "4214be61375b811e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "02-AI工具/Claude Code 详细指南.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Claude Code 详细指南"
             }
           }
         ]
@@ -201,19 +205,21 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "4214be61375b811e",
+  "active": "148ec065a60a749f",
   "lastOpenFiles": [
+    "jerry-runner.html.tmp.13360.e5fcf565c8ee",
+    "jerry-runner.html.tmp.13360.c9a83d857dd4",
+    "jerry-runner.html.tmp.13360.220efd4f0ce3",
+    "jerry-runner.html.tmp.13360.2c0bfc90446b",
+    "jerry-runner.html.tmp.13360.0bedc79bb4fb",
+    "jerry-runner.html.tmp.13360.21abf2275880",
+    "jerry-runner.html.tmp.13360.aafde96ac8c2",
+    "jerry-runner.html.tmp.13360.504c91afc52b",
+    "jerry-runner.html.tmp.13360.50cb2b98d90a",
+    "jerry-runner.html.tmp.13360.d57f63e16af1",
+    "jerry-runner.html.tmp.13360.6c8879245f1b",
     "index.md",
-    "index.md.tmp.7060.a32392c8e155",
-    "资料/articles/karpathy wiki方法论.md.tmp.7060.2679a98691c0",
-    "04-每日日报/2026-7-28日报.md.tmp.7060.1a60c5134938",
-    "02-AI工具/Codex使用指南.md.tmp.7060.26de9f953ce5",
-    "01-AI概念/Token是什么.md.tmp.7060.011e26187f4c",
-    "01-AI概念/幻觉问题.md.tmp.7060.6ca7c1726679",
-    "01-AI概念/Fine-tuning微调.md.tmp.7060.779e0209247b",
-    "01-AI概念/Prompt Engineering.md.tmp.7060.2f04bb895a26",
-    "01-AI概念/MCP协议.md.tmp.7060.49e45071cf8b",
-    "01-AI概念/向量数据库与Embedding.md.tmp.7060.1149eb3350b1",
+    "02-AI工具/Claude Code 详细指南.md",
     "01-AI概念/Fine-tuning微调.md",
     "02-AI工具/WorkBuddy功能脑图与优点.md",
     "03-工具对比/AI助手横向对比.md",
@@ -237,8 +243,6 @@
     "01-AI概念/Token是什么.md",
     "01-AI概念/Prompt Engineering.md",
     "01-AI概念.md",
-    "source/xxx.md",
-    "wiki/concepts/LLM 核心概念详解.md",
-    "wiki/log.md"
+    "source/xxx.md"
   ]
 }

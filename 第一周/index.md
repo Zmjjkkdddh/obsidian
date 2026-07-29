@@ -33,6 +33,7 @@ type: meta
 | 页面 | 摘要 | 字数 |
 |------|------|------|
 | [[02-AI工具/Claude使用指南]] | Claude vs Claude Code 区分、各版本对比 | ~800 |
+| [[02-AI工具/Claude Code 详细指南]] | 从安装到精通，手把手 Claude Code 教程 | ~1200 |
 | [[02-AI工具/Codex使用指南]] | OpenAI CLI Agent 概述 | ~300 |
 | [[02-AI工具/WorkBuddy功能脑图]] | WorkBuddy 功能模块脑图 | ~200 |
 | [[02-AI工具/Obsidian配置与插件]] | Obsidian + AI 协作配置 | ~400 |
