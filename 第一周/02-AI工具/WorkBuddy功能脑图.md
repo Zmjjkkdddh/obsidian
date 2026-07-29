@@ -4,10 +4,10 @@ tags:
   - WorkBuddy
 created: 2026-07-28
 ---
-
+![[WorkBuddy_功能脑图概览.png]]
 # WorkBuddy 功能脑图
 
-> 待补充：WorkBuddy 的核心功能模块、使用场景和操作流程。
+
 
 ## 功能模块
 
