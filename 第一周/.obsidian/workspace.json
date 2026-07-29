@@ -186,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -205,8 +205,11 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "4214be61375b811e",
+  "active": "148ec065a60a749f",
   "lastOpenFiles": [
+    "03-工具对比/Claude vs Codex 实战对比.md",
+    "kb_analyzer.py",
+    "kb_analyzer.py.tmp.7060.03fa28bfee08",
     "资料/未命名.md",
     "资料/articles/karpathy wiki方法论.md",
     "02-AI工具/WorkBuddy功能脑图.md",
@@ -235,13 +238,10 @@
     "01-AI概念/MCP协议.md.tmp.29436.2f82992f0797",
     "01-AI概念/Agent智能体.md.tmp.29436.7a3d9e721498",
     "01-AI概念/幻觉问题.md.tmp.29436.b836523e1306",
-    "01-AI概念/上下文窗口.md.tmp.29436.2273bdf0e6ba",
-    "01-AI概念/Token是什么.md.tmp.29436.6b00cf08f2c4",
     "01-AI概念.md",
     "source/xxx.md",
     "wiki/concepts/LLM 核心概念详解.md",
     "wiki/log.md",
-    "wiki/index.md",
-    "CLAUDE.md"
+    "wiki/index.md"
   ]
 }

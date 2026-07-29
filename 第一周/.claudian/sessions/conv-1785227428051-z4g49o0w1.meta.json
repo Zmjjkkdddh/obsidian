@@ -4,8 +4,8 @@
   "title": "Explain LLM key concepts and techniques",
   "titleGenerationStatus": "success",
   "createdAt": 1785227428053,
-  "updatedAt": 1785228217073,
-  "lastResponseAt": 1785228217073,
+  "updatedAt": 1785289151816,
+  "lastResponseAt": 1785289151816,
   "sessionId": "791bb49b-2702-4ddd-ab3c-67826c1d35a2",
   "selectedModel": "haiku",
   "providerState": {
@@ -13,12 +13,12 @@
   },
   "usage": {
     "model": "haiku",
-    "inputTokens": 160,
+    "inputTokens": 1433,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 45440,
+    "cacheReadInputTokens": 51328,
     "contextWindow": 200000,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 45600,
-    "percentage": 23
+    "contextTokens": 52761,
+    "percentage": 26
   }
 }
