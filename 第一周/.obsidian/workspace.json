@@ -11,14 +11,10 @@
             "id": "4214be61375b811e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02-AI工具/WorkBuddy功能脑图与优点.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "WorkBuddy功能脑图与优点"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -186,7 +182,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -207,27 +203,27 @@
   },
   "active": "4214be61375b811e",
   "lastOpenFiles": [
-    "WorkBuddy_功能脑图概览.png",
-    "03-工具对比/Claude vs Codex 实战对比.md",
+    "01-AI概念/Fine-tuning微调.md",
     "02-AI工具/WorkBuddy功能脑图与优点.md",
+    "03-工具对比/AI助手横向对比.md",
+    "04-每日日报/2026-7-28日报.md",
+    "02-AI工具/Claude使用指南.md",
+    "03-工具对比/Claude vs Codex 实战对比.md",
+    "02-AI工具/Obsidian配置与插件.md",
+    "02-AI工具/Codex使用指南.md",
+    "01-AI概念/幻觉问题.md",
+    "WorkBuddy_功能脑图概览.png",
     "资料/articles/karpathy wiki方法论.md",
     "kb_analyzer.py",
     "kb_analyzer.py.tmp.7060.03fa28bfee08",
     "资料/未命名.md",
-    "02-AI工具/Obsidian配置与插件.md",
-    "02-AI工具/Codex使用指南.md",
-    "02-AI工具/Claude使用指南.md",
     "01-AI概念/上下文窗口.md",
-    "01-AI概念/幻觉问题.md",
-    "04-每日日报/2026-7-28日报.md",
     "04-每日日报/日报模板.md",
     "tmp/这是一个临时文件，测试git.md",
     "01-AI概念/MCP协议.md",
     "tmp",
-    "03-工具对比/AI助手横向对比.md",
     "01-AI概念/向量数据库与Embedding.md",
     "01-AI概念/Agent智能体.md",
-    "01-AI概念/Fine-tuning微调.md",
     "01-AI概念/LLM大语言模型.md",
     "01-AI概念/RAG检索增强生成.md",
     "01-AI概念/Token是什么.md",

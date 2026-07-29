@@ -4,21 +4,327 @@
   "title": "Explain LLM key concepts and techniques",
   "titleGenerationStatus": "success",
   "createdAt": 1785227428053,
-  "updatedAt": 1785289151816,
-  "lastResponseAt": 1785289151816,
+  "updatedAt": 1785297736086,
+  "lastResponseAt": 1785297736086,
   "sessionId": "791bb49b-2702-4ddd-ab3c-67826c1d35a2",
   "selectedModel": "haiku",
   "providerState": {
-    "providerSessionId": "791bb49b-2702-4ddd-ab3c-67826c1d35a2"
+    "providerSessionId": "791bb49b-2702-4ddd-ab3c-67826c1d35a2",
+    "subagentData": {
+      "call_00_ag9p0nUZQVpUKmd6yDWY8120": {
+        "id": "call_00_ag9p0nUZQVpUKmd6yDWY8120",
+        "description": "Wiki lint - orphan & broken links",
+        "prompt": "Your task: read every .md file in \"D:\\obsidian1\\第一周\" (skip .obsidian/ and .claudian/), and produce a structured analysis.\n\nFor EVERY file, extract:\n1. File path\n2. All wiki links in it: every [[...]] or [text](...) — extract the TARGET page name (strip paths, anchors, aliases)\n3. All frontmatter fields\n\nThen produce these reports:\n\n**A) Broken Links** — Any wiki link whose target page does NOT exist as a .md file in the vault. List: source file → dead link target.\n\n**B) Orphan Pages** — Any .md file that has ZERO inbound wiki links from other pages. Exclude meta pages like index.md, templates, log files from orphan detection.\n\n**C) Inconsistencies** — Frontmatter issues:\n- Pages missing `tags` or `created` field\n- Pages missing `type` field\n- Pages whose `type` value doesn't match their actual location (e.g., a concept-type page in 02-AI工具/)\n\n**D) Index completeness** — Check if every content page appears in any index file (index.md or similar). If no index file exists, report that.\n\n**E) Stale/incomplete content** — Flag pages with placeholder content like \"待补充\" or essentially empty body.\n\nOutput a clear, organized report in Chinese. Be thorough — read EVERY file.",
+        "mode": "async",
+        "isExpanded": false,
+        "status": "completed",
+        "toolCalls": [
+          {
+            "id": "call_00_TteNWorS6lhl0v5fBEZJ9903",
+            "name": "Glob",
+            "input": {
+              "pattern": "**/*.md",
+              "path": "D:\\obsidian1\\第一周"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "01-AI概念\\LLM大语言模型.md\n01-AI概念\\Token是什么.md\n01-AI概念\\上下文窗口.md\n01-AI概念\\幻觉问题.md\n01-AI概念\\Agent智能体.md\n01-AI概念\\RAG检索增强生成.md\n01-AI概念\\向量数据库与Embedding.md\n01-AI概念\\MCP协议.md\n01-AI概念\\Prompt Engineering.md\n01-AI概念\\Fine-tuning微调.md\n02-AI工具\\Codex使用指南.md\n02-AI工具\\Obsidian配置与插件.md\n03-工具对比\\AI助手横向对比.md\n04-每日日报\\日报模板.md\n04-每日日报\\2026-7-28日报.md\n资料\\articles\\karpathy wiki方法论.md\n03-工具对比\\Claude vs Codex 实战对比.md\n02-AI工具\\WorkBuddy功能脑图与优点.md\n02-AI工具\\Claude使用指南.md"
+          },
+          {
+            "id": "call_00_OW3VAiSvSWhzSjzcuoxA7616",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - LLM\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# LLM 大语言模型\n9\t\n10\t**LLM**（Large Language Model）是基于深度学习的 AI 模型，核心能力是**理解和生成人类语言**。\n11\t\n12\t## 核心特征\n13\t\n14\t| 特征 | 说明 |\n15\t|------|------|\n16\t| 训练数据 | 海量文本（书籍、网页、代码、论文），TB 级别 |\n17\t| 参数规模 | 数十亿到数万亿个参数 |\n18\t| 核心能力 | 文本生成、翻译、摘要、代码编写、推理、对话 |\n19\t| 工作原理 | Transformer 架构，\"预测下一个词\"学习语言规律 |\n20\t\n21\t> 💡 LLM 像一个读过整个互联网的学霸——不是真正\"理解\"世界，而是通过海量文本学会了极其精准的语言模式匹配。\n22\t\n23\t---\n24\t\n25\t## 关键概念\n26\t\n27\t- [[Token是什么]] — LLM 处理文本的最小单位\n28\t- [[上下文窗口]] — 模型一次能记住的内容上限\n29\t- [[幻觉问题]] — 为什么 LLM 会\"编造\"信息\n30\t\n31\t## 主流模型\n32\t\n33\t| 模型 | 厂商 | 特点 |\n34\t|------|------|------|\n35\t| GPT-4o | OpenAI | 多模态，综合能力强 |\n36\t| Claude 3.5 Sonnet | Anthropic | 长上下文、代码能力强 |\n37\t| Gemini 1.5 Pro | Google | 超长上下文（2M） |\n38\t| DeepSeek-V3 | DeepSeek | 国产开源，性价比高 |\n39\t| Qwen 2.5 | 阿里 | 开源，中文能力强 |\n40\t\n41\t---\n42\t\n43\t## 延伸阅读\n44\t\n45\t- [[RAG检索增强生成]] — 如何让 LLM 基于真实文档回答\n46\t- [[Fine-tuning微调]] — 如何定制专属模型\n47\t- [[Agent智能体]] — 让 LLM 自主行动的框架\n48\t"
+          },
+          {
+            "id": "call_01_6fBPfYCVCgrDro3qZD784350",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - LLM\n5\t  - 基础概念\n6\tcreated: 2026-07-28\n7\t---\n8\t\n9\t# Token 是什么\n10\t\n11\t**Token** 是 LLM 处理文本的**最小单位**——模型不是按\"字\"或\"词\"理解文本的，而是按 Token。\n12\t\n13\t## Token 划分规则\n14\t\n15\t- **英文**：1 Token ≈ 0.75 个单词（4 个字符 ≈ 1 Token）\n16\t- **中文**：1 个汉字 ≈ 1.5~2 个 Token\n17\t- Token 不一定是完整词，可以是子词（BPE 算法切分）\n18\t\n19\t### 举例\n20\t\n21\t| 文本 | Token 数 |\n22\t|------|----------|\n23\t| `Hello World` | 2 |\n24\t| `unbelievable` | `un` + `believe` + `able` = 3 |\n25\t| `人工智能` | 约 3~4 |\n26\t\n27\t## 为什么 Token 重要？\n28\t\n29\t| 维度 | 影响 |\n30\t|------|------|\n31\t| **计费** | API 按 Token 收费（输入 + 输出） |\n32\t| **上下文窗口** | 模型一次能处理的最大 Token 数 |\n33\t| **速度** | Token 越多 → 生成越慢 |\n34\t| **成本** | Token 越多 → 费用越高 |\n35\t\n36\t## Tokenizer 工具\n37\t\n38\t- [OpenAI Tokenizer](https://platform.openai.com/tokenizer) — 在线可视化\n39\t- `tiktoken` — OpenAI 官方 Python 库\n40\t\n41\t---\n42\t\n43\t📚 关联：[[LLM大语言模型]] | [[上下文窗口]]\n44\t"
+          },
+          {
+            "id": "call_02_1RlUiXPCP4jLmzY1fcah5911",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - LLM\n5\t  - 基础概念\n6\tcreated: 2026-07-28\n7\t---\n8\t\n9\t# 上下文窗口（Context Window）\n10\t\n11\t**上下文窗口**是 LLM 在一次对话中能\"看到\"和\"记住\"的**最大 Token 总量**。\n12\t\n13\t```\n14\t┌──────────────────────────────────────────────┐\n15\t│            上下文窗口 (Context Window)          │\n16\t│                                              │\n17\t│  [系统提示] [对话历史] [用户输入] → [模型回复]    │\n18\t│                                              │\n19\t│  ←── 所有内容必须在窗口内 ──→                   │\n20\t│  超出窗口 → 被遗忘（截断或压缩）                  │\n21\t└──────────────────────────────────────────────┘\n22\t```\n23\t\n24\t## 各模型上下文窗口\n25\t\n26\t| 模型 | 窗口大小 | 相当于 |\n27\t|------|---------|--------|\n28\t| GPT-3.5 | 4K / 16K | 短文章 |\n29\t| GPT-4 | 8K / 32K / 128K | 中长篇 |\n30\t| Claude 3 | 200K | 一本《三体》 |\n31\t| Gemini 1.5 Pro | 1M ~ 2M | 多本书 + 视频 |\n32\t\n33\t## 实际影响\n34\t\n35\t- 窗口不够 → 长对话中模型\"忘记\"前面的内容\n36\t- 窗口太大 → 注意力稀释，关键信息可能被淹没\n37\t- **\"大海捞针\"测试**：在长文本中藏一条信息，测试模型能否找到——衡量上下文利用效率\n38\t\n39\t## 扩展技术\n40\t\n41\t- **RAG**：不把全部文档塞进窗口，先检索相关片段再回答\n42\t- **上下文压缩**：自动摘要历史对话，节省窗口空间\n43\t- **KV Cache 优化**：底层加速长上下文的推理\n44\t\n45\t---\n46\t\n47\t📚 关联：[[LLM大语言模型]] | [[Token是什么]] | [[RAG检索增强生成]]\n48\t"
+          },
+          {
+            "id": "call_03_sM2LEQiPoAqyTZzhNNMN6867",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\幻觉问题.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - LLM\n5\t  - 基础概念\n6\tcreated: 2026-07-28\n7\t---\n8\t\n9\t# 幻觉（Hallucination）\n10\t\n11\t**幻觉**指 LLM 生成的内容**看似合理但实际是编造的、与事实不符**。\n12\t\n13\t## 根本原因\n14\t\n15\t```\n16\tLLM 本质 = 概率预测下一个最可能的 Token\n17\t        ≠ 检索事实数据库\n18\t        ≠ 知道什么是\"真\"什么是\"假\"\n19\t```\n20\t\n21\t| 原因 | 说明 |\n22\t|------|------|\n23\t| 统计本质 | 只做概率预测，不做事实校验 |\n24\t| 概率采样 | temperature 引入随机性，可能\"走偏\" |\n25\t| 知识截止 | 训练数据截止后的事情不知道，被迫\"编\" |\n26\t| 长尾稀疏 | 罕见知识训练信号不足，容易混淆 |\n27\t| 过度泛化 | 不同语境的概念错误拼接 |\n28\t\n29\t## 常见幻觉类型\n30\t\n31\t| 类型 | 示例 |\n32\t|------|------|\n33\t| 事实错误 | \"李白是宋朝人\" |\n34\t| 编造引用 | 虚构不存在的论文、法条、书名 |\n35\t| 数字错误 | 日期、统计数据出错 |\n36\t| 逻辑矛盾 | 同一回答前后不一致 |\n37\t\n38\t## 降低幻觉的方法\n39\t\n40\t| 方法 | 原理 |\n41\t|------|------|\n42\t| **RAG** | 先检索真实文档，基于证据回答 |\n43\t| 降低 temperature | 减少随机性，减少\"走偏\" |\n44\t| 精确 Prompt | 约束范围，明确说\"不知道就说不知道\" |\n45\t| 引用来源 | 要求标注出处，便于人工复核 |\n46\t| Grounding | 搜索引擎接入，实时校验事实 |\n47\t\n48\t---\n49\t\n50\t📚 关联：[[LLM大语言模型]] | [[RAG检索增强生成]]\n51\t"
+          },
+          {
+            "id": "call_04_V4WqDCU3UoX4ncRRwp9R1136",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - Agent\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# Agent 智能体\n9\t\n10\t**Agent** 是让 LLM 从\"聊天机器人\"升级为\"能自主行动的数字助理\"的框架。\n11\t\n12\t## 核心架构\n13\t\n14\t```\n15\t┌──────────┐   思考    ┌──────────┐   执行     ┌──────────────┐\n16\t│   LLM    │ ───────→ │  Agent   │ ───────→  │   工具调用     │\n17\t│  (大脑)   │ ←─────── │  框架    │ ←───────  │   (手脚)      │\n18\t└──────────┘   观察    └──────────┘   结果    └──────┬───────┘\n19\t                                                    │\n20\t                                         ┌──────────┼──────────┐\n21\t                                         │ 搜索 │ 代码执行│ API │\n22\t                                         └────────────────────┘\n23\t```\n24\t\n25\t## 核心循环：ReAct 模式\n26\t\n27\t```\n28\t思考 → 行动 → 观察 → 思考 → 行动 → 观察 → ...\n29\t```\n30\t\n31\t每一步：模型先思考该做什么，再调用工具执行，观察结果后决定下一步。\n32\t\n33\t## Agent 的关键组件\n34\t\n35\t| 组件 | 作用 |\n36\t|------|------|\n37\t| **LLM** | 大脑——推理和决策 |\n38\t| **工具 (Tools)** | 手脚——搜索、计算、代码执行、API 调用 |\n39\t| **记忆 (Memory)** | 短期（对话历史）+ 长期（外部存储） |\n40\t| **规划 (Planning)** | 任务拆解、子目标管理 |\n41\t| **MCP 协议** | 与工具的标准化通信接口 |\n42\t\n43\t## 应用场景\n44\t\n45\t- 自动化客服：查知识库 + 操作后台系统\n46\t- 代码开发助手：读写文件 + 执行命令 + 搜索文档\n47\t- 数据分析：写 SQL + 画图表 + 写报告\n48\t- 个人助理：查日历 + 发邮件 + 订机票\n49\t\n50\t---\n51\t\n52\t📚 关联：[[MCP协议]] | [[RAG检索增强生成]]\n53\t"
+          },
+          {
+            "id": "call_05_dREvfBftUvUNJOvf5w8q2974",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - RAG\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# RAG 检索增强生成\n9\t\n10\t**RAG**（Retrieval-Augmented Generation）在 LLM 生成回答前，先从外部知识库**检索相关信息**，再基于检索结果生成答案。\n11\t\n12\t```\n13\t用户提问\n14\t   │\n15\t   ▼\n16\t┌──────────┐    ┌──────────┐    ┌──────────┐\n17\t│ 1. 检索   │ → │ 2. 拼接   │ → │ 3. 生成   │\n18\t│ 向量检索   │    │ 原文+检索  │    │ 基于证据  │\n19\t│ 找相关文档  │    │ 结果      │    │ 生成回答  │\n20\t└──────────┘    └──────────┘    └──────────┘\n21\t```\n22\t\n23\t## RAG 解决的三大痛点\n24\t\n25\t| 痛点 | RAG 如何解决 |\n26\t|------|-------------|\n27\t| 🔴 幻觉 | 回答基于检索到的真实文档 |\n28\t| 🔴 知识过时 | 更新知识库即可，无需重训模型 |\n29\t| 🔴 私有知识 | 接入企业文档，模型\"知道\"内部信息 |\n30\t\n31\t## RAG 技术栈\n32\t\n33\t```\n34\t文档 → 切分(Chunking) → Embedding → 向量数据库 → 检索(Retrieve) → 重排序(Rerank) → LLM 生成\n35\t```\n36\t\n37\t| 环节 | 关键技术 |\n38\t|------|---------|\n39\t| 切分 | 按段落/语义/固定长度切分 |\n40\t| Embedding | [[向量数据库与Embedding]] |\n41\t| 向量数据库 | Chroma / Pinecone / Milvus / Qdrant |\n42\t| 检索 | 语义搜索 + BM25 混合检索 |\n43\t| 重排序 | Cross-encoder 精排，提高相关性 |\n44\t\n45\t## RAG vs Fine-tuning\n46\t\n47\t| 维度 | RAG | Fine-tuning |\n48\t|------|-----|-------------|\n49\t| 知识更新 | 更新数据库即可 | 需重新训练 |\n50\t| 事实准确 | ✅ 基于实时文档 | ❌ 可能过时 |\n51\t| 风格控制 | ❌ 较弱 | ✅ 很强 |\n52\t| 适合场景 | 知识问答 | 风格模仿、格式统一 |\n53\t\n54\t> 💡 最佳实践：RAG + Fine-tuning 结合——RAG 保准确，微调保风格。\n55\t\n56\t---\n57\t\n58\t📚 关联：[[向量数据库与Embedding]] | [[Fine-tuning微调]] | [[幻觉问题]]\n59\t"
+          },
+          {
+            "id": "call_06_rZ8ot1IKGdMm27IdnrEO1129",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\向量数据库与Embedding.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - Embedding\n5\t  - 向量数据库\n6\tcreated: 2026-07-28\n7\t---\n8\t\n9\t# 向量数据库与 Embedding\n10\t\n11\t## Embedding（嵌入）\n12\t\n13\t将文本、图像等非结构化数据转化为**固定长度的向量（数字列表）**，捕获语义信息。\n14\t\n15\t```\n16\t\"今天天气真好\" ──[Embedding 模型]──→ [0.023, -0.451, 0.892, ..., 0.134]\n17\t                                            ↑\n18\t                                    1536 维的浮点数向量\n19\t```\n20\t\n21\t### 语义空间\n22\t\n23\t语义相近 → 向量空间中也靠近：\n24\t\n25\t```\n26\t\"猫\"  → [0.10, 0.80, 0.30, ...]   ┐\n27\t\"猫咪\" → [0.11, 0.79, 0.31, ...]   ├─ 距离近！\n28\t\"汽车\" → [-0.5, -0.2, 0.70, ...]   ┘  距离远\n29\t```\n30\t\n31\t### Embedding 模型\n32\t\n33\t| 模型 | 维度 | 特点 |\n34\t|------|------|------|\n35\t| OpenAI `text-embedding-3-small` | 1536 | 性价比高 |\n36\t| OpenAI `text-embedding-3-large` | 3072 | 精度最高 |\n37\t| BGE-M3 (BAAI) | 1024 | 开源，中英多语言 |\n38\t| Cohere Embed | 4096 | 多语言，压缩友好 |\n39\t\n40\t---\n41\t\n42\t## 向量数据库（Vector Database）\n43\t\n44\t专门存储和检索**向量嵌入**的数据库——RAG 的检索引擎。\n45\t\n46\t### 核心能力\n47\t\n48\t- **近似最近邻搜索（ANN）**：在海量向量中快速找到最相似的\n49\t- **相似度度量**：余弦相似度、欧氏距离、点积\n50\t- **元数据过滤**：向量 + 结构化条件组合查询\n51\t\n52\t### 主流向量数据库\n53\t\n54\t| 数据库 | 特点 | 适合场景 |\n55\t|--------|------|---------|\n56\t| **Chroma** | 轻量开源，Python 原生 | 原型开发、小项目 |\n57\t| **Pinecone** | 全托管云服务 | 生产环境、免运维 |\n58\t| **Milvus** | 国产开源，分布式 | 大规模、高性能 |\n59\t| **Qdrant** | Rust 编写，高性能 | 对延迟敏感的场景 |\n60\t| **Weaviate** | 开源 + 云，功能丰富 | 需要混合搜索 |\n61\t\n62\t---\n63\t\n64\t## RAG 中的流程\n65\t\n66\t```\n67\t原始文档\n68\t  → 切分成 Chunk（段落/语义块）\n69\t    → Embedding 模型转为向量\n70\t      → 存入向量数据库\n71\t        → 用户查询 → 同样转向量 → ANN 检索 → 返回最相关片段\n72\t```\n73\t\n74\t---\n75\t\n76\t📚 关联：[[RAG检索增强生成]]\n77\t"
+          },
+          {
+            "id": "call_07_DhtPgj0fpyUtwW8NdweE3153",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - MCP\n5\t  - 协议\n6\tcreated: 2026-07-28\n7\t---\n8\t\n9\t# MCP 协议（Model Context Protocol）\n10\t\n11\t**MCP** 是 Anthropic 提出的**开放标准协议**，用于 LLM 与外部工具/数据源之间的标准化通信。\n12\t\n13\t## 解决什么问题？\n14\t\n15\t```\n16\t传统方式（N×N 集成噩梦）：\n17\t┌──────┐ ┌──────┐ ┌──────┐\n18\t│ App1 │ │ App2 │ │ App3 │    ← 每个应用为每个工具写适配器\n19\t└──┬───┘ └──┬───┘ └──┬───┘\n20\t   │ ───────┼─────────┼── 各自对接 ──\n21\t   ▼        ▼         ▼\n22\t┌──────┐ ┌──────┐ ┌──────┐\n23\t│  DB  │ │ API  │ │ File │\n24\t└──────┘ └──────┘ └──────┘\n25\t\n26\tMCP 方式（标准化统一）：\n27\t┌─────────────────────────┐\n28\t│    AI 应用 / Agent       │\n29\t└───────────┬─────────────┘\n30\t            │  MCP 协议（统一标准）\n31\t  ┌─────────┼─────────┬─────────┐\n32\t  ▼         ▼         ▼         ▼\n33\t┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐\n34\t│数据库 │ │文件  │ │ API  │ │ 搜索 │\n35\t│Server│ │Server│ │Server│ │Server│\n36\t└──────┘ └──────┘ └──────┘ └──────┘\n37\t```\n38\t\n39\t> 💡 类比：MCP 之于 AI 工具 = **USB-C 之于设备接口**\n40\t\n41\t## 核心概念\n42\t\n43\t| 概念 | 说明 |\n44\t|------|------|\n45\t| **MCP Server** | 暴露工具/数据的服务端（如文件系统 Server、数据库 Server） |\n46\t| **MCP Client** | AI 应用/Agent，通过协议调用 Server |\n47\t| **Tools** | Server 提供的可调用功能（搜索、读写、API 请求） |\n48\t| **Resources** | Server 暴露的数据（文件内容、数据库记录） |\n49\t| **Prompts** | Server 预置的提示词模板 |\n50\t\n51\t## 架构\n52\t\n53\t```\n54\t┌─────────────┐         ┌─────────────────────┐\n55\t│  MCP Client  │ ◄─────► │     MCP Server      │\n56\t│  (Claude,    │  JSON-  │  (文件/数据库/API…)   │\n57\t│   Codex...)  │  RPC    │                     │\n58\t└─────────────┘         └─────────────────────┘\n59\t   本地/HTTP/SSE 传输      本地进程 或 远程服务\n60\t```\n61\t\n62\t## 优势\n63\t\n64\t- **标准化**：一次开发，所有兼容 MCP 的 AI 应用通用\n65\t- **安全**：权限由用户控制，Server 可以跑在本地\n66\t- **生态**：社区不断贡献新的 Server（GitHub、Slack、数据库…）\n67\t\n68\t---\n69\t\n70\t📚 关联：[[Agent智能体]]\n71\t"
+          },
+          {
+            "id": "call_08_KFwzDvvg7ynQo7GYIO625148",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - Prompt\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# Prompt Engineering 提示工程\n9\t\n10\t通过精心设计输入提示词，引导 LLM 产生更高质量的输出。\n11\t\n12\t## 经典技巧\n13\t\n14\t| 技巧 | 说明 | 示例 |\n15\t|------|------|------|\n16\t| **角色扮演** | 设定身份 | \"你是一位资深 Python 工程师…\" |\n17\t| **思维链 (CoT)** | 分步推理 | \"让我们一步一步思考…\" |\n18\t| **Few-shot** | 提供示例 | \"输入：🍎 → 输出：apple，输入：…\" |\n19\t| **结构化输出** | 指定格式 | \"以 JSON 返回，含 name、age\" |\n20\t| **反向约束** | 说不要什么 | \"用小学生能听懂的语言\" |\n21\t| **分步指令** | 拆解任务 | \"首先…然后…最后…\" |\n22\t\n23\t## 对比\n24\t\n25\t```\n26\t❌ 差的 Prompt：\n27\t\"写一个排序算法\"\n28\t\n29\t✅ 好的 Prompt：\n30\t\"用 Python 实现快速排序，要求：\n31\t1. 原地排序（不创建新数组）\n32\t2. 包含详细注释解释每一步\n33\t3. 附带三个测试用例\n34\t4. 时间复杂度分析\"\n35\t```\n36\t\n37\t## 进阶技巧\n38\t\n39\t### Chain of Thought（思维链）\n40\t\n41\t在 Prompt 中加入 `Let's think step by step`，强制模型分步推理，显著提升数学、逻辑、多步推理任务的准确率。\n42\t\n43\t### Few-shot 示例设计\n44\t\n45\t- 示例数量：2~5 个通常最优\n46\t- 示例质量 > 数量\n47\t- 覆盖边界情况\n48\t\n49\t### System Prompt vs User Prompt\n50\t\n51\t| 类型 | 作用 | 持久性 |\n52\t|------|------|--------|\n53\t| System Prompt | 设定角色、规则、风格 | 整个对话有效 |\n54\t| User Prompt | 具体问题/指令 | 单次请求 |\n55\t\n56\t## 常见陷阱\n57\t\n58\t- Prompt 太长 → 关键信息淹没\n59\t- 指令冲突 → 模型行为不稳定\n60\t- 过度约束 → 模型创造力受限\n61\t- 泄露敏感信息 → 永远不要在 Prompt 中放密码/密钥\n62\t\n63\t---\n64\t\n65\t📚 关联：[[LLM大语言模型]] | [[Fine-tuning微调]]\n66\t"
+          },
+          {
+            "id": "call_09_NTPQ8JVyTYReDTB4bKHg7553",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - AI\n4\t  - Fine-tuning\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# Fine-tuning 微调\n9\t\n10\t在预训练模型的基础上，用**特定领域数据**继续训练，让模型在特定任务上表现更好。\n11\t\n12\t```\n13\t预训练模型（通才）              微调后模型（专才）\n14\t┌──────────────────┐          ┌──────────────────┐\n15\t│ 什么都会一点       │   ──→   │ 精通特定领域       │\n16\t│ 通用回答          │  微调   │ 风格/格式一致      │\n17\t│ 风格不稳定        │          │ 遵循特定规则       │\n18\t└──────────────────┘          └──────────────────┘\n19\t       ↑                              ↑\n20\t   互联网海量文本               几千~几万条高质量标注数据\n21\t```\n22\t\n23\t## 微调类型\n24\t\n25\t| 类型 | 说明 | 数据需求 |\n26\t|------|------|---------|\n27\t| **全量微调** | 更新所有参数 | 大，成本高 |\n28\t| **LoRA** | 只训练少量低秩矩阵 | 小，成本低 |\n29\t| **QLoRA** | LoRA + 量化，更低显存 | 小，消费级 GPU 可跑 |\n30\t| **指令微调** | 用问答对训练，提升指令遵循 | 中等 |\n31\t\n32\t## Fine-tuning vs RAG 如何选择？\n33\t\n34\t| 维度 | Fine-tuning | RAG |\n35\t|------|-------------|-----|\n36\t| 知识更新 | 需重新训练 | 更新数据库即可 |\n37\t| 成本 | 训练 + 推理 | 检索 + 推理 |\n38\t| 风格控制 | ✅ 很强 | ❌ 较弱 |\n39\t| 事实准确 | ❌ 可能过时/幻觉 | ✅ 基于实时文档 |\n40\t| 数据需求 | 需要标注数据 | 需要整理文档 |\n41\t| 适合场景 | 风格模仿、格式统一 | 知识问答、实时信息 |\n42\t\n43\t## 常见应用\n44\t\n45\t- **客服机器人**：用历史对话微调，保持品牌语气\n46\t- **代码补全**：用公司代码库微调，适配内部框架\n47\t- **医疗/法律**：用专业文献微调，提升领域准确度\n48\t- **翻译**：用双语平行语料微调，提升特定语言对\n49\t\n50\t> 💡 最佳实践：RAG + Fine-tuning 结合——RAG 保准确，微调保风格。\n51\t\n52\t---\n53\t\n54\t📚 关联：[[RAG检索增强生成]] | [[Prompt Engineering]]\n55\t"
+          },
+          {
+            "id": "call_10_sIR7WUyqRJVGpHhMsOSj4278",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 工具\n4\t  - Codex\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# Codex 使用指南\n9\t\n10\tOpenAI 推出的命令行 AI Agent，对标 Claude Code。\n11\t\n12\t## 核心特点\n13\t\n14\t| 特性 | 说明 |\n15\t|------|------|\n16\t| **终端原生** | 直接在终端中交互，类似 Claude Code |\n17\t| **文件操作** | 读写、搜索、编辑项目文件 |\n18\t| **Shell 集成** | 执行命令、管理进程 |\n19\t| **Git 感知** | 理解代码仓库上下文 |\n20\t| **多模型** | 可切换 GPT-4o / o4-mini 等 |\n21\t\n22\t## 与 Claude Code 的主要区别\n23\t\n24\t| 维度 | Codex | Claude Code |\n25\t|------|-------|-------------|\n26\t| 底层模型 | GPT-4o / o4-mini | Claude 3.5 / Opus 4 |\n27\t| 上下文 | 128K | 200K |\n28\t| MCP | 支持 | 原生深度支持 |\n29\t| 代码风格 | 直接简洁 | 详细注释 |\n30\t| 开源 | ✅ 开源 | ❌ 闭源 |\n31\t\n32\t## 使用场景\n33\t\n34\t- 代码审查和重构\n35\t- 自动化脚本编写\n36\t- 项目文档生成\n37\t- Bug 修复和调试\n38\t\n39\t---\n40\t\n41\t📚 关联：[[Claude使用指南]] | [[AI助手横向对比]]\n42\t"
+          },
+          {
+            "id": "call_11_C023Uc7BHK0g457Gmg1O5546",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 工具\n4\t  - Obsidian\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# Obsidian 配置与插件\n9\t\n10\t## 核心配置\n11\t\n12\t| 配置项 | 路径 | 说明 |\n13\t|--------|------|------|\n14\t| 附件路径 | 设置 → 文件与链接 | 统一到固定目录 |\n15\t| 图片下载 | 设置 → 快捷键 | 绑定 `Ctrl+Shift+D` |\n16\t| 模板 | 设置 → 模板 | 定义笔记模板 |\n17\t\n18\t## 推荐插件\n19\t\n20\t| 插件 | 用途 |\n21\t|------|------|\n22\t| **Dataview** | 将笔记当数据库查询 |\n23\t| **Web Clipper** | 一键剪藏网页为 Markdown |\n24\t| **Marp Slides** | Markdown 转演示文稿 |\n25\t| **Excalidraw** | 手绘风格图表 |\n26\t| **Kanban** | 看板管理 |\n27\t| **Calendar** | 日历视图导航 |\n28\t| **Templater** | 高级模板引擎 |\n29\t\n30\t## 与 AI 配合\n31\t\n32\t```\n33\tObsidian = IDE\n34\tLLM Agent = 程序员\n35\t笔记库 = 代码库\n36\t```\n37\t\n38\t- AI 读写 Wiki 链接：`[[页面名]]`\n39\t- AI 维护 YAML frontmatter\n40\t- AI 更新交叉引用和索引\n41\t- Obsidian 图视图 → 可视化知识结构\n42\t\n43\t---\n44\t\n45\t📚 关联：[[Claude使用指南]]\n46\t"
+          },
+          {
+            "id": "call_12_yfcMxeXIqMxNx3TBbcsH7364",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\02-AI工具\\WorkBuddy功能脑图与优点.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 工具\n4\t  - WorkBuddy\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# ==WorkBuddy 功能模块==\n9\t**文档处理**\n10\t**PDF 读取、提取、合并、拆分**\n11\t**Word / Excel / PPT 创建与编辑**\n12\t**表格数据提取与格式转换***\n13\t***财务报告与文档批量生成****\n14\t**竞品对比**\n15\t\n16\t**数据分析**\n17\t**A股 / 港股 / 美股行情查询**\n18\t**数据可视化与图表生成**\n19\t**Excel 财务模型与公式构建**\n20\t**具体财报分析与估值模型**\n21\t**对个人针对性的理财规划**\n22\t**对现实问题进行数据化分析**\n23\t\n24\t**编程开发**\n25\t**全栈网站与应用开发**\n26\t**工具脚本与自动化构建**\n27\t**代码审查与 Bug 修复**\n28\t**架构设计与代码重构**\n29\t\n30\t**多模态生成**\n31\t**AI 图片生成与编辑**\n32\t**AI 视频生成创作**\n33\t**3D 模型生成**\n34\t**图片特效与动效模板**\n35\t\n36\t**网络搜索**\n37\t**网页搜索与信息检索**\n38\t**网页内容抓取与分析**\n39\t**金融数据专业搜索**\n40\t**法律法规智能检索**\n41\t\n42\t**记忆系统**\n43\t**云端记忆（自动用户画像）**\n44\t**本地记忆（跨项目偏好）**\n45\t**工作区记忆（项目上下文）**\n46\t**历史对话搜索与回顾**\n47\t\n48\t**系统操作**\n49\t**文件读写与目录管理**\n50\t**Shell / PowerShell 命令执行**\n51\t**定时自动化与任务调度**\n52\t**静态站点部署与发布**\n53\t\n54\t**创意生成**\n55\t**网站海报图标等视觉化设计创意**\n56\t\n57\t\n58\t## ==**workbuddy的脑图**==\n59\t\n60\t\n61\t![[WorkBuddy_功能脑图概览.png]]\n62\t\n63\t\n64\t## **WorkBuddy的使用优点\n65\t1.软件整体结构清晰由左侧任务栏右侧运行窗口构成\n66\t2.划分个人主体与企业任务\n67\t有个人助理帮助处理个性化问题\n68\t有企业项目栏并且提供企业项目从需求到验收的全过程模板\n69\t3.知识库的提供，个人文档邮箱的互联提高了便捷性\n70\t\n71\t\n72\t\n73\t\n74\t\n75\t\n76\t\n77\t\n78\t\n79\t\n80\t\n81\t\n82\t"
+          },
+          {
+            "id": "call_13_oaBcRpUaJMCdE82nf8F08119",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\02-AI工具\\Claude使用指南.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 工具\n4\t  - Claude\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# Claude 使用指南\n9\t\n10\tAnthropic 推出的 AI 助手，擅长长文本处理、代码生成和深度推理。\n11\t\n12\t## 版本与模型\n13\t\n14\t| 模型 | 定位 | 上下文窗口 |\n15\t|------|------|-----------|\n16\t| Claude 3.5 Sonnet | 主力，速度与能力平衡 | 200K |\n17\t| Claude 3.5 Haiku | 最快最便宜 | 200K |\n18\t| Claude Opus 4 | 最强推理 | 200K |\n19\t\n20\t## 核心优势\n21\t\n22\t| 能力 | 说明 |\n23\t|------|------|\n24\t| **超长上下文** | 200K tokens，可一次读完一本书 |\n25\t| **代码能力** | SWE-bench 等基准领先 |\n26\t| **工具使用** | 原生支持 MCP 协议、函数调用 |\n27\t| **Artifacts** | 直接生成可交互的前端页面 |\n28\t| **安全性** | Constitutional AI，对齐做得更好 |\n29\t\n30\t## Claude vs Claude Code：不是同一个东西\n31\t\n32\t很多人混淆这两个名字，其实它们是**两层不同的产品**：\n33\t\n34\t```\n35\t┌─────────────────────────────────────────────┐\n36\t│              Claude（模型/大脑）               │\n37\t│  Anthropic 的大语言模型，负责\"思考\"            │\n38\t│  不管你在哪里用它——网页、API、Claude Code      │\n39\t│  背后都是同一个模型在干活                       │\n40\t└─────────────────────┬───────────────────────┘\n41\t                      │ 模型能力被不同方式调用\n42\t    ┌─────────┬───────┼─────────┬─────────┐\n43\t    ▼         ▼       ▼         ▼         ▼\n44\t┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐\n45\t│claude │ │  API  │ │Claude │ │MCP    │ │第三方的│\n46\t│  .ai  │ │       │ │ Code  │ │Server │ │ 集成   │\n47\t│ 网页   │ │ 编程   │ │ 终端   │ │ 工具   │ │       │\n48\t└───────┘ └───────┘ └───────┘ └───────┘ └───────┘\n49\t```\n50\t\n51\t| | **Claude（模型）** | **Claude Code（工具）** |\n52\t|------|-------------------|------------------------|\n53\t| **是什么** | 大语言模型（AI 大脑） | CLI 命令行工具（Agent 外壳） |\n54\t| **类比** | 发动机 | 装了发动机的车 |\n55\t| **能干什么** | 理解语言、推理、生成文本 | 在此基础上：读写你的文件、执行命令、用 Git、连 MCP |\n56\t| **怎么用** | 网页/A PI/第三方集成 | 终端里敲 `claude` 命令 |\n57\t| **和你电脑的关系** | 默认碰不到你的文件 | 直接操作你的项目目录 |\n58\t| **谁在思考** | Claude 模型 | Claude 模型（同上一个大脑） |\n59\t\n60\t### 一句话总结\n61\t\n62\t> **Claude 是大脑，Claude Code 是给这个大脑装了手脚、接入了你的开发环境。**\n63\t\n64\t### 各形式对比\n65\t\n66\t| 使用方式 | 适用场景 | 能碰文件？ | 能跑命令？ | 适合谁 |\n67\t|------|---------|-----------|-----------|--------|\n68\t| **claude.ai** | 日常聊天、写文档、分析 | ❌ | ❌ | 所有人 |\n69\t| **Claude Code** | 写代码、改项目、自动化 | ✅ | ✅ | 开发者 |\n70\t| **API** | 集成到自己应用里 | ❌（除非你自己写） | ❌ | 开发者 |\n71\t| **MCP 生态** | 扩展工具能力 | ✅（通过 Server） | ✅（通过 Server） | 进阶用户 |\n72\t\n73\t> 📌 **你正在用的就是 Claude Code**——所以我能直接读写你的 Obsidian 文件、执行命令。如果只是在 claude.ai 网页版对话，我是碰不到你本地文件的。\n74\t\n75\t## 实用技巧\n76\t\n77\t- **长文档处理**：先让它列出大纲，再逐段深入\n78\t- **代码生成**：描述清楚输入/输出/边界条件\n79\t- **结构化输出**：指定 JSON/YAML 格式\n80\t- **引用来源**：让它标注信息出处，便于验证\n81\t\n82\t---\n83\t\n84\t📚 关联：[[Codex使用指南]] | [[AI助手横向对比]]\n85\t"
+          },
+          {
+            "id": "call_14_tqltQrT0aMhMx3BJYmEl0920",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 对比\n4\t  - AI工具\n5\tcreated: 2026-07-28\n6\t---\n7\t\n8\t# AI 助手横向对比\n9\t\n10\t## 综合对比\n11\t\n12\t| 维度 | Claude | ChatGPT | Gemini | DeepSeek |\n13\t|------|--------|---------|--------|----------|\n14\t| **厂商** | Anthropic | OpenAI | Google | DeepSeek |\n15\t| **上下文** | 200K | 128K | 1M~2M | 128K |\n16\t| **代码** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |\n17\t| **长文本** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |\n18\t| **中文** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |\n19\t| **多模态** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ❌ |\n20\t| **价格** | 中 | 中 | 低 | 极低 |\n21\t| **开源** | ❌ | ❌ | ❌ | ✅ |\n22\t\n23\t## Agent 工具对比\n24\t\n25\t| 维度 | Claude Code | Codex | Cursor | Windsurf |\n26\t|------|-------------|-------|--------|----------|\n27\t| **类型** | CLI Agent | CLI Agent | IDE 插件 | IDE |\n28\t| **模型** | Claude | GPT-4o | 多模型 | 多模型 |\n29\t| **MCP** | ✅ 原生 | ✅ 支持 | ✅ 支持 | ❌ |\n30\t| **Git** | ✅ | ✅ | ✅ | ✅ |\n31\t| **价格** | API 付费 | API 付费 | $20/月 | $15/月 |\n32\t\n33\t## 选择建议\n34\t\n35\t| 场景 | 推荐 |\n36\t|------|------|\n37\t| 长文档分析 | Claude 3.5 Sonnet |\n38\t| 多模态/图像 | GPT-4o / Gemini |\n39\t| 代码 Agent | Claude Code |\n40\t| 低成本/中文 | DeepSeek |\n41\t| 开源自部署 | DeepSeek / Qwen |\n42\t\n43\t---\n44\t\n45\t📚 关联：[[Claude使用指南]] | [[Codex使用指南]]\n46\t"
+          },
+          {
+            "id": "call_15_XeMcp9k4tTnuGe58Z2iF3476",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 对比\n4\t  - Claude\n5\t  - Codex\n6\t  - 实验\n7\tcreated: 2026-07-29\n8\t---\n9\t\n10\t# Claude vs Codex 实战对比\n11\t\n12\t> 同一任务分别用 Claude Code 和 Codex 完成，记录真实体验差异。\n13\t\n14\t---\n15\t\n16\t## 测试任务\n17\t\n18\t**选题**：写一个 Python 脚本，扫描 Obsidian 知识库所有 Markdown 文件，统计字数、Wiki 链接、标签、标题层级、代码块，生成分析报告并标注孤立页面。\n19\t\n20\t**选择理由**：\n21\t- 不简单（需要正则解析、文件遍历、报告生成）\n22\t- 不过难（一个文件，~150 行）\n23\t- 有明确的可验证输出\n24\t- 贴近实际工作场景\n25\t\n26\t---\n27\t\n28\t## Round 1：Claude Code（本会话）\n29\t\n30\t### 给它看什么？\n31\t\n32\t直接告诉它任务描述，没有给任何示例或规范。Claude 自己设计了参数接口、JSON 输出、孤立页面检测。\n33\t\n34\t### 实际发生的过程\n35\t\n36\t| 步骤 | 行为 |\n37\t|------|------|\n38\t| 1. 理解需求 | 自动拆解为：文件扫描 → Markdown 解析 → 统计 → 报告 |\n39\t| 2. 考虑边界 | 中英文混统计、编码错误处理、隐藏目录跳过 |\n40\t| 3. 意外惊喜 | 自动加了 `--json` / `--sort` 参数、孤立页面检测 |\n41\t| 4. 写完后 | 主动运行测试（虽然 Python 没装，但尝试了） |\n42\t\n43\t### 输出产物\n44\t\n45\t`kb_analyzer.py`，约 160 行，结构：\n46\t\n47\t```\n48\t参数解析 (argparse)\n49\t  → 扫描目录 (os.walk, 跳过 .hidden)\n50\t    → 解析文件 (YAML frontmatter, 中英文统计, 正则)\n51\t      → 生成报告 (text/json, 排序, 孤立页面检测)\n52\t```\n53\t\n54\t### 意外设计决策\n55\t\n56\t- Wiki 链接去重后列在报告中，方便检查\n57\t- `--sort words` 按字数排，快速找到最\"厚\"的页面\n58\t- 中文按字符数、英文按单词数分开统计后合并\n59\t- 自动跳过 `index` 和 `日报模板` 这类元页面\n60\t\n61\t---\n62\t\n63\t## Round 2：Codex（你来完成）\n64\t\n65\t### 复制这段 Prompt 喂给 Codex\n66\t\n67\t```\n68\t写一个 Python 脚本，扫描 Obsidian 知识库目录下的所有 .md 文件，\n69\t统计每个文件的：\n70\t- 中文字数和英文单词数\n71\t- Wiki 链接数量（[[...]] 格式）\n72\t- 标题数量和最大深度（H1-H6）\n73\t- 标签数量和去重后的标签列表\n74\t- 代码块数量\n75\t- YAML frontmatter 中的字段\n76\t\n77\t然后生成一个格式化的汇总报告，按字数从多到少排序。\n78\t额外功能：检测孤立页面（没有被任何其他页面通过 Wiki 链接引用的页面）。\n79\t支持 --json 参数输出 JSON 格式。\n80\t```\n81\t\n82\t### 记录这些\n83\t\n84\t| 观察维度 | Claude | Codex |\n85\t|----------|--------|-------|\n86\t| 一次成功？ | 需要调试？（记录轮次） | |\n87\t| 代码风格 | 面向对象？函数式？注释量？ | |\n88\t| 边界处理 | 有没有考虑编码错误、空文件、嵌套目录？ | |\n89\t| 额外想法 | 有什么你没想到但它做了的？ | |\n90\t| 输出长度 | 多少行代码？ | |\n91\t| 对话轮次 | 几轮对话搞定？ | |\n92\t| 整体感觉 | 像跟谁合作？（资深工程师/初级助手/…） | |\n93\t\n94\t---\n95\t\n96\t## 初步观察（Claude 侧）\n97\t\n98\tClaude Code 的行为模式：\n99\t- **主动拆解任务**，不需要我告诉它先做什么后做什么\n100\t- **一口气写完**，没有\"先写框架再补充\"的分步\n101\t- **加了参数设计**（argparse），考虑到了复用性\n102\t- **写完立刻想跑**——会主动验证\n103\t- **中英文统计分开做**——理解中文场景的特殊需求\n104\t- **孤立页面检测**——这个我没要求，它自己加的\n105\t\n106\t> ⚠️ 局限：写代码风格偏\"函数式脚本\"，没有类封装。如果需求膨胀到 500+ 行，可能需要重构。\n107\t\n108\t---\n109\t\n110\t## 下一步\n111\t\n112\t等 Codex 跑完，回来填写 Round 2 部分，然后一起讨论结论。\n113\t\n114\t📚 关联：[[Claude使用指南]] | [[Codex使用指南]] | [[AI助手横向对比]]\n115\t"
+          },
+          {
+            "id": "call_16_q9ynIiO6QFQO9ccqeLGj4022",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\04-每日日报\\日报模板.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\ttags:\n3\t  - 日报\n4\tcreated: 2026-07-28\n5\t---\n6\t\n7\t# 每日日报\n8\t\n9\t> 每日 AI 学习与实践记录。按日期新建笔记，模板如下：\n10\t\n11\t## 日报模板\n12\t\n13\t```markdown\n14\t---\n15\ttags: [日报]\n16\tdate: YYYY-MM-DD\n17\t---\n18\t\n19\t# YYYY-MM-DD 日报\n20\t\n21\t## 今日学习\n22\t\n23\t- \n24\t\n25\t## 实践/项目\n26\t\n27\t- \n28\t\n29\t## 遇到的问题\n30\t\n31\t- \n32\t\n33\t## 明日计划\n34\t\n35\t- \n36\t\n37\t## 参考链接\n38\t\n39\t- \n40\t```\n41\t\n42\t---\n43\t\n44\t📚 关联：[[LLM大语言模型]]\n45\t"
+          },
+          {
+            "id": "call_17_Ps1rSsAUcz5Hwufd6Hjb1086",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\04-每日日报\\2026-7-28日报.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t## **今日研究内容\n2\t\n3\t1.ai基础知识（01-AI概念文档）\n4\t2.学习git的初步使用步骤以及如何将obsidian的内容上传至github。\n5\t## **遇到的问题和困惑**\n6\t1.在建设git时代码多次报错——已解决\n7\t2.obsidian的内容无法实时上传至git中——代理出错已解决\n8\t\n9\t## **明⽇计划**\n10\t\n11\t熟悉git，掌握其中更多的用法，上手Claude code，codex"
+          },
+          {
+            "id": "call_18_2OmVMrFVoQVOxZ5BRkyj4833",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\obsidian1\\第一周\\资料\\articles\\karpathy wiki方法论.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# LLM Wiki\n2\t\n3\tA pattern for building personal knowledge bases using LLMs.\n4\t\n5\tThis is an idea file, it is designed to be copy pasted to your own LLM Agent (e.g. OpenAI Codex, Claude Code, OpenCode / Pi, or etc.). Its goal is to communicate the high level idea, but your agent will build out the specifics in collaboration with you.\n6\t\n7\t## The core idea\n8\t\n9\tMost people's experience with LLMs and documents looks like RAG: you upload a collection of files, the LLM retrieves relevant chunks at query time, and generates an answer. This works, but the LLM is rediscovering knowledge from scratch on every question. There's no accumulation. Ask a subtle question that requires synthesizing five documents, and the LLM has to find and piece together the relevant fragments every time. Nothing is built up. NotebookLM, ChatGPT file uploads, and most RAG systems work this way.\n10\t\n11\tThe idea here is different. Instead of just retrieving from raw documents at query time, the LLM **incrementally builds and maintains a persistent wiki** — a structured, interlinked collection of markdown files that sits between you and the raw sources. When you add a new source, the LLM doesn't just index it for later retrieval. It reads it, extracts the key information, and integrates it into the existing wiki — updating entity pages, revising topic summaries, noting where new data contradicts old claims, strengthening or challenging the evolving synthesis. The knowledge is compiled once and then *kept current*, not re-derived on every query.\n12\t\n13\tThis is the key difference: **the wiki is a persistent, compounding artifact.** The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read. The wiki keeps getting richer with every source you add and every question you ask.\n14\t\n15\tYou never (or rarely) write the wiki yourself — the LLM writes and maintains all of it. You're in charge of sourcing, exploration, and asking the right questions. The LLM does all the grunt work — the summarizing, cross-referencing, filing, and bookkeeping that makes a knowledge base actually useful over time. In practice, I have the LLM agent open on one side and Obsidian open on the other. The LLM makes edits based on our conversation, and I browse the results in real time — following links, checking the graph view, reading the updated pages. Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase.\n16\t\n17\tThis can apply to a lot of different contexts. A few examples:\n18\t\n19\t- **Personal**: tracking your own goals, health, psychology, self-improvement — filing journal entries, articles, podcast notes, and building up a structured picture of yourself over time.\n20\t- **Research**: going deep on a topic over weeks or months — reading papers, articles, reports, and incrementally building a comprehensive wiki with an evolving thesis.\n21\t- **Reading a book**: filing each chapter as you go, building out pages for characters, themes, plot threads, and how they connect. By the end you have a rich companion wiki. Think of fan wikis like [Tolkien Gateway](https://tolkiengateway.net/wiki/Main_Page) — thousands of interlinked pages covering characters, places, events, languages, built by a community of volunteers over years. You could build something like that personally as you read, with the LLM doing all the cross-referencing and maintenance.\n22\t- **Business/team**: an internal wiki maintained by LLMs, fed by Slack threads, meeting transcripts, project documents, customer calls. Possibly with humans in the loop reviewing updates. The wiki stays current because the LLM does the maintenance that no one on the team wants to do.\n23\t- **Competitive analysis, due diligence, trip planning, course notes, hobby deep-dives** — anything where you're accumulating knowledge over time and want it organized rather than scattered.\n24\t\n25\t## Architecture\n26\t\n27\tThere are three layers:\n28\t\n29\t**Raw sources** — your curated collection of source documents. Articles, papers, images, data files. These are immutable — the LLM reads from them but never modifies them. This is your source of truth.\n30\t\n31\t**The wiki** — a directory of LLM-generated markdown files. Summaries, entity pages, concept pages, comparisons, an overview, a synthesis. The LLM owns this layer entirely. It creates pages, updates them when new sources arrive, maintains cross-references, and keeps everything consistent. You read it; the LLM writes it.\n32\t\n33\t**The schema** — a document (e.g. CLAUDE.md for Claude Code or AGENTS.md for Codex) that tells the LLM how the wiki is structured, what the conventions are, and what workflows to follow when ingesting sources, answering questions, or maintaining the wiki. This is the key configuration file — it's what makes the LLM a disciplined wiki maintainer rather than a generic chatbot. You and the LLM co-evolve this over time as you figure out what works for your domain.\n34\t\n35\t## Operations\n36\t\n37\t**Ingest.** You drop a new source into the raw collection and tell the LLM to process it. An example flow: the LLM reads the source, discusses key takeaways with you, writes a summary page in the wiki, updates the index, updates relevant entity and concept pages across the wiki, and appends an entry to the log. A single source might touch 10-15 wiki pages. Personally I prefer to ingest sources one at a time and stay involved — I read the summaries, check the updates, and guide the LLM on what to emphasize. But you could also batch-ingest many sources at once with less supervision. It's up to you to develop the workflow that fits your style and document it in the schema for future sessions.\n38\t\n39\t**Query.** You ask questions against the wiki. The LLM searches for relevant pages, reads them, and synthesizes an answer with citations. Answers can take different forms depending on the question — a markdown page, a comparison table, a slide deck (Marp), a chart (matplotlib), a canvas. The important insight: **good answers can be filed back into the wiki as new pages.** A comparison you asked for, an analysis, a connection you discovered — these are valuable and shouldn't disappear into chat history. This way your explorations compound in the knowledge base just like ingested sources do.\n40\t\n41\t**Lint.** Periodically, ask the LLM to health-check the wiki. Look for: contradictions between pages, stale claims that newer sources have superseded, orphan pages with no inbound links, important concepts mentioned but lacking their own page, missing cross-references, data gaps that could be filled with a web search. The LLM is good at suggesting new questions to investigate and new sources to look for. This keeps the wiki healthy as it grows.\n42\t\n43\t## Indexing and logging\n44\t\n45\tTwo special files help the LLM (and you) navigate the wiki as it grows. They serve different purposes:\n46\t\n47\t**index.md** is content-oriented. It's a catalog of everything in the wiki — each page listed with a link, a one-line summary, and optionally metadata like date or source count. Organized by category (entities, concepts, sources, etc.). The LLM updates it on every ingest. When answering a query, the LLM reads the index first to find relevant pages, then drills into them. This works surprisingly well at moderate scale (~100 sources, ~hundreds of pages) and avoids the need for embedding-based RAG infrastructure.\n48\t\n49\t**log.md** is chronological. It's an append-only record of what happened and when — ingests, queries, lint passes. A useful tip: if each entry starts with a consistent prefix (e.g. `## [2026-04-02] ingest | Article Title`), the log becomes parseable with simple unix tools — `grep \"^## \\[\" log.md | tail -5` gives you the last 5 entries. The log gives you a timeline of the wiki's evolution and helps the LLM understand what's been done recently.\n50\t\n51\t## Optional: CLI tools\n52\t\n53\tAt some point you may want to build small tools that help the LLM operate on the wiki more efficiently. A search engine over the wiki pages is the most obvious one — at small scale the index file is enough, but as the wiki grows you want proper search. [qmd](https://github.com/tobi/qmd) is a good option: it's a local search engine for markdown files with hybrid BM25/vector search and LLM re-ranking, all on-device. It has both a CLI (so the LLM can shell out to it) and an MCP server (so the LLM can use it as a native tool). You could also build something simpler yourself — the LLM can help you vibe-code a naive search script as the need arises.\n54\t\n55\t## Tips and tricks\n56\t\n57\t- **Obsidian Web Clipper** is a browser extension that converts web articles to markdown. Very useful for quickly getting sources into your raw collection.\n58\t- **Download images locally.** In Obsidian Settings → Files and links, set \"Attachment folder path\" to a fixed directory (e.g. `raw/assets/`). Then in Settings → Hotkeys, search for \"Download\" to find \"Download attachments for current file\" and bind it to a hotkey (e.g. Ctrl+Shift+D). After clipping an article, hit the hotkey and all images get downloaded to local disk. This is optional but useful — it lets the LLM view and reference images directly instead of relying on URLs that may break. Note that LLMs can't natively read markdown with inline images in one pass — the workaround is to have the LLM read the text first, then view some or all of the referenced images separately to gain additional context. It's a bit clunky but works well enough.\n59\t- **Obsidian's graph view** is the best way to see the shape of your wiki — what's connected to what, which pages are hubs, which are orphans.\n60\t- **Marp** is a markdown-based slide deck format. Obsidian has a plugin for it. Useful for generating presentations directly from wiki content.\n61\t- **Dataview** is an Obsidian plugin that runs queries over page frontmatter. If your LLM adds YAML frontmatter to wiki pages (tags, dates, source counts), Dataview can generate dynamic tables and lists.\n62\t- The wiki is just a git repo of markdown files. You get version history, branching, and collaboration for free.\n63\t\n64\t## Why this works\n65\t\n66\tThe tedious part of maintaining a knowledge base is not the reading or the thinking — it's the bookkeeping. Updating cross-references, keeping summaries current, noting when new data contradicts old claims, maintaining consistency across dozens of pages. Humans abandon wikis because the maintenance burden grows faster than the value. LLMs don't get bored, don't forget to update a cross-reference, and can touch 15 files in one pass. The wiki stays maintained because the cost of maintenance is near zero.\n67\t\n68\tThe human's job is to curate sources, direct the analysis, ask good questions, and think about what it all means. The LLM's job is everything else.\n69\t\n70\tThe idea is related in spirit to Vannevar Bush's Memex (1945) — a personal, curated knowledge store with associative trails between documents. Bush's vision was closer to this than to what the web became: private, actively curated, with the connections between documents as valuable as the documents themselves. The part he couldn't solve was who does the maintenance. The LLM handles that.\n71\t\n72\t\n73\t## Note\n74\t\n75\tThis document is intentionally abstract. It describes the idea, not a specific implementation. The exact directory structure, the schema conventions, the page formats, the tooling — all of that will depend on your domain, your preferences, and your LLM of choice. Everything mentioned above is optional and modular — pick what's useful, ignore what isn't. For example: your sources might be text-only, so you don't need image handling at all. Your wiki might be small enough that the index file is all you need, no search engine required. You might not care about slide decks and just want markdown pages. You might want a completely different set of output formats. The right way to use this is to share it with your LLM agent and work together to instantiate a version that fits your needs. The document's only job is to communicate the pattern. Your LLM can figure out the rest.\n76\t"
+          },
+          {
+            "id": "call_00_9MTu1QgxJmnphHkCldqX2031",
+            "name": "Glob",
+            "input": {
+              "pattern": "**/index.md",
+              "path": "D:\\obsidian1\\第一周"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "No files found"
+          },
+          {
+            "id": "call_01_YlbJjueqnn9pzNDzFRf07061",
+            "name": "Glob",
+            "input": {
+              "pattern": "**/INDEX*",
+              "path": "D:\\obsidian1\\第一周"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "No files found"
+          },
+          {
+            "id": "call_02_Z8kQzsOMUGmaGtJMFQ2e4085",
+            "name": "Glob",
+            "input": {
+              "pattern": "**/目录*",
+              "path": "D:\\obsidian1\\第一周"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "No files found"
+          },
+          {
+            "id": "call_03_Bg9FqI2nnNkMkDRAaNSY7517",
+            "name": "Grep",
+            "input": {
+              "pattern": "\\[\\[[^\\]\\]]+\\]\\]|\\[[^\\]]+\\]\\([^)]+\\)",
+              "path": "D:\\obsidian1\\第一周",
+              "glob": "*.md",
+              "output_mode": "content",
+              "context": 0,
+              "head_limit": 200
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "03-工具对比\\Claude vs Codex 实战对比.md:71:- Wiki 链接数量（[[...]] 格式）\n03-工具对比\\Claude vs Codex 实战对比.md:114:📚 关联：[[Claude使用指南]] | [[Codex使用指南]] | [[AI助手横向对比]]\n01-AI概念\\Fine-tuning微调.md:54:📚 关联：[[RAG检索增强生成]] | [[Prompt Engineering]]\n资料\\articles\\karpathy wiki方法论.md:21:[Omitted long matching line]\n资料\\articles\\karpathy wiki方法论.md:53:[Omitted long matching line]\n02-AI工具\\Codex使用指南.md:41:📚 关联：[[Claude使用指南]] | [[AI助手横向对比]]\n04-每日日报\\日报模板.md:44:📚 关联：[[LLM大语言模型]]\n01-AI概念\\RAG检索增强生成.md:40:| Embedding | [[向量数据库与Embedding]] |\n01-AI概念\\RAG检索增强生成.md:58:📚 关联：[[向量数据库与Embedding]] | [[Fine-tuning微调]] | [[幻觉问题]]\n01-AI概念\\幻觉问题.md:50:📚 关联：[[LLM大语言模型]] | [[RAG检索增强生成]]\n01-AI概念\\上下文窗口.md:47:📚 关联：[[LLM大语言模型]] | [[Token是什么]] | [[RAG检索增强生成]]\n02-AI工具\\Claude使用指南.md:84:📚 关联：[[Codex使用指南]] | [[AI助手横向对比]]\n02-AI工具\\WorkBuddy功能脑图与优点.md:61:![[WorkBuddy_功能脑图概览.png]]\n03-工具对比\\AI助手横向对比.md:45:📚 关联：[[Claude使用指南]] | [[Codex使用指南]]\n02-AI工具\\Obsidian配置与插件.md:38:- AI 读写 Wiki 链接：`[[页面名]]`\n02-AI工具\\Obsidian配置与插件.md:45:📚 关联：[[Claude使用指南]]\n01-AI概念\\MCP协议.md:70:📚 关联：[[Agent智能体]]\n01-AI概念\\Agent智能体.md:52:📚 关联：[[MCP协议]] | [[RAG检索增强生成]]\n01-AI概念\\LLM大语言模型.md:27:- [[Token是什么]] — LLM 处理文本的最小单位\n01-AI概念\\LLM大语言模型.md:28:- [[上下文窗口]] — 模型一次能记住的内容上限\n01-AI概念\\LLM大语言模型.md:29:- [[幻觉问题]] — 为什么 LLM 会\"编造\"信息\n01-AI概念\\LLM大语言模型.md:45:- [[RAG检索增强生成]] — 如何让 LLM 基于真实文档回答\n01-AI概念\\LLM大语言模型.md:46:- [[Fine-tuning微调]] — 如何定制专属模型\n01-AI概念\\LLM大语言模型.md:47:- [[Agent智能体]] — 让 LLM 自主行动的框架\n01-AI概念\\Prompt Engineering.md:65:📚 关联：[[LLM大语言模型]] | [[Fine-tuning微调]]\n01-AI概念\\Token是什么.md:38:- [OpenAI Tokenizer](https://platform.openai.com/tokenizer) — 在线可视化\n01-AI概念\\Token是什么.md:43:📚 关联：[[LLM大语言模型]] | [[上下文窗口]]\n01-AI概念\\向量数据库与Embedding.md:76:📚 关联：[[RAG检索增强生成]]"
+          },
+          {
+            "id": "call_00_UTrKAjxio4drR63etNWf4165",
+            "name": "Grep",
+            "input": {
+              "pattern": "待补充|placeholder|TODO|WIP|待完成|空缺|未完成|需要补充",
+              "glob": "*.md",
+              "path": "D:\\obsidian1\\第一周",
+              "output_mode": "content"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "No matches found"
+          },
+          {
+            "id": "call_01_SY3vkxc36b6XIfMNHly85726",
+            "name": "Grep",
+            "input": {
+              "pattern": "^type:",
+              "glob": "*.md",
+              "path": "D:\\obsidian1\\第一周",
+              "output_mode": "content"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "No matches found"
+          },
+          {
+            "id": "call_02_mCmSmCBmgj7EfGEwQSC53332",
+            "name": "Grep",
+            "input": {
+              "pattern": "^--",
+              "glob": "*.md",
+              "path": "D:\\obsidian1\\第一周",
+              "output_mode": "content",
+              "context": 2
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "04-每日日报\\日报模板.md:1:---\n04-每日日报\\日报模板.md-2-tags:\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-3-  - 日报\n04-每日日报\\日报模板.md-4-created: 2026-07-28\n04-每日日报\\日报模板.md:5:---\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-6-\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-7-# 每日日报\n--\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-12-\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-13-```markdown\n04-每日日报\\日报模板.md:14:---\n04-每日日报\\日报模板.md-15-tags: [日报]\n04-每日日报\\日报模板.md-16-date: YYYY-MM-DD\n04-每日日报\\日报模板.md:17:---\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-18-\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-19-# YYYY-MM-DD 日报\n--\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-40-```\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-41-\n04-每日日报\\日报模板.md:42:---\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-43-\nD:\\obsidian1\\第一周\\04-每日日报\\日报模板.md-44-📚 关联：[[LLM大语言模型]]\n--\n03-工具对比\\Claude vs Codex 实战对比.md:1:---\n03-工具对比\\Claude vs Codex 实战对比.md-2-tags:\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-3-  - 对比\n--\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-6-  - 实验\n03-工具对比\\Claude vs Codex 实战对比.md-7-created: 2026-07-29\n03-工具对比\\Claude vs Codex 实战对比.md:8:---\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-9-\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-10-# Claude vs Codex 实战对比\n--\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-12-> 同一任务分别用 Claude Code 和 Codex 完成，记录真实体验差异。\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-13-\n03-工具对比\\Claude vs Codex 实战对比.md:14:---\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-15-\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-16-## 测试任务\n--\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-24-- 贴近实际工作场景\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-25-\n03-工具对比\\Claude vs Codex 实战对比.md:26:---\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-27-\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-28-## Round 1：Claude Code（本会话）\n--\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-59-- 自动跳过 `index` 和 `日报模板` 这类元页面\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-60-\n03-工具对比\\Claude vs Codex 实战对比.md:61:---\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-62-\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-63-## Round 2：Codex（你来完成）\n--\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-92-| 整体感觉 | 像跟谁合作？（资深工程师/初级助手/…） | |\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-93-\n03-工具对比\\Claude vs Codex 实战对比.md:94:---\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-95-\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-96-## 初步观察（Claude 侧）\n--\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-106-> ⚠️ 局限：写代码风格偏\"函数式脚本\"，没有类封装。如果需求膨胀到 500+ 行，可能需要重构。\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-107-\n03-工具对比\\Claude vs Codex 实战对比.md:108:---\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-109-\nD:\\obsidian1\\第一周\\03-工具对比\\Claude vs Codex 实战对比.md-110-## 下一步\n--\n03-工具对比\\AI助手横向对比.md:1:---\n03-工具对比\\AI助手横向对比.md-2-tags:\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-3-  - 对比\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-4-  - AI工具\n03-工具对比\\AI助手横向对比.md-5-created: 2026-07-28\n03-工具对比\\AI助手横向对比.md:6:---\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-7-\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-8-# AI 助手横向对比\n--\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-41-| 开源自部署 | DeepSeek / Qwen |\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-42-\n03-工具对比\\AI助手横向对比.md:43:---\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-44-\nD:\\obsidian1\\第一周\\03-工具对比\\AI助手横向对比.md-45-📚 关联：[[Claude使用指南]] | [[Codex使用指南]]\n--\n01-AI概念\\Agent智能体.md:1:---\n01-AI概念\\Agent智能体.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-3-  - AI\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-4-  - Agent\n01-AI概念\\Agent智能体.md-5-created: 2026-07-28\n01-AI概念\\Agent智能体.md:6:---\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-7-\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-8-# Agent 智能体\n--\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-48-- 个人助理：查日历 + 发邮件 + 订机票\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-49-\n01-AI概念\\Agent智能体.md:50:---\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-51-\nD:\\obsidian1\\第一周\\01-AI概念\\Agent智能体.md-52-📚 关联：[[MCP协议]] | [[RAG检索增强生成]]\n--\n01-AI概念\\LLM大语言模型.md:1:---\n01-AI概念\\LLM大语言模型.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-3-  - AI\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-4-  - LLM\n01-AI概念\\LLM大语言模型.md-5-created: 2026-07-28\n01-AI概念\\LLM大语言模型.md:6:---\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-7-\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-8-# LLM 大语言模型\n--\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-21-> 💡 LLM 像一个读过整个互联网的学霸——不是真正\"理解\"世界，而是通过海量文本学会了极其精准的语言模式匹配。\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-22-\n01-AI概念\\LLM大语言模型.md:23:---\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-24-\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-25-## 关键概念\n--\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-39-| Qwen 2.5 | 阿里 | 开源，中文能力强 |\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-40-\n01-AI概念\\LLM大语言模型.md:41:---\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-42-\nD:\\obsidian1\\第一周\\01-AI概念\\LLM大语言模型.md-43-## 延伸阅读\n--\n01-AI概念\\Fine-tuning微调.md:1:---\n01-AI概念\\Fine-tuning微调.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-3-  - AI\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-4-  - Fine-tuning\n01-AI概念\\Fine-tuning微调.md-5-created: 2026-07-28\n01-AI概念\\Fine-tuning微调.md:6:---\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-7-\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-8-# Fine-tuning 微调\n--\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-50-> 💡 最佳实践：RAG + Fine-tuning 结合——RAG 保准确，微调保风格。\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-51-\n01-AI概念\\Fine-tuning微调.md:52:---\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-53-\nD:\\obsidian1\\第一周\\01-AI概念\\Fine-tuning微调.md-54-📚 关联：[[RAG检索增强生成]] | [[Prompt Engineering]]\n--\n01-AI概念\\MCP协议.md:1:---\n01-AI概念\\MCP协议.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-3-  - AI\n--\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-5-  - 协议\n01-AI概念\\MCP协议.md-6-created: 2026-07-28\n01-AI概念\\MCP协议.md:7:---\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-8-\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-9-# MCP 协议（Model Context Protocol）\n--\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-66-- **生态**：社区不断贡献新的 Server（GitHub、Slack、数据库…）\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-67-\n01-AI概念\\MCP协议.md:68:---\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-69-\nD:\\obsidian1\\第一周\\01-AI概念\\MCP协议.md-70-📚 关联：[[Agent智能体]]\n--\n02-AI工具\\WorkBuddy功能脑图与优点.md:1:---\n02-AI工具\\WorkBuddy功能脑图与优点.md-2-tags:\nD:\\obsidian1\\第一周\\02-AI工具\\WorkBuddy功能脑图与优点.md-3-  - 工具\nD:\\obsidian1\\第一周\\02-AI工具\\WorkBuddy功能脑图与优点.md-4-  - WorkBuddy\n02-AI工具\\WorkBuddy功能脑图与优点.md-5-created: 2026-07-28\n02-AI工具\\WorkBuddy功能脑图与优点.md:6:---\nD:\\obsidian1\\第一周\\02-AI工具\\WorkBuddy功能脑图与优点.md-7-\nD:\\obsidian1\\第一周\\02-AI工具\\WorkBuddy功能脑图与优点.md-8-# ==WorkBuddy 功能模块==\n--\n02-AI工具\\Obsidian配置与插件.md:1:---\n02-AI工具\\Obsidian配置与插件.md-2-tags:\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-3-  - 工具\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-4-  - Obsidian\n02-AI工具\\Obsidian配置与插件.md-5-created: 2026-07-28\n02-AI工具\\Obsidian配置与插件.md:6:---\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-7-\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-8-# Obsidian 配置与插件\n--\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-41-- Obsidian 图视图 → 可视化知识结构\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-42-\n02-AI工具\\Obsidian配置与插件.md:43:---\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-44-\nD:\\obsidian1\\第一周\\02-AI工具\\Obsidian配置与插件.md-45-📚 关联：[[Claude使用指南]]\n--\n01-AI概念\\RAG检索增强生成.md:1:---\n01-AI概念\\RAG检索增强生成.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-3-  - AI\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-4-  - RAG\n01-AI概念\\RAG检索增强生成.md-5-created: 2026-07-28\n01-AI概念\\RAG检索增强生成.md:6:---\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-7-\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-8-# RAG 检索增强生成\n--\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-54-> 💡 最佳实践：RAG + Fine-tuning 结合——RAG 保准确，微调保风格。\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-55-\n01-AI概念\\RAG检索增强生成.md:56:---\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-57-\nD:\\obsidian1\\第一周\\01-AI概念\\RAG检索增强生成.md-58-📚 关联：[[向量数据库与Embedding]] | [[Fine-tuning微调]] | [[幻觉问题]]\n--\n01-AI概念\\Prompt Engineering.md:1:---\n01-AI概念\\Prompt Engineering.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-3-  - AI\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-4-  - Prompt\n01-AI概念\\Prompt Engineering.md-5-created: 2026-07-28\n01-AI概念\\Prompt Engineering.md:6:---\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-7-\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-8-# Prompt Engineering 提示工程\n--\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-61-- 泄露敏感信息 → 永远不要在 Prompt 中放密码/密钥\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-62-\n01-AI概念\\Prompt Engineering.md:63:---\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-64-\nD:\\obsidian1\\第一周\\01-AI概念\\Prompt Engineering.md-65-📚 关联：[[LLM大语言模型]] | [[Fine-tuning微调]]\n--\n02-AI工具\\Codex使用指南.md:1:---\n02-AI工具\\Codex使用指南.md-2-tags:\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-3-  - 工具\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-4-  - Codex\n02-AI工具\\Codex使用指南.md-5-created: 2026-07-28\n02-AI工具\\Codex使用指南.md:6:---\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-7-\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-8-# Codex 使用指南\n--\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-37-- Bug 修复和调试\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-38-\n02-AI工具\\Codex使用指南.md:39:---\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-40-\nD:\\obsidian1\\第一周\\02-AI工具\\Codex使用指南.md-41-📚 关联：[[Claude使用指南]] | [[AI助手横向对比]]\n--\n01-AI概念\\Token是什么.md:1:---\n01-AI概念\\Token是什么.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-3-  - AI\n--\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-5-  - 基础概念\n01-AI概念\\Token是什么.md-6-created: 2026-07-28\n01-AI概念\\Token是什么.md:7:---\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-8-\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-9-# Token 是什么\n--\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-39-- `tiktoken` — OpenAI 官方 Python 库\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-40-\n01-AI概念\\Token是什么.md:41:---\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-42-\nD:\\obsidian1\\第一周\\01-AI概念\\Token是什么.md-43-📚 关联：[[LLM大语言模型]] | [[上下文窗口]]\n--\n01-AI概念\\上下文窗口.md:1:---\n01-AI概念\\上下文窗口.md-2-tags:\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-3-  - AI\n--\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-5-  - 基础概念\n01-AI概念\\上下文窗口.md-6-created: 2026-07-28\n01-AI概念\\上下文窗口.md:7:---\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-8-\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-9-# 上下文窗口（Context Window）\n--\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-43-- **KV Cache 优化**：底层加速长上下文的推理\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-44-\n01-AI概念\\上下文窗口.md:45:---\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-46-\nD:\\obsidian1\\第一周\\01-AI概念\\上下文窗口.md-47-📚 关联：[[LLM大语言模型]] | [[Token是什么]] | [[RAG检索增强生成]]\n--\n02-AI工具\\Claude使用指南.md:1:---\n02-AI工具\\Claude使用指南.md-2-tags:\nD:\\obsidian1\\第一周\\02-AI工具\\Claude使用指南.md-3-  - 工具\nD:\\obsidian1\\第一周\\02-AI工具\\Claude使用指南.md-4-  - Claude\n\n[Showing results with pagination = limit: 250]"
+          }
+        ],
+        "asyncStatus": "completed",
+        "agentId": "aa354568af65fc3cb",
+        "startedAt": 1785297583617,
+        "result": "Let me search for placeholder/stale content indicators.",
+        "completedAt": 1785297723200
+      }
+    }
   },
   "usage": {
     "model": "haiku",
-    "inputTokens": 1433,
+    "inputTokens": 2680,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 51328,
+    "cacheReadInputTokens": 56064,
     "contextWindow": 200000,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 52761,
-    "percentage": 26
+    "contextTokens": 58744,
+    "percentage": 29
   }
 }
