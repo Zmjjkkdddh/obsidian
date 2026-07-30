@@ -11,10 +11,10 @@
             "id": "a3f852c83b5d8624",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -200,12 +200,14 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "45ec27df93030640",
+  "active": "a3f852c83b5d8624",
   "lastOpenFiles": [
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
+    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+    "04-每日日报/2026-7-30日报.md",
     "01-AI概念/MCP协议.md",
     "06-karpathy wiki方法论/karpathy wiki方法论.md",
     "04-每日日报/日报模板.md",
-    "04-每日日报/2026-7-30日报.md",
     "04-每日日报/2026-7-28日报.md",
     "04-每日日报/2026-7-29日报.md",
     "index.md",
@@ -217,8 +219,6 @@
     "scan-c.ps1",
     "scan-c.ps1.tmp.9712.fd27e59df555",
     "04-每日日报/实践.md",
-    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
-    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "01-AI概念/Token是什么.md",
     "01-AI概念/LLM大语言模型.md",
     "01-AI概念/幻觉问题.md",
