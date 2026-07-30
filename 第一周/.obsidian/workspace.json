@@ -152,13 +152,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01-AI概念/MCP协议.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "MCP协议 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -201,14 +200,14 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "d0f1200568d749c7",
+  "active": "45ec27df93030640",
   "lastOpenFiles": [
+    "01-AI概念/MCP协议.md",
     "06-karpathy wiki方法论/karpathy wiki方法论.md",
     "04-每日日报/日报模板.md",
     "04-每日日报/2026-7-30日报.md",
     "04-每日日报/2026-7-28日报.md",
     "04-每日日报/2026-7-29日报.md",
-    "01-AI概念/MCP协议.md",
     "index.md",
     "01-AI概念/向量数据库与Embedding.md",
     "01-AI概念/Agent智能体.md",
