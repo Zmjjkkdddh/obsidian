@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e9e4be833a846355",
+        "id": "2096c6ec580e1715",
         "type": "tabs",
         "children": [
           {
-            "id": "a3f852c83b5d8624",
+            "id": "5a12468e96742fe7",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -200,8 +200,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "a3f852c83b5d8624",
+  "active": "5a12468e96742fe7",
   "lastOpenFiles": [
+    "01-AI概念/幻觉问题.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "04-每日日报/2026-7-30日报.md",
@@ -221,7 +222,6 @@
     "04-每日日报/实践.md",
     "01-AI概念/Token是什么.md",
     "01-AI概念/LLM大语言模型.md",
-    "01-AI概念/幻觉问题.md",
     "index.md.tmp.9712.83c5de8883b5",
     "03-工具对比/AI助手横向对比.md.tmp.9712.66d86aa9b9ca",
     "04-每日日报/2026-7-29日报.md.tmp.9712.6066e0ef0aa2",
