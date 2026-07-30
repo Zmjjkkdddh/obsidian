@@ -11,14 +11,10 @@
             "id": "a987bfbcc40ce37e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2026-07-30.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-07-30"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -205,22 +201,24 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "a987bfbcc40ce37e",
+  "active": "148ec065a60a749f",
   "lastOpenFiles": [
+    "04-每日日报/2026-7-28日报.md",
+    "04-每日日报/2026-7-29日报.md",
+    "04-每日日报/2026-7-30日报.md",
+    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
+    "01-AI概念/LLM大语言模型.md",
+    "01-AI概念/幻觉问题.md",
+    "06-karpathy wiki方法论/karpathy wiki方法论.md",
+    "2026-07-30.md",
     "04-每日日报/实践.md",
     "02-AI工具/Claude Code 详细指南.md",
-    "04-每日日报/2026-7-29日报.md",
-    "2026-07-30.md",
-    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
-    "04-每日日报/2026-7-30日报.md",
-    "04-每日日报/2026-7-28日报.md",
     "07-工作汇报/未命名.md",
     "04-每日日报/日报模板.md",
-    "06-karpathy wiki方法论/karpathy wiki方法论.md",
     "02-AI工具/Codex使用指南.md",
     "02-AI工具/Obsidian配置与插件.md",
     "02-AI工具/Claude使用指南.md",
-    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "index.md",
     "07-工作汇报",
     "05-workbuddy上手体验/未命名",
@@ -240,14 +238,12 @@
     "list-downloads.ps1",
     "list-downloads.ps1.tmp.13360.9ab54c2a327c",
     "未命名.canvas",
-    "01-AI概念/幻觉问题.md",
     "01-AI概念/Fine-tuning微调.md",
     "03-工具对比/AI助手横向对比.md",
     "03-工具对比/Claude vs Codex 实战对比.md",
     "01-AI概念/上下文窗口.md",
     "tmp/这是一个临时文件，测试git.md",
     "01-AI概念/MCP协议.md",
-    "01-AI概念/向量数据库与Embedding.md",
-    "01-AI概念/Agent智能体.md"
+    "01-AI概念/向量数据库与Embedding.md"
   ]
 }
