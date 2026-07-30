@@ -201,4 +201,4 @@ WorkBuddy 做的事：
 
 ---
 
-📚 关联：[[WorkBuddy功能脑图]] | [[Claude使用指南]] | [[Claude vs Codex 实战对比]]
+📚 关联：[[05-workbuddy上手体验/WorkBuddy功能脑图与优点]] | [[Claude使用指南]] | [[05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告]]

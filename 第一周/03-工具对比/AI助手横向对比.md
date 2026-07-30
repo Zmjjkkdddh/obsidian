@@ -43,4 +43,4 @@ type: comparison
 
 ---
 
-📚 关联：[[Claude使用指南]] | [[Codex使用指南]] | [[Claude vs Codex 实战对比]]
+📚 关联：[[Claude使用指南]] | [[Codex使用指南]]
