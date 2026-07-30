@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-AI概念/上下文窗口.md",
+                "file": "Mac-CCSwitch安装指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "上下文窗口"
+              "title": "Mac-CCSwitch安装指南"
             }
           }
         ]
@@ -204,8 +204,16 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "148ec065a60a749f",
+  "active": "5a12468e96742fe7",
   "lastOpenFiles": [
+    "01-AI概念/上下文窗口.md",
+    "Mac-v2ray完整指南.md",
+    "Mac-CCSwitch安装指南.md",
+    "Mac-CCSwitch安装指南.md.tmp.25076.a447dd4ff2da",
+    "Mac-v2ray完整指南.md.tmp.25076.66b832c97a4a",
+    "Mac-v2ray完整指南.md.tmp.25076.b2a91606f0d4",
+    "Mac-v2ray完整指南.md.tmp.25076.21165ea9139e",
+    "Mac-v2ray完整指南.md.tmp.23256.0f28216ae801",
     "01-AI概念/向量数据库与Embedding.md",
     "01-AI概念/MCP协议.md",
     "01-AI概念/Fine-tuning微调.md",
@@ -230,21 +238,13 @@
     "04-每日日报/日报模板.md",
     "index.md",
     "01-AI概念/Agent智能体.md",
-    "01-AI概念/上下文窗口.md",
     "scan-c.ps1",
     "scan-c.ps1.tmp.9712.fd27e59df555",
     "index.md.tmp.9712.83c5de8883b5",
     "03-工具对比/AI助手横向对比.md.tmp.9712.66d86aa9b9ca",
-    "04-每日日报/2026-7-29日报.md.tmp.9712.6066e0ef0aa2",
-    "2026-07-30.md",
-    "07-工作汇报/未命名.md",
-    "07-工作汇报",
-    "05-workbuddy上手体验/未命名",
-    "06-karpathy wiki方法论/未命名",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "Pasted image 20260730112410.png",
-    "vault_report_2026-07-30.html",
     "Pasted image 20260730100703.png",
     "WorkBuddy_功能脑图概览.png",
     "未命名.canvas"
