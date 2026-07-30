@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04-每日日报/2026-7-29日报.md",
+                "file": "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-7-29日报"
+              "title": "WorkBuddy 搭建 Agent 实操指南"
             }
           }
         ]
@@ -207,9 +207,14 @@
   },
   "active": "4fe52f1ba4651639",
   "lastOpenFiles": [
-    "04-每日日报/日报模板.md",
+    "workbuddy上手体验/利用workBuddy进行对obsidian的自动化更新与提醒.md",
+    "Pasted image 20260730100703.png",
     "04-每日日报/实践.md",
+    "workbuddy上手体验",
+    "index.md.tmp.16312.c13a1e9b2139",
+    "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "04-每日日报/2026-7-29日报.md",
+    "04-每日日报/日报模板.md",
     "find-cc.ps1",
     "find-cc.ps1.tmp.29572.457629814906",
     "WorkBuddy_功能脑图概览.png",
@@ -227,8 +232,6 @@
     "02-AI工具/Obsidian配置与插件.md",
     "02-AI工具/WorkBuddy功能脑图与优点.md",
     "01-AI概念/幻觉问题.md",
-    "jerry-runner.html.tmp.13360.e5fcf565c8ee",
-    "jerry-runner.html.tmp.13360.c9a83d857dd4",
     "index.md",
     "01-AI概念/Fine-tuning微调.md",
     "03-工具对比/AI助手横向对比.md",
@@ -241,8 +244,6 @@
     "01-AI概念/Agent智能体.md",
     "01-AI概念/LLM大语言模型.md",
     "01-AI概念/RAG检索增强生成.md",
-    "01-AI概念/Token是什么.md",
-    "01-AI概念/Prompt Engineering.md",
-    "01-AI概念.md"
+    "01-AI概念/Token是什么.md"
   ]
 }

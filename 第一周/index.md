@@ -36,6 +36,7 @@ type: meta
 | [[02-AI工具/Claude Code 详细指南]] | 从安装到精通，手把手 Claude Code 教程 | ~1200 |
 | [[02-AI工具/Codex使用指南]] | OpenAI CLI Agent 概述 | ~300 |
 | [[02-AI工具/WorkBuddy功能脑图]] | WorkBuddy 功能模块脑图 | ~200 |
+| [[02-AI工具/WorkBuddy 搭建 Agent 实操指南]] | 用 WorkBuddy 从零搭建 Agent 的完整流程 | ~800 |
 | [[02-AI工具/Obsidian配置与插件]] | Obsidian + AI 协作配置 | ~400 |
 
 ## 03-工具对比
