@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+                "file": "2026-07-30.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "利用workBuddy搭工作流分析obsidian并自动生成可视化报告"
+              "title": "2026-07-30"
             }
           }
         ]
@@ -205,16 +205,18 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "45ec27df93030640",
+  "active": "a987bfbcc40ce37e",
   "lastOpenFiles": [
-    "04-每日日报/2026-7-30日报.md",
+    "04-每日日报/实践.md",
+    "02-AI工具/Claude Code 详细指南.md",
     "04-每日日报/2026-7-29日报.md",
+    "2026-07-30.md",
+    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+    "04-每日日报/2026-7-30日报.md",
     "04-每日日报/2026-7-28日报.md",
     "07-工作汇报/未命名.md",
-    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "04-每日日报/日报模板.md",
     "06-karpathy wiki方法论/karpathy wiki方法论.md",
-    "02-AI工具/Claude Code 详细指南.md",
     "02-AI工具/Codex使用指南.md",
     "02-AI工具/Obsidian配置与插件.md",
     "02-AI工具/Claude使用指南.md",
@@ -230,7 +232,6 @@
     "workbuddy上手体验/未命名.md",
     "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "Pasted image 20260730100703.png",
-    "04-每日日报/实践.md",
     "05-workbuddy上手体验",
     "index.md.tmp.16312.c13a1e9b2139",
     "find-cc.ps1",
@@ -247,7 +248,6 @@
     "tmp/这是一个临时文件，测试git.md",
     "01-AI概念/MCP协议.md",
     "01-AI概念/向量数据库与Embedding.md",
-    "01-AI概念/Agent智能体.md",
-    "01-AI概念/LLM大语言模型.md"
+    "01-AI概念/Agent智能体.md"
   ]
 }
