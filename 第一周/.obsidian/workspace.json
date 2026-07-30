@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workbuddy上手体验/未命名.md",
+                "file": "workbuddy上手体验/利用workBuddy进行对obsidian的自动化更新与提醒.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "利用workBuddy进行对obsidian的自动化更新与提醒"
             }
           }
         ]
@@ -207,8 +207,8 @@
   },
   "active": "4fe52f1ba4651639",
   "lastOpenFiles": [
-    "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "workbuddy上手体验/未命名.md",
+    "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "workbuddy上手体验/利用workBuddy进行对obsidian的自动化更新与提醒.md",
     "Pasted image 20260730100703.png",
     "04-每日日报/实践.md",
