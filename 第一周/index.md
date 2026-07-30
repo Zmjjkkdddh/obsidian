@@ -57,7 +57,7 @@ type: meta
 
 | 页面 | 摘要 |
 |------|------|
-| [[资料/articles/karpathy wiki方法论]] | LLM Wiki 核心理念：渐进式知识库构建 |
+| [[karpathy wiki方法论]] | LLM Wiki 核心理念：渐进式知识库构建 |
 
 ---
 

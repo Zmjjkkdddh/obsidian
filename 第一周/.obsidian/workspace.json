@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "利用workBuddy搭工作流分析obsidian并自动生成可视化报告"
+              "title": "index"
             }
           }
         ]
@@ -207,8 +207,9 @@
   },
   "active": "4fe52f1ba4651639",
   "lastOpenFiles": [
-    "workbuddy上手体验/WorkBuddy功能脑图与优点.md",
-    "workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+    "06-karpathy wiki方法论/karpathy wiki方法论.md",
+    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "Pasted image 20260730112429.png",
     "Pasted image 20260730112410.png",
     "vault_report_2026-07-30.html",
@@ -217,7 +218,7 @@
     "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "Pasted image 20260730100703.png",
     "04-每日日报/实践.md",
-    "workbuddy上手体验",
+    "05-workbuddy上手体验",
     "index.md.tmp.16312.c13a1e9b2139",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/日报模板.md",
@@ -240,7 +241,6 @@
     "01-AI概念/Fine-tuning微调.md",
     "03-工具对比/AI助手横向对比.md",
     "03-工具对比/Claude vs Codex 实战对比.md",
-    "资料/articles/karpathy wiki方法论.md",
     "01-AI概念/上下文窗口.md",
     "tmp/这是一个临时文件，测试git.md",
     "01-AI概念/MCP协议.md",
