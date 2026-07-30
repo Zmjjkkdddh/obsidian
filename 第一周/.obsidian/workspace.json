@@ -11,10 +11,14 @@
             "id": "4fe52f1ba4651639",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "04-每日日报/2026-7-29日报.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-7-29日报"
             }
           }
         ]
@@ -182,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -201,11 +205,14 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "d0f1200568d749c7",
+  "active": "4fe52f1ba4651639",
   "lastOpenFiles": [
+    "04-每日日报/日报模板.md",
     "04-每日日报/实践.md",
-    "WorkBuddy_功能脑图概览.png",
     "04-每日日报/2026-7-29日报.md",
+    "find-cc.ps1",
+    "find-cc.ps1.tmp.29572.457629814906",
+    "WorkBuddy_功能脑图概览.png",
     "list-downloads.ps1",
     "list-downloads.ps1.tmp.13360.9ab54c2a327c",
     "scan.ps1",
@@ -219,12 +226,9 @@
     "02-AI工具/Codex使用指南.md",
     "02-AI工具/Obsidian配置与插件.md",
     "02-AI工具/WorkBuddy功能脑图与优点.md",
-    "04-每日日报/日报模板.md",
     "01-AI概念/幻觉问题.md",
     "jerry-runner.html.tmp.13360.e5fcf565c8ee",
     "jerry-runner.html.tmp.13360.c9a83d857dd4",
-    "jerry-runner.html.tmp.13360.220efd4f0ce3",
-    "jerry-runner.html.tmp.13360.2c0bfc90446b",
     "index.md",
     "01-AI概念/Fine-tuning微调.md",
     "03-工具对比/AI助手横向对比.md",
