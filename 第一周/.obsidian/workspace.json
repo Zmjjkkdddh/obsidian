@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mac-ClaudeCode安装指南.md",
+                "file": "04-每日日报/实践.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mac-ClaudeCode安装指南"
+              "title": "实践"
             }
           }
         ],
@@ -220,7 +220,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 864.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -237,14 +237,16 @@
   },
   "active": "9b1559f684ddf640",
   "lastOpenFiles": [
-    "04-每日日报/2026-7-28日报.md",
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
+    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "Mac-ClaudeCode安装指南.md",
+    "open-firewall.bat",
+    "open-firewall.bat.tmp.23440.ae70cd3a6ea9",
+    "04-每日日报/2026-7-28日报.md",
     "Mac-ClaudeCode安装指南.md.tmp.23440.56e3d3fb8817",
     "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/2026-7-30日报.md",
-    "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
-    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "04-每日日报/实践.md",
     "01-AI概念/Agent智能体.md",
     "01-AI概念/MCP协议.md",
@@ -268,11 +270,8 @@
     "02-AI工具/Claude使用指南.md",
     "02-AI工具/Codex使用指南.md",
     "02-AI工具/Obsidian配置与插件.md",
-    "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "AI知识库介绍.md.tmp.38472.697d8954a0bb",
     "scan-c.ps1",
-    "scan-c.ps1.tmp.9712.fd27e59df555",
-    "index.md.tmp.9712.83c5de8883b5",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "Pasted image 20260730112410.png",
