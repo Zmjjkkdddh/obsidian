@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "07-工作汇报/AI知识库介绍.md",
+                "file": "04-每日日报/2026-7-28日报.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI知识库介绍"
+              "title": "2026-7-28日报"
             }
           }
         ]
@@ -208,6 +208,7 @@
   },
   "active": "5a12468e96742fe7",
   "lastOpenFiles": [
+    "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-28日报.md",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/2026-7-30日报.md",
@@ -237,7 +238,6 @@
     "02-AI工具/Codex使用指南.md",
     "02-AI工具/Obsidian配置与插件.md",
     "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
-    "07-工作汇报/AI知识库介绍.md",
     "AI知识库介绍.md.tmp.38472.697d8954a0bb",
     "04-每日日报/日报模板.md",
     "scan-c.ps1",
