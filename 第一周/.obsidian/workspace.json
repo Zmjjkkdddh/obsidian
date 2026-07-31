@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "2026-7-28日报"
             }
+          },
+          {
+            "id": "39417f6d9a4a2423",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mac-ClaudeCode安装指南.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mac-ClaudeCode安装指南"
+            }
+          },
+          {
+            "id": "9b1559f684ddf640",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mac-ClaudeCode安装指南.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mac-ClaudeCode安装指南"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -187,11 +216,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 480.5
+    "width": 864.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,10 +235,12 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "5a12468e96742fe7",
+  "active": "9b1559f684ddf640",
   "lastOpenFiles": [
-    "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-28日报.md",
+    "Mac-ClaudeCode安装指南.md",
+    "Mac-ClaudeCode安装指南.md.tmp.23440.56e3d3fb8817",
+    "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/2026-7-30日报.md",
     "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
@@ -239,11 +270,9 @@
     "02-AI工具/Obsidian配置与插件.md",
     "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
     "AI知识库介绍.md.tmp.38472.697d8954a0bb",
-    "04-每日日报/日报模板.md",
     "scan-c.ps1",
     "scan-c.ps1.tmp.9712.fd27e59df555",
     "index.md.tmp.9712.83c5de8883b5",
-    "03-工具对比/AI助手横向对比.md.tmp.9712.66d86aa9b9ca",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "Pasted image 20260730112410.png",
