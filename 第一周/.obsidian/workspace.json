@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "未命名.md",
+                "file": "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "利用workBuddy搭工作流分析obsidian并自动生成可视化报告"
             }
           }
         ],
@@ -235,14 +235,15 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "148ec065a60a749f",
+  "active": "9b1559f684ddf640",
   "lastOpenFiles": [
+    "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
+    "未命名.md",
     "项目汇报PPT/check.py",
     "项目汇报PPT/第一周项目汇报.pptx",
     "项目汇报PPT/build_ppt.py",
     "项目汇报PPT",
     "01-AI概念/agent skill.md",
-    "未命名.md",
     "04-每日日报/实践.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
@@ -269,7 +270,6 @@
     "Mac-CCSwitch安装指南.md.tmp.25076.a447dd4ff2da",
     "Mac-v2ray完整指南.md.tmp.25076.66b832c97a4a",
     "Mac-v2ray完整指南.md.tmp.25076.b2a91606f0d4",
-    "Mac-v2ray完整指南.md.tmp.25076.21165ea9139e",
     "06-karpathy wiki方法论/karpathy wiki方法论.md",
     "02-AI工具/Claude Code 详细指南.md",
     "02-AI工具/Claude使用指南.md",

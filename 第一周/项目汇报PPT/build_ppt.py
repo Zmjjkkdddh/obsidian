@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """第一周项目汇报 PPT 生成脚本（python-pptx 1.0.2）
 主题：AI 工具上手与 WorkBuddy 自动化实践
-受众：管理层 | 风格：商务浅色 | 页数：16
+受众：管理层 | 风格：商务浅色 | 页数：17
 """
 from pptx import Presentation
 from pptx.util import Inches, Pt, Emu
@@ -22,7 +22,7 @@ SOFT   = "F4F6F9"   # 浅底
 DARK   = "232A33"   # 正文深
 FONT   = "Microsoft YaHei"
 
-TOTAL = 16
+TOTAL = 17
 W, H = 13.333, 7.5
 
 prs = Presentation()
@@ -269,6 +269,35 @@ text(s, 8.3, 2.75, 4.3, 3.5,
 footer(s, 6)
 
 # =====================================================================
+# Slide 6b — AI 基础知识要点
+# =====================================================================
+s = slide()
+title_bar(s, 'AI 基础知识要点', 'AI FUNDAMENTALS')
+text(s, 0.85, 1.6, 11.6, 0.4,
+     [{'runs': [('本周系统掌握 10 个 AI 核心概念，构成工具实践与自动化的知识底座（一句话释义）：', 13, BLUE, True)]}])
+concepts = [
+    ('LLM 大语言模型', '理解并生成自然语言的 AI 基础模型', BLUE),
+    ('Token', '模型处理的最小文本单位，也决定计费', ACCENT),
+    ('上下文窗口', '模型单次能"记住"的最大文本量', BLUE),
+    ('幻觉', '生成看似合理却错误的内容', ACCENT),
+    ('Agent 智能体', '能推理、调用工具自主完成任务', BLUE),
+    ('RAG 检索增强', '先检索资料再生成，抑制幻觉', ACCENT),
+    ('向量数据库', '用语义向量存储与检索知识', BLUE),
+    ('MCP 协议', 'AI 工具统一通信标准，即插即用', ACCENT),
+    ('Prompt 工程', '用提示词引导模型更准地输出', BLUE),
+    ('Fine-tuning 微调', '用专属数据定制模型能力', ACCENT),
+]
+cxs = [0.6, 3.03, 5.46, 7.89, 10.32]; cw = 2.25
+cys = [2.15, 4.35]; chh = 1.95
+for i, (t, d, ac) in enumerate(concepts):
+    x = cxs[i % 5]; y = cys[i // 5]
+    rect(s, x, y, cw, chh, fill=BG, line=LIGHT, lw=1)
+    rect(s, x, y, cw, 0.09, fill=ac)
+    text(s, x + 0.16, y + 0.22, cw - 0.3, 0.5, [{'runs': [(t, 13, NAVY, True)]}])
+    text(s, x + 0.16, y + 0.78, cw - 0.32, 1.0, [{'runs': [(d, 11, GRAY, False)], 'line_spacing': 1.12}])
+footer(s, 7)
+
+# =====================================================================
 # Slide 7 — 成果二：WorkBuddy 自动化工作流
 # =====================================================================
 s = slide()
@@ -322,7 +351,7 @@ text(s, 7.0, 2.6, 5.5, 3.7,
       {'runs': [('• 编码 Agent 适合"脚手架 + 迭代"，关键在需求拆解与验收', 12, DARK, False)], 'space_after': 9, 'line_spacing': 1.12},
       {'runs': [('• WorkBuddy 优势在"多模块 + 连接器 + 工作流"一体化', 12, DARK, False)], 'space_after': 9, 'line_spacing': 1.12},
       {'runs': [('• 选择建议：按任务类型组合使用，而非单一依赖', 12, DARK, False)], 'line_spacing': 1.12}])
-footer(s, 8)
+footer(s, 9)
 
 # =====================================================================
 # Slide 9 — 关键数据看板
@@ -344,7 +373,7 @@ ys = [1.85, 4.05]; ch = 1.95
 for i, (b, l, sub, ac) in enumerate(metrics):
     x = xs[i % 4]; y = ys[i // 4]
     card(s, x, y, cw, ch, b, l, sub, ac, big_sz=40)
-footer(s, 9)
+footer(s, 10)
 
 # =====================================================================
 # Slide 10 — 方法论：LLM Wiki
@@ -370,7 +399,7 @@ rect(s, 0.6, 4.75, 0.12, 1.6, fill=ACCENT)
 text(s, 0.95, 4.95, 11.5, 0.45, [{'runs': [('核心理念：知识可"复利"', 15, NAVY, True)]}])
 text(s, 0.95, 5.45, 11.6, 0.85,
      [{'runs': [('传统 RAG 每次提问都从头检索、无积累；LLM Wiki 由 LLM 增量构建并持续维护持久知识库——交叉引用已就位、矛盾已标注、综合已成型，越用越厚。适用于个人、研究、团队内部 wiki 与竞品分析。', 12, DARK, False)], 'line_spacing': 1.15}])
-footer(s, 10)
+footer(s, 11)
 
 # =====================================================================
 # Slide 11 — 问题与解决
@@ -392,7 +421,7 @@ for i, (p, sol, ac) in enumerate(items):
          [{'runs': [('问题  ', 11, ac, True), (p, 13, NAVY, True)], 'line_spacing': 1.05}], anchor=MSO_ANCHOR.MIDDLE)
     text(s, 8.4, ry + 0.12, 4.2, 0.8,
          [{'runs': [('解决  ', 11, '2E8B57', True), (sol, 12, DARK, False)], 'line_spacing': 1.05}], anchor=MSO_ANCHOR.MIDDLE)
-footer(s, 11)
+footer(s, 12)
 
 # =====================================================================
 # Slide 12 — 价值与影响
@@ -419,7 +448,7 @@ text(s, 7.05, 2.7, 5.5, 3.0,
       {'runs': [('• 降低新人上手 AI 工具的学习曲线', 13, DARK, False)], 'line_spacing': 1.12}])
 text(s, 6.7, 5.95, 6.03, 0.5,
      [{'runs': [('* 量化收益待团队试点后测算（方向性预估）', 10, GRAY, False)], 'align': PP_ALIGN.CENTER}])
-footer(s, 12)
+footer(s, 13)
 
 # =====================================================================
 # Slide 13 — 下一步计划
@@ -439,7 +468,7 @@ for x, (when, t, pts, ac) in zip(px, phases):
     text(s, x + 0.25, 2.65, pw - 0.5, 0.5, [{'runs': [(t, 16, NAVY, True)]}])
     paras = [{'runs': [('• ' + p, 13, DARK, False)], 'space_after': 12, 'line_spacing': 1.12} for p in pts]
     text(s, x + 0.25, 3.35, pw - 0.5, 2.9, paras)
-footer(s, 13)
+footer(s, 14)
 
 # =====================================================================
 # Slide 14 — 风险与所需支持
@@ -464,7 +493,7 @@ text(s, 7.05, 2.65, 5.5, 3.6,
       {'runs': [('• 试点所需的连接器和环境资源', 13, DARK, False)], 'space_after': 11, 'line_spacing': 1.12},
       {'runs': [('• 方法论评审与推广节奏确认', 13, DARK, False)], 'space_after': 11, 'line_spacing': 1.12},
       {'runs': [('• 月度复盘报告的受众与反馈机制', 13, DARK, False)], 'line_spacing': 1.12}])
-footer(s, 14)
+footer(s, 15)
 
 # =====================================================================
 # Slide 15 — 总结（一句话结论）
