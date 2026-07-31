@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04-每日日报/2026-7-28日报.md",
+                "file": "07-工作汇报/AI知识库介绍.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-7-28日报"
+              "title": "AI知识库介绍"
             }
           }
         ]
@@ -187,7 +187,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -208,11 +208,11 @@
   },
   "active": "5a12468e96742fe7",
   "lastOpenFiles": [
+    "04-每日日报/2026-7-28日报.md",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/2026-7-30日报.md",
     "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
-    "04-每日日报/2026-7-28日报.md",
     "04-每日日报/实践.md",
     "01-AI概念/Agent智能体.md",
     "01-AI概念/MCP协议.md",
