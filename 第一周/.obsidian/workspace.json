@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04-每日日报/实践.md",
+                "file": "未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "实践"
+              "title": "未命名"
             }
           }
         ],
@@ -235,8 +235,15 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "9b1559f684ddf640",
+  "active": "148ec065a60a749f",
   "lastOpenFiles": [
+    "项目汇报PPT/check.py",
+    "项目汇报PPT/第一周项目汇报.pptx",
+    "项目汇报PPT/build_ppt.py",
+    "项目汇报PPT",
+    "01-AI概念/agent skill.md",
+    "未命名.md",
+    "04-每日日报/实践.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "Mac-ClaudeCode安装指南.md",
@@ -247,7 +254,6 @@
     "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/2026-7-30日报.md",
-    "04-每日日报/实践.md",
     "01-AI概念/Agent智能体.md",
     "01-AI概念/MCP协议.md",
     "01-AI概念/Prompt Engineering.md",
@@ -264,14 +270,9 @@
     "Mac-v2ray完整指南.md.tmp.25076.66b832c97a4a",
     "Mac-v2ray完整指南.md.tmp.25076.b2a91606f0d4",
     "Mac-v2ray完整指南.md.tmp.25076.21165ea9139e",
-    "Mac-v2ray完整指南.md.tmp.23256.0f28216ae801",
     "06-karpathy wiki方法论/karpathy wiki方法论.md",
     "02-AI工具/Claude Code 详细指南.md",
     "02-AI工具/Claude使用指南.md",
-    "02-AI工具/Codex使用指南.md",
-    "02-AI工具/Obsidian配置与插件.md",
-    "AI知识库介绍.md.tmp.38472.697d8954a0bb",
-    "scan-c.ps1",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "Pasted image 20260730112410.png",
