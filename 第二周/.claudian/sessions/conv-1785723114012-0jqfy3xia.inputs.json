@@ -99,6 +99,34 @@
       "contentDigest": "0c56d0e580cbd3e9f8071dc4de99d6e5e9c845685959bd1be67acbb4da751bcb",
       "providerUserMessageId": "8f2a2fea-6a7a-4f06-9ffb-1fe203b7de77",
       "providerAssistantMessageId": "0de839d4-85d9-4d00-a726-50b7b0ad9121"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785735934412-umbky1v",
+      "userTurnOrdinal": 8,
+      "state": "accepted",
+      "localMessageId": "msg-1785735934397-uuafit2",
+      "timestamp": 1785735934398,
+      "rawDisplayText": "本地部署 Open WebUI（Docker ⽅式）",
+      "canonicalText": "本地部署 Open WebUI（Docker ⽅式）",
+      "images": [],
+      "contentDigest": "c61ce972668e12e2599a040ce92890c41bace221eabd2f81682c395e404bcf56",
+      "providerUserMessageId": "2dcadf76-efa0-432c-b46c-85a692d71d12",
+      "providerAssistantMessageId": "fb84f31e-5f6d-4b78-80cd-7413fee1583f"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785735999144-chv40em",
+      "userTurnOrdinal": 9,
+      "state": "accepted",
+      "localMessageId": "msg-1785735999142-6u3o0a0",
+      "timestamp": 1785735999142,
+      "rawDisplayText": "在windows上",
+      "canonicalText": "在windows上",
+      "images": [],
+      "contentDigest": "239fa312344dd26ec44446f409577a291c7d87252c9ea15e570c37fb60d6d7cf",
+      "providerUserMessageId": "dac275e0-f455-4c80-aacf-c7e91a66104e",
+      "providerAssistantMessageId": "0ca9730c-bec7-4019-a7ed-7b61954fd4e1"
     }
   ]
 }
