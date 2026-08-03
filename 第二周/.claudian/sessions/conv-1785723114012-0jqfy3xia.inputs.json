@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1785723114012-0jqfy3xia",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785723114284-0ayhyno",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1785723114007-mb7dzxc",
+      "timestamp": 1785723114007,
+      "rawDisplayText": "怎么在mac上安装Claude",
+      "canonicalText": "怎么在mac上安装Claude",
+      "images": [],
+      "contentDigest": "dd546eae0d0f7efb934c7ed57efa102720bdd9db458ec0230b76f9b6e56f79a1",
+      "providerUserMessageId": "6a7c808c-d441-4aaa-a2d6-123acb5a6737",
+      "providerAssistantMessageId": "7e725daf-b2df-4436-9418-2d7edfea9499"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785723317472-g3v5oqh",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1785723317469-vsbh5gy",
+      "timestamp": 1785723317469,
+      "rawDisplayText": "我只要在obsidian上使用需要什么版本",
+      "canonicalText": "我只要在obsidian上使用需要什么版本",
+      "images": [],
+      "contentDigest": "1917488e1e06733f9fb2507f38ebfc561458940032c168b95561f94c253fbb01",
+      "providerUserMessageId": "19eb82c2-d929-4ef2-a7cc-47492ab7f93d",
+      "providerAssistantMessageId": "55fdc4c4-397b-44b5-93ad-ddf16e39ed12"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785724040105-8ilhhxj",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1785724040101-7tp3jhl",
+      "timestamp": 1785724040101,
+      "rawDisplayText": "open webui",
+      "canonicalText": "open webui",
+      "images": [],
+      "contentDigest": "428d178a908c2e4ca436141647048e94420bd5e2d2d012898fa03cb0e3369f31",
+      "providerUserMessageId": "296ce237-098f-4d65-b56d-b7c7319230ff",
+      "providerAssistantMessageId": "8c278910-26f6-4a43-921b-a3d0689c8b63"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785724638458-9ld291l",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1785724638452-iavycp6",
+      "timestamp": 1785724638453,
+      "rawDisplayText": "curl: (28) Failed to connect to claude.com port 443 after 75051 ms: Couldn't connect to server\nsmoggy@chenjinyudeMacBook-Neo ~ % echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.zshrc<br/>source ~/.zshrc\nzsh: no such file or directory: br/",
+      "canonicalText": "curl: (28) Failed to connect to claude.com port 443 after 75051 ms: Couldn't connect to server\nsmoggy@chenjinyudeMacBook-Neo ~ % echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.zshrc<br/>source ~/.zshrc\nzsh: no such file or directory: br/",
+      "images": [],
+      "contentDigest": "54a02ad352e58d057db3ae17f0d85ccb8c3ecb82a13b32183b1a8f911e48837a",
+      "providerUserMessageId": "eef76186-ea0f-4bf4-9a81-b8c8aacef363",
+      "providerAssistantMessageId": "712abba4-7903-40f2-a9f1-87c2b55c9b94"
+    }
+  ]
+}
