@@ -57,6 +57,20 @@
       "contentDigest": "54a02ad352e58d057db3ae17f0d85ccb8c3ecb82a13b32183b1a8f911e48837a",
       "providerUserMessageId": "eef76186-ea0f-4bf4-9a81-b8c8aacef363",
       "providerAssistantMessageId": "712abba4-7903-40f2-a9f1-87c2b55c9b94"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785724823383-ylmvs4h",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1785724823379-erosu9j",
+      "timestamp": 1785724823379,
+      "rawDisplayText": "怎么用u盘把Claude从这台电脑考到mac上",
+      "canonicalText": "怎么用u盘把Claude从这台电脑考到mac上",
+      "images": [],
+      "contentDigest": "8e4d624828399e7aa6b3879c3bb40d37ad684d135ad22b9df8839f71ff458a77",
+      "providerUserMessageId": "88bab106-595b-4ef0-a92c-250226a61fe8",
+      "providerAssistantMessageId": "595cfb3d-8770-49ff-bc28-bfde16160afb"
     }
   ]
 }
