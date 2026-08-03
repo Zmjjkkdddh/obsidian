@@ -71,6 +71,34 @@
       "contentDigest": "8e4d624828399e7aa6b3879c3bb40d37ad684d135ad22b9df8839f71ff458a77",
       "providerUserMessageId": "88bab106-595b-4ef0-a92c-250226a61fe8",
       "providerAssistantMessageId": "595cfb3d-8770-49ff-bc28-bfde16160afb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785726974031-90bshx0",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1785726974027-kmo3v0w",
+      "timestamp": 1785726974027,
+      "rawDisplayText": "smoggy@chenjinyudeMacBook-Neo ~ % npm install -g @anthropic-ai/claude-code\n\nchanged 2 packages in 1s",
+      "canonicalText": "smoggy@chenjinyudeMacBook-Neo ~ % npm install -g @anthropic-ai/claude-code\n\nchanged 2 packages in 1s",
+      "images": [],
+      "contentDigest": "a1e50fe250cc20879fd07c6bfe38f12d54efd48066019934634c8ba2a4c90a2f",
+      "providerUserMessageId": "a8ff80c8-8da9-4151-8b69-627a90eef13c",
+      "providerAssistantMessageId": "74d669df-f857-4224-ba17-a6c33a25d962"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785727518726-qnx2cb4",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1785727518721-k001y6q",
+      "timestamp": 1785727518721,
+      "rawDisplayText": "❌ **Error:** authentication_failedNot logged in · Please run /login",
+      "canonicalText": "❌ **Error:** authentication_failedNot logged in · Please run /login",
+      "images": [],
+      "contentDigest": "0c56d0e580cbd3e9f8071dc4de99d6e5e9c845685959bd1be67acbb4da751bcb",
+      "providerUserMessageId": "8f2a2fea-6a7a-4f06-9ffb-1fe203b7de77",
+      "providerAssistantMessageId": "0de839d4-85d9-4d00-a726-50b7b0ad9121"
     }
   ]
 }
