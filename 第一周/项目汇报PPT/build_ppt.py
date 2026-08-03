@@ -325,7 +325,13 @@ text(s, 0.9, 5.5, 11.6, 0.8,
      [{'runs': [
         ('• 知识复盘从手动整理升级为自动化流水线，显著降低成本；', 13, 'FFFFFF', False)], 'space_after': 4, 'line_spacing': 1.1},
       {'runs': [('• 积累"图谱 + 热度 + 双链"量化指标，为数据驱动的知识管理打底。', 13, 'FFFFFF', False)], 'line_spacing': 1.1}])
-footer(s, 7)
+# 自动化报告链接（点击跳转 Obsidian 对应笔记）
+tb_rpt = text(s, 0.6, 4.45, 12.13, 0.4,
+     [{'runs': [('查看自动生成的月度知识库可视化报告  →', 12, BLUE, True)]}])
+_rpt_run = tb_rpt.text_frame.paragraphs[0].runs[0]
+_rpt_run.font.underline = True
+_rpt_run.hyperlink.address = 'obsidian://open?vault=%E7%AC%AC%E4%B8%80%E5%91%A8&file=vault_report_2026-07-30.html'
+footer(s, 8)
 
 # =====================================================================
 # Slide 8 — 成果三：AI 工具实操与对比
