@@ -127,6 +127,20 @@
       "contentDigest": "239fa312344dd26ec44446f409577a291c7d87252c9ea15e570c37fb60d6d7cf",
       "providerUserMessageId": "dac275e0-f455-4c80-aacf-c7e91a66104e",
       "providerAssistantMessageId": "0ca9730c-bec7-4019-a7ed-7b61954fd4e1"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785822862940-qvdr4p2",
+      "userTurnOrdinal": 10,
+      "state": "accepted",
+      "localMessageId": "msg-1785822862925-kg83as1",
+      "timestamp": 1785822862925,
+      "rawDisplayText": "怎么装codex而不登陆gpt",
+      "canonicalText": "怎么装codex而不登陆gpt",
+      "images": [],
+      "contentDigest": "6dd0e1c9ccc2d20751e99b20c63cbee467d3c58c4e0bb3d10eb0504c22d2a34f",
+      "providerUserMessageId": "0a831b3f-ab82-4f97-a199-b1c3739db24e",
+      "providerAssistantMessageId": "faa75f98-721a-4dbe-bbd1-5faf7bbb5339"
     }
   ]
 }
