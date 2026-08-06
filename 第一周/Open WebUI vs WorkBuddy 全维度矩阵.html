@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open WebUI vs WorkBuddy — 全维度矩阵</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #0d0d1a;
+    display: flex; justify-content: center; padding: 24px;
+    font-family: -apple-system, 'Segoe UI', 'PingFang SC', sans-serif;
+}
+.container { max-width: 1100px; width: 100%; }
+h1 { text-align: center; color: #fff; font-size: 22px; margin-bottom: 4px; }
+h1 span { color: #60A5FA; }
+.subtitle { text-align: center; color: #777; font-size: 12px; margin-bottom: 20px; }
+
+.matrix {
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr;
+    gap: 2px;
+    background: #1a1a30;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #252540;
+}
+
+.cell {
+    padding: 14px 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    background: #12122a;
+    color: #bbb;
+}
+.cell.dim {
+    color: #ddd;
+    font-weight: 700;
+    font-size: 13px;
+    background: #0e0e26;
+    text-align: right;
+    padding-right: 20px;
+}
+.cell.hdr {
+    font-weight: 700;
+    font-size: 13px;
+    color: #aaa;
+    background: #0c0c24;
+    text-align: center;
+    padding: 16px;
+}
+.cell.hdr.owu { color: #60A5FA; }
+.cell.hdr.wb { color: #FBBF24; }
+
+.cell.win-owu { border-left: 3px solid #3B82F6; }
+.cell.win-wb { border-left: 3px solid #F59E0B; }
+.cell.win-tie { border-left: 3px solid #555; }
+
+.cell em { color: #888; font-style: normal; font-size: 11px; display: block; margin-top: 4px; }
+
+/* Highlight badges */
+.hl { display: inline-block; padding: 1px 7px; border-radius: 8px; font-size: 10px; font-weight: 700; margin-right: 4px; }
+.hl-owu { background: #1a3050; color: #60A5FA; }
+.hl-wb { background: #352a10; color: #FBBF24; }
+
+/* Summary footer */
+.summary {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+}
+.card {
+    background: #12122a; border-radius: 10px; padding: 18px; border: 1px solid #252540;
+}
+.card.owu { border-top: 3px solid #3B82F6; }
+.card.wb { border-top: 3px solid #F59E0B; }
+.card h3 { font-size: 14px; margin-bottom: 8px; }
+.card.owu h3 { color: #60A5FA; }
+.card.wb h3 { color: #FBBF24; }
+.card p { color: #999; font-size: 12px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Open WebUI <span>vs</span> WorkBuddy</h1>
+<p class="subtitle">15 维度详细对比矩阵</p>
+
+<div class="matrix">
+    <!-- Header -->
+    <div class="cell hdr">维度</div>
+    <div class="cell hdr owu">🔵 Open WebUI</div>
+    <div class="cell hdr wb">🟡 WorkBuddy</div>
+
+    <!-- 1 -->
+    <div class="cell dim">1. 对话</div>
+    <div class="cell win-owu"><span class="hl hl-owu">Chat 体验强</span>标准 Chat UI，多轮对话，Markdown 渲染 + 代码高亮，支持对话分支（Fork）。<em>偏向：对话体验打磨</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">Agent 交互强</span>自然语言下达任务，三种工作模式（聊天 / 任务 / 专家），文本 + 文件 + 桌面操作。<em>偏向：任务交付而非自由聊天</em></div>
+
+    <!-- 2 -->
+    <div class="cell dim">2. 模型管理</div>
+    <div class="cell win-owu"><span class="hl hl-owu">完全透明</span>拉取/删除/列出模型，设置默认模型，模型参数调优。用户自主管理。<em>面向开发者/高级用户</em></div>
+    <div class="cell"><span class="hl hl-wb">黑盒隐藏</span>用户不可见，后台统一管理。用户无需关心模型细节。<em>面向非技术用户</em></div>
+
+    <!-- 3 -->
+    <div class="cell dim">3. 多模型切换</div>
+    <div class="cell win-owu"><span class="hl hl-owu">显式切换</span>对话中自由切换，每个对话绑定不同模型。可同时接入 Ollama + OpenAI + Anthropic 等异构后端。<em>用户有完全选择权</em></div>
+    <div class="cell"><span class="hl hl-wb">后台协同</span>后台自动多模型协同，用户不直接切换。看到的统一 Agent 背后可能并行调用多个模型。<em>系统自动调度</em></div>
+
+    <!-- 4 -->
+    <div class="cell dim">4. 流式输出</div>
+    <div class="cell win-tie"><span class="hl" style="background:#222;color:#aaa;">持平</span>原生 SSE 流式输出，逐字/逐 token 实时渲染。<em>偏文字生成流</em></div>
+    <div class="cell win-tie"><span class="hl" style="background:#222;color:#aaa;">持平</span>流式输出 + 实时反馈任务执行状态。<em>还包括多 Agent 任务进度</em></div>
+
+    <!-- 5 -->
+    <div class="cell dim">5. 对话历史</div>
+    <div class="cell win-owu"><span class="hl hl-owu">功能成熟</span>完整对话历史，搜索、标签、归档、导出，支持重命名/删除/置顶。<em>本地/自托管持久化</em></div>
+    <div class="cell"><span class="hl hl-wb">轻量管理</span>任务历史记录，按任务/项目组织。云端同步。<em>侧重任务结果而非对话回溯</em></div>
+
+    <!-- 6 -->
+    <div class="cell dim">6. 知识库 RAG</div>
+    <div class="cell win-owu"><span class="hl hl-owu">显式控制</span>PDF/DOCX/TXT/CSV/MD 上传，自动分块 + 嵌入 + 向量检索。可视化增删文档。<em>用户可以精细控制</em></div>
+    <div class="cell"><span class="hl hl-wb">自动调用</span>内置 RAG 能力，Agent 自主调用知识库。通过 Agent 管理。<em>工具箱里的一项自动能力</em></div>
+
+    <!-- 7 -->
+    <div class="cell dim">7. 文档处理</div>
+    <div class="cell"><span class="hl hl-owu">围绕 RAG</span>上传后自动分块嵌入知识库，增强对话上下文。<em>偏"喂给 LLM"</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">执行层能力</span>Agent 直接操作桌面文件：读 Excel 做分析、生成 PPT、导出图表。<em>差距最大的维度</em></div>
+
+    <!-- 8 -->
+    <div class="cell dim">8. Prompt 模板</div>
+    <div class="cell win-owu"><span class="hl hl-owu">一等公民</span>完整的 Prompt 预设系统，保存/复用/分享。可视化管理，社区共享。<em>独立的核心功能</em></div>
+    <div class="cell"><span class="hl hl-wb">间接实现</span>无显式 Prompt 模板。140+ 领域专家本质是预设好的 System Prompt + 工具集。<em>通过 Skills 间接达成</em></div>
+
+    <!-- 9 -->
+    <div class="cell dim">9. 用户权限</div>
+    <div class="cell"><span class="hl hl-owu">简洁够用</span>Admin / User 二级，RBAC 支持。模型访问控制、功能开关。<em>小团队适用</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">企业级</span>腾讯云 IAM 角色权限体系。企业管理员统一管控。<em>数百至数千人规模</em></div>
+
+    <!-- 10 -->
+    <div class="cell dim">10. API 接口</div>
+    <div class="cell win-owu"><span class="hl hl-owu">API-first</span>完整 REST API + OpenAI 兼容接口。第三方集成、自动化、管道编排。<em>完全开放，社区驱动</em></div>
+    <div class="cell"><span class="hl hl-wb">较封闭</span>有限的 API 能力，主要服务内部生态。<em>定位桌面客户端，API 非核心</em></div>
+
+    <!-- 11 -->
+    <div class="cell dim">11. 工具调用</div>
+    <div class="cell"><span class="hl hl-owu">服务端工具</span>网页搜索、计算器、代码执行。插件系统 / 自定义工具。<em>偏 Web/API 类</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">桌面级工具</span>桌面文件操作、浏览器自动化、系统集成。自定义 Skills。<em>能操作本地文件和应用程序</em></div>
+
+    <!-- 12 -->
+    <div class="cell dim">12. 函数</div>
+    <div class="cell"><span class="hl hl-owu">标准调用</span>通过 Pipes / 插件系统定义，对话中自动或手动触发。单函数调用。<em>偏 LLM Function Calling 标准</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">任务编排</span>通过 Skills 定义，Agent 自主规划调用。多函数编排成任务流。<em>可组合的任务能力模块</em></div>
+
+    <!-- 13 -->
+    <div class="cell dim">13. Pipeline</div>
+    <div class="cell"><span class="hl hl-owu">请求处理管道</span>模型路由管道（Pipes），请求预处理/后处理，线性管道。<em>类似中间件</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">任务编排引擎</span>DAG 任务编排，多 Agent 并行。拆解 → 分配 → 并行执行 → 汇总。 <em>根本性差异</em></div>
+
+    <!-- 14 -->
+    <div class="cell dim">14. 多用户管理</div>
+    <div class="cell"><span class="hl hl-owu">简洁自管</span>本地注册 / LDAP / OAuth。用户列表、禁用/启用、角色分配。<em>数十人团队</em></div>
+    <div class="cell win-wb"><span class="hl hl-wb">企业规模</span>腾讯云账号体系，企业组织架构、团队管理。<em>数百至数千人</em></div>
+
+    <!-- 15 -->
+    <div class="cell dim">15. 模型 API 对接</div>
+    <div class="cell win-owu"><span class="hl hl-owu">立身之本</span>Ollama, OpenAI, Anthropic, Google, Groq，任意 OpenAI 兼容 API 全支持。<em>支持几乎所有主流 LLM</em></div>
+    <div class="cell"><span class="hl hl-wb">锁定生态</span>仅腾讯混元 + 内部模型。用户无法接入外部模型。<em>封闭生态</em></div>
+</div>
+
+<div class="summary">
+    <div class="card owu">
+        <h3>🔵 Open WebUI 的战场</h3>
+        <p>对话体验 ● 模型管理自由度 ● 多模型切换 ● 知识库精细控制 ● Prompt 模板 ● API 开放性 ● 对话历史管理 ● 全主流 LLM 对接</p>
+        <p style="margin-top:8px;color:#60A5FA"><strong>定位：LLM 操作系统中枢</strong> — 模型无关，面向开发者，API-first</p>
+    </div>
+    <div class="card wb">
+        <h3>🟡 WorkBuddy 的战场</h3>
+        <p>Agent 任务交互 ● 桌面文档处理 ● 企业级权限 ● 桌面工具调用 ● 多函数编排 ● DAG Pipeline 多 Agent 并行</p>
+        <p style="margin-top:8px;color:#FBBF24"><strong>定位：桌面数字员工</strong> — 任务驱动，面向办公场景，执行能力强</p>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

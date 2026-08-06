@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-工具对比/Open WebUI vs WorkBuddy.md",
+                "file": "OpenWebUI-vs-WorkBuddy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Open WebUI vs WorkBuddy"
+              "title": "OpenWebUI-vs-WorkBuddy"
             }
           }
         ],
@@ -220,7 +220,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 376.5
+    "width": 227.1666259765625
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -237,9 +237,15 @@
   },
   "active": "c4842f960453cca0",
   "lastOpenFiles": [
+    "03-工具对比/Open WebUI vs WorkBuddy.md",
+    "OpenWebUI-vs-WorkBuddy.md",
+    "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.b52cc925d043",
+    "Open WebUI vs WorkBuddy 全维度矩阵.html",
+    "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.730ea90cc7fe",
+    "Open WebUI vs WorkBuddy 矩阵图.html",
+    "Open WebUI vs WorkBuddy 矩阵图.html.tmp.20856.51f2fcfa8014",
     "未命名.md",
     "index.md",
-    "03-工具对比/Open WebUI vs WorkBuddy.md",
     "对比.md",
     "07-Open WebUI的使用/Open WebUI 进阶功能.md",
     "07-Open WebUI的使用/Open WebUI的功能拆解.md",
@@ -263,14 +269,9 @@
     "04-每日日报/2026-7-28日报.md",
     "项目汇报PPT/check.py",
     "项目汇报PPT/第一周项目汇报.pptx",
-    "项目汇报PPT/build_ppt.py",
-    "项目汇报PPT",
     "01-AI概念/agent skill.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "Mac-ClaudeCode安装指南.md",
-    "open-firewall.bat",
-    "open-firewall.bat.tmp.23440.ae70cd3a6ea9",
-    "Mac-ClaudeCode安装指南.md.tmp.23440.56e3d3fb8817",
     "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-30日报.md",
     "01-AI概念/Agent智能体.md",
@@ -280,7 +281,6 @@
     "01-AI概念/RAG检索增强生成.md",
     "01-AI概念/上下文窗口.md",
     "01-AI概念/Token是什么.md",
-    "01-AI概念/向量数据库与Embedding.md",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "未命名.canvas"

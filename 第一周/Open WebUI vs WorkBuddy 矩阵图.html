@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open WebUI vs WorkBuddy — 能力矩阵</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #1a1a2e;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    padding: 20px;
+}
+.container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #1a1a2e;
+    margin-bottom: 30px;
+}
+h1 span { color: #3B82F6; }
+canvas { display: block; margin: 0 auto; }
+.legend {
+    display: flex; justify-content: center; gap: 30px; margin-top: 16px;
+    font-size: 13px; color: #666;
+}
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+.quadrant-labels {
+    display: flex; justify-content: center; gap: 60px; margin-top: 12px;
+    font-size: 11px; color: #999;
+}
+.note { text-align: center; color: #999; font-size: 12px; margin-top: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Open WebUI vs WorkBuddy — <span>能力矩阵</span></h1>
+    <canvas id="matrix" width="800" height="520"></canvas>
+    <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#3B82F6"></div> Open WebUI</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F59E0B"></div> WorkBuddy</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#10B981"></div> ChatGPT Team</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#8B5CF6"></div> Dify</div>
+    </div>
+    <p class="note">气泡大小 = 社区/生态规模 &nbsp;|&nbsp; 位置基于 2026.07 公开信息评估</p>
+</div>
+
+<script>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+const W = 800, H = 520;
+const pad = { top: 50, right: 50, bottom: 60, left: 70 };
+const pw = W - pad.left - pad.right;
+const ph = H - pad.top - pad.bottom;
+
+// Axes
+const cx = pad.left + pw/2;
+const cy = pad.top + ph/2;
+
+// ===== Background Quadrants =====
+const qColors = [
+    '#EFF6FF', // 左上: 开放-对话 → 极客乐园
+    '#FEF3C7', // 右上: 开放-执行 → 理想平台
+    '#F0FDF4', // 左下: 封闭-对话 → 传统AI
+    '#FEF2F2', // 右下: 封闭-执行 → 企业专宠
+];
+const qLabels = [
+    { text: '极客乐园', sub: '模型多 · 自己做', x: pad.left + pw*0.25, y: pad.top + ph*0.25 },
+    { text: '理想平台', sub: '模型多 · 能干活', x: pad.left + pw*0.75, y: pad.top + ph*0.25 },
+    { text: '传统 AI', sub: '模型少 · 只聊天', x: pad.left + pw*0.25, y: pad.top + ph*0.75 },
+    { text: '企业专宠', sub: '模型少 · 能干活', x: pad.left + pw*0.75, y: pad.top + ph*0.75 },
+];
+
+function drawQuadrant(qx, qy, color, label) {
+    ctx.fillStyle = color;
+    ctx.fillRect(qx, qy, pw/2, ph/2);
+    // label
+    ctx.fillStyle = '#999';
+    ctx.font = 'bold 13px -apple-system, "Segoe UI", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(label.text, label.x, label.y);
+    ctx.font = '10px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillStyle = '#bbb';
+    ctx.fillText(label.sub, label.x, label.y + 16);
+}
+
+// Draw 4 quadrants
+drawQuadrant(pad.left, pad.top, qColors[0], qLabels[0]);               // 左上
+drawQuadrant(cx, pad.top, qColors[1], qLabels[1]);                      // 右上
+drawQuadrant(pad.left, cy, qColors[2], qLabels[2]);                     // 左下
+drawQuadrant(cx, cy, qColors[3], qLabels[3]);                           // 右下
+
+// ===== Axes =====
+ctx.strokeStyle = '#333';
+ctx.lineWidth = 2;
+// Y axis (vertical: 执行能力)
+ctx.beginPath(); ctx.moveTo(cx, pad.top); ctx.lineTo(cx, pad.top+ph); ctx.stroke();
+// X axis (horizontal: 模型开放性)
+ctx.beginPath(); ctx.moveTo(pad.left, cy); ctx.lineTo(pad.left+pw, cy); ctx.stroke();
+
+// Y axis label
+ctx.fillStyle = '#333'; ctx.font = 'bold 13px -apple-system, "Segoe UI", sans-serif';
+ctx.textAlign = 'center';
+ctx.save();
+ctx.translate(pad.left - 50, pad.top + ph/2);
+ctx.rotate(-Math.PI/2);
+ctx.fillText('执行能力（主动干活）', 0, 0);
+ctx.restore();
+
+// X axis label
+ctx.fillText('模型开放性（多模型 / 本地部署）', pad.left + pw/2, pad.top + ph + 40);
+
+// Axis arrows
+ctx.strokeStyle = '#333'; ctx.lineWidth = 1.5;
+// Y top arrow
+ctx.beginPath(); ctx.moveTo(cx, pad.top); ctx.lineTo(cx-5, pad.top+8); ctx.moveTo(cx, pad.top); ctx.lineTo(cx+5, pad.top+8); ctx.stroke();
+// X right arrow
+ctx.beginPath(); ctx.moveTo(pad.left+pw, cy); ctx.lineTo(pad.left+pw-8, cy-5); ctx.moveTo(pad.left+pw, cy); ctx.lineTo(pad.left+pw-8, cy+5); ctx.stroke();
+
+// ===== Sub-labels on axes =====
+ctx.fillStyle = '#888'; ctx.font = '10px -apple-system, "Segoe UI", sans-serif';
+ctx.textAlign = 'center';
+ctx.fillText('封闭生态', pad.left + pw*0.25, cy + 18);
+ctx.fillText('开放生态', pad.left + pw*0.75, cy + 18);
+ctx.textAlign = 'right';
+ctx.fillText('纯聊天', cx - 8, pad.top + ph*0.25 + 3);
+ctx.fillText('主动执行', cx - 8, pad.top + ph*0.75 + 3);
+
+// Grid lines
+ctx.strokeStyle = '#ddd'; ctx.lineWidth = 0.5;
+ctx.setLineDash([4, 4]);
+ctx.beginPath(); ctx.moveTo(pad.left, pad.top + ph/4); ctx.lineTo(pad.left+pw, pad.top + ph/4); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(pad.left, pad.top + ph*3/4); ctx.lineTo(pad.left+pw, pad.top + ph*3/4); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(pad.left + pw/4, pad.top); ctx.lineTo(pad.left + pw/4, pad.top+ph); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(pad.left + pw*3/4, pad.top); ctx.lineTo(pad.left + pw*3/4, pad.top+ph); ctx.stroke();
+ctx.setLineDash([]);
+
+// ===== Data Points (0-1 scale mapped to pixel space) =====
+function px(x01, y01) {
+    return {
+        x: pad.left + x01 * pw,
+        y: pad.top + ph - y01 * ph  // invert y so top = high
+    };
+}
+
+const tools = [
+    {
+        name: 'Open WebUI',
+        desc: 'LLM 操作系统中枢',
+        x01: 0.90,  // 模型开放性：极高
+        y01: 0.30,  // 执行能力：偏低（纯对话工具）
+        size: 18,
+        color: '#3B82F6'
+    },
+    {
+        name: 'WorkBuddy',
+        desc: '任务驱动 Agent',
+        x01: 0.15,  // 模型开放性：低（锁定混元）
+        y01: 0.85,  // 执行能力：极高（桌面操作）
+        size: 16,
+        color: '#F59E0B'
+    },
+    {
+        name: 'ChatGPT Team',
+        desc: '企业 AI 套件',
+        x01: 0.20,
+        y01: 0.45,
+        size: 14,
+        color: '#10B981'
+    },
+    {
+        name: 'Dify',
+        desc: 'LLM 应用平台',
+        x01: 0.75,
+        y01: 0.65,
+        size: 15,
+        color: '#8B5CF6'
+    },
+];
+
+// Draw bubbles
+for (const t of tools) {
+    const p = px(t.x01, t.y01);
+    const r = t.size;
+
+    // Glow
+    const grad = ctx.createRadialGradient(p.x, p.y, r*0.3, p.x, p.y, r*1.5);
+    grad.addColorStop(0, t.color + '60');
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.beginPath(); ctx.arc(p.x, p.y, r*1.5, 0, Math.PI*2); ctx.fill();
+
+    // Bubble
+    ctx.fillStyle = t.color;
+    ctx.globalAlpha = 0.15;
+    ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI*2); ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Border
+    ctx.strokeStyle = t.color;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI*2); ctx.stroke();
+
+    // White core
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(p.x, p.y, r*0.55, 0, Math.PI*2); ctx.fill();
+
+    // Label
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 11px -apple-system, "Segoe UI", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(t.name, p.x, p.y - 1);
+    ctx.fillStyle = '#888';
+    ctx.font = '9px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText(t.desc, p.x, p.y + 12);
+}
+
+// ===== Annotation: arrow from Open WebUI to WorkBuddy =====
+const owu = px(0.90, 0.30);
+const wb = px(0.15, 0.85);
+
+ctx.strokeStyle = '#ccc';
+ctx.lineWidth = 1;
+ctx.setLineDash([3, 3]);
+ctx.beginPath();
+ctx.moveTo(owu.x + 18, owu.y - 8);
+// curved path
+const midX = (owu.x + wb.x) / 2;
+const midY = (owu.y + wb.y) / 2;
+ctx.quadraticCurveTo(midX + 40, midY - 80, wb.x - 18, wb.y + 8);
+ctx.stroke();
+ctx.setLineDash([]);
+
+// Annotation text
+ctx.fillStyle = '#999';
+ctx.font = 'italic 10px -apple-system, "Segoe UI", sans-serif';
+ctx.textAlign = 'center';
+ctx.fillText('互补 — 不是竞争', midX + 30, midY - 90);
+
+</script>
+</body>
+</html>
