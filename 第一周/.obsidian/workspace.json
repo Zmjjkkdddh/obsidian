@@ -187,7 +187,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -206,7 +206,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "d0f1200568d749c7",
+  "active": "e2c8283e78134222",
   "lastOpenFiles": [
     "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
     "07-Open WebUI的使用/Open WebUI的功能拆解.md",
