@@ -141,6 +141,20 @@
       "contentDigest": "6dd0e1c9ccc2d20751e99b20c63cbee467d3c58c4e0bb3d10eb0504c22d2a34f",
       "providerUserMessageId": "0a831b3f-ab82-4f97-a199-b1c3739db24e",
       "providerAssistantMessageId": "faa75f98-721a-4dbe-bbd1-5faf7bbb5339"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785997789776-afe6bx5",
+      "userTurnOrdinal": 11,
+      "state": "accepted",
+      "localMessageId": "msg-1785997789757-5nmicbx",
+      "timestamp": 1785997789758,
+      "rawDisplayText": "帮我在聊天\n对话、模型管理、多模型切换、流式输出、对话\n历史管理、知识\n库（RAG）、⽂档上传与处理、Prompt 模板、\n⽤户⻆⾊与权限、API 接⼝、⼯\n具调⽤（Tools）、函数（Functions）、\nPipeline、多⽤户管理、模型 API 对接 方面对比work Buddy要有双方的功能点和差异分析",
+      "canonicalText": "帮我在聊天\n对话、模型管理、多模型切换、流式输出、对话\n历史管理、知识\n库（RAG）、⽂档上传与处理、Prompt 模板、\n⽤户⻆⾊与权限、API 接⼝、⼯\n具调⽤（Tools）、函数（Functions）、\nPipeline、多⽤户管理、模型 API 对接 方面对比work Buddy要有双方的功能点和差异分析",
+      "images": [],
+      "contentDigest": "10794857675e33a2bb9a65bdee9c03d920b97cb03442483b8561210e6b61a9d5",
+      "providerUserMessageId": "adbaf34c-e3fc-4755-a33e-c6d1ec4f3800",
+      "providerAssistantMessageId": "ae996e1b-14bb-41eb-9206-404ca0183956"
     }
   ]
 }

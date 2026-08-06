@@ -4,8 +4,8 @@
   "title": "Explain how to install Claude on Mac",
   "titleGenerationStatus": "success",
   "createdAt": 1785723114022,
-  "updatedAt": 1785822895628,
-  "lastResponseAt": 1785822895628,
+  "updatedAt": 1785997906171,
+  "lastResponseAt": 1785997906171,
   "sessionId": "c2c9ad7f-a4b3-4ec2-9a1e-ec834d67e78b",
   "selectedModel": "haiku",
   "providerState": {
@@ -13,11 +13,11 @@
   },
   "usage": {
     "model": "haiku",
-    "inputTokens": 906,
+    "inputTokens": 3730,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 23552,
+    "cacheReadInputTokens": 26880,
     "contextWindow": 200000,
-    "contextTokens": 24458,
-    "percentage": 12
+    "contextTokens": 30610,
+    "percentage": 15
   }
 }
