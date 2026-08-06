@@ -92,13 +92,13 @@ LLM 思考 → 需要两个工具
 
 ### 3.2 内置 Tools
 
-| 工具 | 功能 |
-|------|------|
-| **Web Search** | 联网搜索（支持 Google/Bing/SearXNG） |
-| **Calculator** | 数学计算 |
-| **Code Interpreter** | Python 代码执行 |
+| 工具                   | 功能                           |
+| -------------------- | ---------------------------- |
+| **Web Search**       | 联网搜索（支持 Google/Bing/SearXNG） |
+| **Calculator**       | 数学计算                         |
+| **Code Interpreter** | Python 代码执行                  |
 | **Image Generation** | 调用 DALL-E / Stable Diffusion |
-| **RAG** | 文档检索增强生成 |
+| **RAG**              | 文档检索增强生成                     |
 
 ### 3.3 自建 Tool（JSON 定义）
 
