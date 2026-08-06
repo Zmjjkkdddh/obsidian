@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenWebUI-vs-WorkBuddy.md",
+                "file": "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OpenWebUI-vs-WorkBuddy"
+              "title": "OpenWebUI-vs-WorkBuddy 1"
             }
           }
         ]
@@ -209,15 +209,17 @@
   "active": "e2c8283e78134222",
   "lastOpenFiles": [
     "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
+    "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
     "07-Open WebUI的使用/Open WebUI的功能拆解.md",
     "07-Open WebUI的使用/Open WebUI 进阶功能.md",
+    "未命名.md",
+    "未命名 1.md",
     "OpenWebUI-vs-WorkBuddy.md",
     "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.b52cc925d043",
     "Open WebUI vs WorkBuddy 全维度矩阵.html",
     "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.730ea90cc7fe",
     "Open WebUI vs WorkBuddy 矩阵图.html",
     "Open WebUI vs WorkBuddy 矩阵图.html.tmp.20856.51f2fcfa8014",
-    "未命名.md",
     "index.md",
     "对比.md",
     "01-AI概念/Open WebUI 进阶功能.md.tmp.20856.a7b3188cced3",
@@ -250,8 +252,6 @@
     "01-AI概念/Prompt Engineering.md",
     "01-AI概念/Fine-tuning微调.md",
     "01-AI概念/RAG检索增强生成.md",
-    "01-AI概念/上下文窗口.md",
-    "01-AI概念/Token是什么.md",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "未命名.canvas"
