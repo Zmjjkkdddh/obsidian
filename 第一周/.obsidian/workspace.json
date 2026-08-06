@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "Open WebUI 进阶功能"
             }
+          },
+          {
+            "id": "c4842f960453cca0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03-工具对比/Open WebUI vs WorkBuddy.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Open WebUI vs WorkBuddy"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -221,10 +235,14 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "d0f1200568d749c7",
+  "active": "c4842f960453cca0",
   "lastOpenFiles": [
-    "07-Open WebUI的使用/Open WebUI的功能拆解.md",
+    "未命名.md",
+    "index.md",
+    "03-工具对比/Open WebUI vs WorkBuddy.md",
+    "对比.md",
     "07-Open WebUI的使用/Open WebUI 进阶功能.md",
+    "07-Open WebUI的使用/Open WebUI的功能拆解.md",
     "01-AI概念/Open WebUI 进阶功能.md.tmp.20856.a7b3188cced3",
     "Pasted image 20260805101959.png",
     "Pasted image 20260805101505.png",
@@ -234,7 +252,6 @@
     "Pasted image 20260804103458.png",
     "Pasted image 20260804103139.png",
     "Pasted image 20260804101936.png",
-    "未命名.md",
     "07-Open WebUI的使用",
     "06-karpathy wiki方法论/未命名",
     "05-workbuddy上手体验/未命名.md",
@@ -264,9 +281,6 @@
     "01-AI概念/上下文窗口.md",
     "01-AI概念/Token是什么.md",
     "01-AI概念/向量数据库与Embedding.md",
-    "01-AI概念/幻觉问题.md",
-    "01-AI概念/LLM大语言模型.md",
-    "Mac-CCSwitch安装指南.md",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "未命名.canvas"
