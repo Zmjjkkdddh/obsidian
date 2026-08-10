@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OpenWebUI-vs-WorkBuddy 1"
+              "title": "index"
+            }
+          },
+          {
+            "id": "e928aeda65cd776c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AI聊天工具产品分析：用户群体、核心功能与商业化范围"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -187,11 +202,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 227.1666259765625
+    "width": 557.1666259765625
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,21 +221,26 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e2c8283e78134222",
+  "active": "e928aeda65cd776c",
   "lastOpenFiles": [
-    "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
+    "08/未命名 1.md",
+    "08/2期3期功能候选池.md",
+    "08/2期3期功能候选池.md.tmp.30312.323db56e42f7",
+    "AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
+    "AI聊天工具的最小MVP功能.md",
+    "index.md",
+    "未命名.md",
     "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
+    "08",
+    "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
     "07-Open WebUI的使用/Open WebUI的功能拆解.md",
     "07-Open WebUI的使用/Open WebUI 进阶功能.md",
-    "未命名.md",
-    "未命名 1.md",
     "OpenWebUI-vs-WorkBuddy.md",
     "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.b52cc925d043",
     "Open WebUI vs WorkBuddy 全维度矩阵.html",
     "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.730ea90cc7fe",
     "Open WebUI vs WorkBuddy 矩阵图.html",
     "Open WebUI vs WorkBuddy 矩阵图.html.tmp.20856.51f2fcfa8014",
-    "index.md",
     "对比.md",
     "01-AI概念/Open WebUI 进阶功能.md.tmp.20856.a7b3188cced3",
     "Pasted image 20260805101959.png",
@@ -240,8 +260,6 @@
     "05-workbuddy上手体验/利用workBuddy搭工作流分析obsidian并自动生成可视化报告.md",
     "04-每日日报/2026-7-29日报.md",
     "04-每日日报/2026-7-28日报.md",
-    "项目汇报PPT/check.py",
-    "项目汇报PPT/第一周项目汇报.pptx",
     "01-AI概念/agent skill.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
     "Mac-ClaudeCode安装指南.md",
@@ -249,9 +267,6 @@
     "04-每日日报/2026-7-30日报.md",
     "01-AI概念/Agent智能体.md",
     "01-AI概念/MCP协议.md",
-    "01-AI概念/Prompt Engineering.md",
-    "01-AI概念/Fine-tuning微调.md",
-    "01-AI概念/RAG检索增强生成.md",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "未命名.canvas"
