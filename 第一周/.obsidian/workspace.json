@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI聊天工具的最小MVP功能.md",
+                "file": "08/2期3期功能候选池.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI聊天工具的最小MVP功能"
+              "title": "2期3期功能候选池"
             }
           }
         ],
@@ -221,13 +221,15 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e928aeda65cd776c",
+  "active": "148ec065a60a749f",
   "lastOpenFiles": [
+    "08/sedhmi2I6",
+    "08/2期3期功能候选池.md.tmp.30312.8954a0bb9caa",
+    "AI聊天工具的最小MVP功能.md",
     "08/2期3期功能候选池.md",
     "08/未命名 1.md",
     "AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
     "08/2期3期功能候选池.md.tmp.30312.323db56e42f7",
-    "AI聊天工具的最小MVP功能.md",
     "index.md",
     "未命名.md",
     "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
@@ -252,7 +254,6 @@
     "Pasted image 20260804103139.png",
     "Pasted image 20260804101936.png",
     "07-Open WebUI的使用",
-    "06-karpathy wiki方法论/未命名",
     "05-workbuddy上手体验/未命名.md",
     "04-每日日报/实践.md",
     "02-AI工具/WorkBuddy 搭建 Agent 实操指南.md",
@@ -266,7 +267,6 @@
     "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-30日报.md",
     "01-AI概念/Agent智能体.md",
-    "01-AI概念/MCP协议.md",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "未命名.canvas"
