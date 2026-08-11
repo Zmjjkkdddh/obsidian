@@ -192,7 +192,7 @@
             }
           },
           {
-            "id": "148ec065a60a749f",
+            "id": "10af2fc014370093",
             "type": "leaf",
             "state": {
               "type": "claudian-view",
@@ -202,7 +202,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -221,8 +221,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e928aeda65cd776c",
+  "active": "10af2fc014370093",
   "lastOpenFiles": [
+    "08/2期3期功能候选池.md.tmp.3252.2216910eee90",
     "未命名 1.md",
     "08/2期3期功能候选池.md",
     "08/未命名 1.md",
@@ -266,7 +267,6 @@
     "Mac-ClaudeCode安装指南.md",
     "07-工作汇报/AI知识库介绍.md",
     "04-每日日报/2026-7-30日报.md",
-    "01-AI概念/Agent智能体.md",
     "Pasted image 20260730112124.png",
     "Pasted image 20260730112429.png",
     "未命名.canvas"
