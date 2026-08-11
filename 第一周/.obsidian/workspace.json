@@ -190,19 +190,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "10af2fc014370093",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "icon": "bot",
-              "title": "Claudian"
-            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -221,8 +211,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "10af2fc014370093",
+  "active": "e928aeda65cd776c",
   "lastOpenFiles": [
+    "08/2期3期功能候选池.md.tmp.29880.415f0eb9f873",
     "08/2期3期功能候选池.md.tmp.3252.2216910eee90",
     "未命名 1.md",
     "08/2期3期功能候选池.md",
@@ -246,7 +237,6 @@
     "Open WebUI vs WorkBuddy 矩阵图.html",
     "Open WebUI vs WorkBuddy 矩阵图.html.tmp.20856.51f2fcfa8014",
     "对比.md",
-    "01-AI概念/Open WebUI 进阶功能.md.tmp.20856.a7b3188cced3",
     "Pasted image 20260805101959.png",
     "Pasted image 20260805101505.png",
     "Pasted image 20260804104701.png",
