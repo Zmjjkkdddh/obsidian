@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08-功能规划 + 原型设计/2期3期功能候选池.md",
+                "file": "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2期3期功能候选池"
+              "title": "AI聊天工具的最小MVP功能"
             }
           }
         ]
@@ -208,8 +208,10 @@
   },
   "active": "e2c8283e78134222",
   "lastOpenFiles": [
-    "未命名.base",
+    "08-功能规划 + 原型设计/AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
+    "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
     "08-功能规划 + 原型设计/2期3期功能候选池.md",
+    "未命名.base",
     "index.md",
     "index.md.tmp.11924.f95e64c394d8",
     "02-AI工具/Claude使用指南.md.tmp.11924.900e4be9f33a",
@@ -223,8 +225,6 @@
     "07-Open WebUI的使用/Open WebUI 进阶功能.md",
     "07-Open WebUI的使用/Open WebUI的功能拆解.md",
     "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
-    "08-功能规划 + 原型设计/AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
-    "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
     "未命名.md",
     "Pasted image 20260805101959.png",
     "Pasted image 20260804103857.png",
