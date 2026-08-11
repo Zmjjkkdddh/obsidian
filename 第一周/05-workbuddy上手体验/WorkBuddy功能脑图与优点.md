@@ -6,7 +6,7 @@ created: 2026-07-28
 type: tool
 ---
 
-# ==WorkBuddy 功能模块==
+# WorkBuddy 功能模块
 **文档处理**
 **PDF 读取、提取、合并、拆分**
 **Word / Excel / PPT 创建与编辑**
@@ -56,13 +56,13 @@ type: tool
 **网站海报图标等视觉化设计创意**
 
 
-## ==**workbuddy的脑图**==
+## WorkBuddy 脑图
 
 
 ![[WorkBuddy_功能脑图概览.png]]
 
 
-## **WorkBuddy的使用优点
+## WorkBuddy 的使用优点
 1.软件整体结构清晰由左侧任务栏右侧运行窗口构成
 2.划分个人主体与企业任务
 有个人助理帮助处理个性化问题

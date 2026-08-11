@@ -82,4 +82,4 @@ Anthropic 推出的 AI 助手，擅长长文本处理、代码生成和深度推
 
 ---
 
-📚 关联：[[Claude Code 详细指南]] | [[Codex使用指南]] | [[AI助手横向对比]] | [[Obsidian配置与插件]] | [[05-workbuddy上手体验/WorkBuddy功能脑图与优点]]
+📚 关联：[[Claude Code 详细指南]] | [[Codex使用指南]] | [[AI助手横向对比]] | [[Obsidian配置与插件]] | [[05-workbuddy上手体验/WorkBuddy功能脑图与优点]] | [[07-Open WebUI的使用/Open WebUI 进阶功能]] | [[08-功能规划 + 原型设计/2期3期功能候选池]]

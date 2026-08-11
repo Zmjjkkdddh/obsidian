@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "index"
-            }
-          },
-          {
-            "id": "e928aeda65cd776c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "08-功能规划 + 原型设计/2期3期功能候选池.md",
                 "mode": "source",
                 "source": false
@@ -35,8 +21,7 @@
               "title": "2期3期功能候选池"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -202,7 +187,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -221,36 +206,39 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "202c579bc25db46c",
+  "active": "e2c8283e78134222",
   "lastOpenFiles": [
+    "未命名.base",
+    "08-功能规划 + 原型设计/2期3期功能候选池.md",
+    "index.md",
+    "index.md.tmp.11924.f95e64c394d8",
+    "02-AI工具/Claude使用指南.md.tmp.11924.900e4be9f33a",
+    "01-AI概念/agent skill.md.tmp.11924.0b3ed3027118",
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md.tmp.11924.4e728fd1aad5",
+    "08-功能规划 + 原型设计/AI聊天工具产品分析：用户群体、核心功能与商业化范围.md.tmp.11924.4b3f4778ae57",
+    "WorkBuddy_功能脑图概览.png.md",
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md.tmp.11924.de0b8f868fef",
+    "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md.tmp.11924.5be0e0e4d06a",
+    "04-每日日报/2026-7-29日报.md.tmp.11924.2061fb15a993",
+    "07-Open WebUI的使用/Open WebUI 进阶功能.md",
+    "07-Open WebUI的使用/Open WebUI的功能拆解.md",
+    "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
     "08-功能规划 + 原型设计/AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
     "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
-    "08/未命名 1.md",
     "未命名.md",
-    "未命名 1.md",
-    "08-功能规划 + 原型设计/2期3期功能候选池.md",
-    "08/2期3期功能候选池.md.tmp.29880.415f0eb9f873",
-    "08/2期3期功能候选池.md.tmp.3252.2216910eee90",
-    "08/sedhmi2I6",
-    "08/2期3期功能候选池.md.tmp.30312.8954a0bb9caa",
-    "08/2期3期功能候选池.md.tmp.30312.323db56e42f7",
-    "index.md",
-    "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
-    "08-功能规划 + 原型设计",
-    "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
-    "07-Open WebUI的使用/Open WebUI的功能拆解.md",
-    "07-Open WebUI的使用/Open WebUI 进阶功能.md",
-    "OpenWebUI-vs-WorkBuddy.md",
-    "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.b52cc925d043",
-    "Open WebUI vs WorkBuddy 全维度矩阵.html",
-    "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.730ea90cc7fe",
-    "Open WebUI vs WorkBuddy 矩阵图.html",
-    "对比.md",
     "Pasted image 20260805101959.png",
+    "Pasted image 20260804103857.png",
     "Pasted image 20260805101505.png",
+    "WorkBuddy_功能脑图概览.png",
+    "Mac-ClaudeCode安装指南.md",
+    "08/未命名 1.md",
+    "未命名 1.md",
+    "08/2期3期功能候选池.md.tmp.29880.415f0eb9f873",
+    "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
+    "OpenWebUI-vs-WorkBuddy.md",
+    "对比.md",
     "Pasted image 20260804104701.png",
     "Pasted image 20260804104152.png",
-    "Pasted image 20260804103857.png",
     "Pasted image 20260804103458.png",
     "Pasted image 20260804103139.png",
     "Pasted image 20260804101936.png",
@@ -263,11 +251,8 @@
     "04-每日日报/2026-7-28日报.md",
     "01-AI概念/agent skill.md",
     "05-workbuddy上手体验/WorkBuddy功能脑图与优点.md",
-    "Mac-ClaudeCode安装指南.md",
     "07-工作汇报/AI知识库介绍.md",
-    "04-每日日报/2026-7-30日报.md",
     "Pasted image 20260730112124.png",
-    "Pasted image 20260730112429.png",
     "未命名.canvas"
   ]
 }

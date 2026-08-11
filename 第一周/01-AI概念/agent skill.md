@@ -1,3 +1,14 @@
+---
+tags:
+  - AI
+  - Agent
+  - Skill
+created: 2026-07-31
+type: concept
+---
+
+# Agent Skill 简要解析
+
 ### 1. 核心原理
 
 [](https://github.com/XWS-prog/GIT/blob/main/%E6%88%91%E7%9A%84ai%E8%AE%A4%E8%AF%86/ai%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/Agent%20Skill%E7%AE%80%E8%A6%81%E8%A7%A3%E6%9E%90.md#1-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86)

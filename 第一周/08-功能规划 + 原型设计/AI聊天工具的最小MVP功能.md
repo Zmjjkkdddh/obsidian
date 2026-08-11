@@ -1,4 +1,12 @@
-# Kmind（靠谱大脑）
+---
+tags:
+  - 产品规划
+  - MVP
+created: 2026-07-31
+type: synthesis
+---
+
+# AI 聊天工具的最小 MVP 功能
 
 ## 产品概述
 
