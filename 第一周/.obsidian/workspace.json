@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08/2期3期功能候选池.md",
+                "file": "08-功能规划 + 原型设计/2期3期功能候选池.md",
                 "mode": "source",
                 "source": false
               },
@@ -190,9 +190,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "202c579bc25db46c",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -211,22 +221,22 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e928aeda65cd776c",
+  "active": "202c579bc25db46c",
   "lastOpenFiles": [
+    "08-功能规划 + 原型设计/AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
+    "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
+    "08/未命名 1.md",
+    "未命名.md",
+    "未命名 1.md",
+    "08-功能规划 + 原型设计/2期3期功能候选池.md",
     "08/2期3期功能候选池.md.tmp.29880.415f0eb9f873",
     "08/2期3期功能候选池.md.tmp.3252.2216910eee90",
-    "未命名 1.md",
-    "08/2期3期功能候选池.md",
-    "08/未命名 1.md",
     "08/sedhmi2I6",
     "08/2期3期功能候选池.md.tmp.30312.8954a0bb9caa",
-    "AI聊天工具的最小MVP功能.md",
-    "AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
     "08/2期3期功能候选池.md.tmp.30312.323db56e42f7",
     "index.md",
-    "未命名.md",
     "07-Open WebUI的使用/OpenWebUI-vs-WorkBuddy 1.md",
-    "08",
+    "08-功能规划 + 原型设计",
     "07-Open WebUI的使用/Open WebUI vs WorkBuddy.md",
     "07-Open WebUI的使用/Open WebUI的功能拆解.md",
     "07-Open WebUI的使用/Open WebUI 进阶功能.md",
@@ -235,7 +245,6 @@
     "Open WebUI vs WorkBuddy 全维度矩阵.html",
     "Open WebUI vs WorkBuddy 全维度矩阵.html.tmp.20856.730ea90cc7fe",
     "Open WebUI vs WorkBuddy 矩阵图.html",
-    "Open WebUI vs WorkBuddy 矩阵图.html.tmp.20856.51f2fcfa8014",
     "对比.md",
     "Pasted image 20260805101959.png",
     "Pasted image 20260805101505.png",
