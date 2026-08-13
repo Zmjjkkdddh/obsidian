@@ -35,8 +35,7 @@
               "title": "功能提案文档-整理版"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -221,10 +220,10 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "5deab9883b2cea34",
+  "active": "7ba1554bcb906b58",
   "lastOpenFiles": [
-    "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
     "08-功能规划 + 原型设计/功能提案文档-整理版.md",
+    "08-功能规划 + 原型设计/AI聊天工具的最小MVP功能.md",
     "08-功能规划 + 原型设计/AI聊天工具产品分析：用户群体、核心功能与商业化范围.md",
     "08-功能规划 + 原型设计/2期3期功能候选池.md",
     "08-功能规划 + 原型设计/功能提案文档.md",
